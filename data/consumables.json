@@ -1,0 +1,714 @@
+{
+  "source": [
+    "https://balatrowiki.org/w/Tarot_cards",
+    "https://balatrowiki.org/w/Planet_cards",
+    "https://balatrowiki.org/w/Spectral_cards",
+    "https://balatrowiki.org/w/Consumables",
+    "https://balatrowiki.org/w/Consumable_slot",
+    "https://balatrowiki.org/w/The_Fool",
+    "https://balatrowiki.org/w/The_Magician",
+    "https://balatrowiki.org/w/The_High_Priestess",
+    "https://balatrowiki.org/w/The_Empress",
+    "https://balatrowiki.org/w/The_Emperor",
+    "https://balatrowiki.org/w/The_Hierophant",
+    "https://balatrowiki.org/w/The_Lovers",
+    "https://balatrowiki.org/w/The_Chariot",
+    "https://balatrowiki.org/w/Justice",
+    "https://balatrowiki.org/w/The_Hermit",
+    "https://balatrowiki.org/w/The_Wheel_of_Fortune",
+    "https://balatrowiki.org/w/Strength",
+    "https://balatrowiki.org/w/The_Hanged_Man",
+    "https://balatrowiki.org/w/Death",
+    "https://balatrowiki.org/w/Temperance",
+    "https://balatrowiki.org/w/The_Devil",
+    "https://balatrowiki.org/w/The_Tower",
+    "https://balatrowiki.org/w/The_Star",
+    "https://balatrowiki.org/w/The_Moon",
+    "https://balatrowiki.org/w/The_Sun",
+    "https://balatrowiki.org/w/Judgement",
+    "https://balatrowiki.org/w/The_World",
+    "https://balatrowiki.org/w/Familiar",
+    "https://balatrowiki.org/w/Grim",
+    "https://balatrowiki.org/w/Incantation",
+    "https://balatrowiki.org/w/Talisman",
+    "https://balatrowiki.org/w/Aura",
+    "https://balatrowiki.org/w/Wraith",
+    "https://balatrowiki.org/w/Sigil",
+    "https://balatrowiki.org/w/Ouija",
+    "https://balatrowiki.org/w/Ectoplasm",
+    "https://balatrowiki.org/w/Immolate",
+    "https://balatrowiki.org/w/Ankh",
+    "https://balatrowiki.org/w/Deja_Vu",
+    "https://balatrowiki.org/w/Hex",
+    "https://balatrowiki.org/w/Trance",
+    "https://balatrowiki.org/w/Medium",
+    "https://balatrowiki.org/w/Cryptid",
+    "https://balatrowiki.org/w/The_Soul",
+    "https://balatrowiki.org/w/Black_Hole",
+    "https://balatrowiki.org/w/Pluto",
+    "https://balatrowiki.org/w/Planet_X",
+    "https://balatrowiki.org/w/Ceres",
+    "https://balatrowiki.org/w/Eris",
+    "https://balatrowiki.org/w/Listed_probability"
+  ],
+  "fetched": "2026-10-25",
+  "game_version": "1.0.1o-FULL (current per Template:CurrentVersion on balatrowiki.org)",
+  "counts": {
+    "tarot": 22,
+    "planet": 12,
+    "spectral": 18
+  },
+  "general_rules": [
+    "Costs: Tarot $3, Planet $3, Spectral $4 (sell = max(1, floor(cost/2)) -> $1, $1, $2).",
+    "'select' gives how many highlighted hand cards the card accepts (min..max). Cards that 'create' something need a free consumable/joker slot; created count is limited by free slots.",
+    "No duplicates of a consumable already held / in the shop / in the open pack unless Showman is owned. Fallbacks when a pool is exhausted: Tarot -> Strength, Planet -> Pluto, Spectral -> Incantation.",
+    "Tarot/Planet/Spectral cards can be used from the consumable area at any time (Tarots that target cards need cards in hand, e.g. during a round or inside an Arcana/Spectral pack).",
+    "The Soul and Black Hole never appear in the shop or from Sixth Sense/Seance; only from packs (0.3% per card slot).",
+    "Observatory voucher: every Planet card held in the consumable area gives x1.5 Mult when its hand is played (applied after all jokers)."
+  ],
+  "tarots": [
+    {
+      "number": 1,
+      "name": "The Fool",
+      "key": "c_fool",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Creates a copy of the last Tarot or Planet card used this run (The Fool itself is excluded; Spectral cards never count). Needs a free consumable slot; the copy has no edition.",
+      "needs_room": true
+    },
+    {
+      "number": 2,
+      "name": "The Magician",
+      "key": "c_magician",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Turns up to 2 selected cards into Lucky Cards.",
+      "select": {
+        "min": 1,
+        "max": 2
+      },
+      "enhancement": "m_lucky"
+    },
+    {
+      "number": 3,
+      "name": "The High Priestess",
+      "key": "c_high_priestess",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Creates up to 2 random Planet cards (limited by free consumable slots).",
+      "creates": {
+        "Planet": 2
+      },
+      "needs_room": true
+    },
+    {
+      "number": 4,
+      "name": "The Empress",
+      "key": "c_empress",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Turns up to 2 selected cards into Mult Cards.",
+      "select": {
+        "min": 1,
+        "max": 2
+      },
+      "enhancement": "m_mult"
+    },
+    {
+      "number": 5,
+      "name": "The Emperor",
+      "key": "c_emperor",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Creates up to 2 random Tarot cards (limited by free consumable slots).",
+      "creates": {
+        "Tarot": 2
+      },
+      "needs_room": true
+    },
+    {
+      "number": 6,
+      "name": "The Hierophant",
+      "key": "c_heirophant",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Turns up to 2 selected cards into Bonus Cards. (Internal key is misspelled 'heirophant' in the game.)",
+      "select": {
+        "min": 1,
+        "max": 2
+      },
+      "enhancement": "m_bonus"
+    },
+    {
+      "number": 7,
+      "name": "The Lovers",
+      "key": "c_lovers",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Turns 1 selected card into a Wild Card.",
+      "select": {
+        "min": 1,
+        "max": 1
+      },
+      "enhancement": "m_wild"
+    },
+    {
+      "number": 8,
+      "name": "The Chariot",
+      "key": "c_chariot",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Turns 1 selected card into a Steel Card.",
+      "select": {
+        "min": 1,
+        "max": 1
+      },
+      "enhancement": "m_steel"
+    },
+    {
+      "number": 9,
+      "name": "Justice",
+      "key": "c_justice",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Turns 1 selected card into a Glass Card.",
+      "select": {
+        "min": 1,
+        "max": 1
+      },
+      "enhancement": "m_glass"
+    },
+    {
+      "number": 10,
+      "name": "The Hermit",
+      "key": "c_hermit",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Gain money equal to your current money, capped at +$20. Gives nothing while in debt.",
+      "dollars_cap": 20
+    },
+    {
+      "number": 11,
+      "name": "The Wheel of Fortune",
+      "key": "c_wheel_of_fortune",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "1 in 4 chance to give a random edition-less joker Foil (50%), Holographic (35%) or Polychrome (15%); otherwise 'Nope!'. Unusable if every joker already has an edition.",
+      "odds": [
+        1,
+        4
+      ],
+      "edition_split": {
+        "foil": 0.5,
+        "holographic": 0.35,
+        "polychrome": 0.15
+      },
+      "listed_probability": true
+    },
+    {
+      "number": 12,
+      "name": "Strength",
+      "key": "c_strength",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Raises the rank of up to 2 selected cards by 1 (K -> A, A wraps to 2).",
+      "select": {
+        "min": 1,
+        "max": 2
+      }
+    },
+    {
+      "number": 13,
+      "name": "The Hanged Man",
+      "key": "c_hanged_man",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Destroys up to 2 selected cards.",
+      "select": {
+        "min": 1,
+        "max": 2
+      }
+    },
+    {
+      "number": 14,
+      "name": "Death",
+      "key": "c_death",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Select exactly 2 cards: the LEFT card becomes an exact copy of the RIGHT card (rank, suit, enhancement, edition, seal, Hiker chips).",
+      "select": {
+        "min": 2,
+        "max": 2
+      }
+    },
+    {
+      "number": 15,
+      "name": "Temperance",
+      "key": "c_temperance",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Gain the combined current sell value of all your jokers, capped at $50 (debuffed jokers count; $0 with no jokers).",
+      "dollars_cap": 50
+    },
+    {
+      "number": 16,
+      "name": "The Devil",
+      "key": "c_devil",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Turns 1 selected card into a Gold Card.",
+      "select": {
+        "min": 1,
+        "max": 1
+      },
+      "enhancement": "m_gold"
+    },
+    {
+      "number": 17,
+      "name": "The Tower",
+      "key": "c_tower",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Turns 1 selected card into a Stone Card.",
+      "select": {
+        "min": 1,
+        "max": 1
+      },
+      "enhancement": "m_stone"
+    },
+    {
+      "number": 18,
+      "name": "The Star",
+      "key": "c_star",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Changes up to 3 selected cards to Diamonds.",
+      "select": {
+        "min": 1,
+        "max": 3
+      },
+      "suit": "Diamonds"
+    },
+    {
+      "number": 19,
+      "name": "The Moon",
+      "key": "c_moon",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Changes up to 3 selected cards to Clubs.",
+      "select": {
+        "min": 1,
+        "max": 3
+      },
+      "suit": "Clubs"
+    },
+    {
+      "number": 20,
+      "name": "The Sun",
+      "key": "c_sun",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Changes up to 3 selected cards to Hearts.",
+      "select": {
+        "min": 1,
+        "max": 3
+      },
+      "suit": "Hearts"
+    },
+    {
+      "number": 21,
+      "name": "Judgement",
+      "key": "c_judgement",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Creates a random joker (70% Common / 25% Uncommon / 5% Rare, never Legendary, may roll an edition, never gets stickers). Needs a free joker slot.",
+      "needs_room": true
+    },
+    {
+      "number": 22,
+      "name": "The World",
+      "key": "c_world",
+      "type": "Tarot",
+      "cost": 3,
+      "effect": "Changes up to 3 selected cards to Spades.",
+      "select": {
+        "min": 1,
+        "max": 3
+      },
+      "suit": "Spades"
+    }
+  ],
+  "planets": [
+    {
+      "number": 1,
+      "name": "Pluto",
+      "key": "c_pluto",
+      "type": "Planet",
+      "cost": 3,
+      "hand": "High Card",
+      "effect": "Levels up High Card by 1 (+10 chips, +1 mult).",
+      "level_chips": 10,
+      "level_mult": 1,
+      "secret": false
+    },
+    {
+      "number": 2,
+      "name": "Mercury",
+      "key": "c_mercury",
+      "type": "Planet",
+      "cost": 3,
+      "hand": "Pair",
+      "effect": "Levels up Pair by 1 (+15 chips, +1 mult).",
+      "level_chips": 15,
+      "level_mult": 1,
+      "secret": false
+    },
+    {
+      "number": 3,
+      "name": "Uranus",
+      "key": "c_uranus",
+      "type": "Planet",
+      "cost": 3,
+      "hand": "Two Pair",
+      "effect": "Levels up Two Pair by 1 (+20 chips, +1 mult).",
+      "level_chips": 20,
+      "level_mult": 1,
+      "secret": false
+    },
+    {
+      "number": 4,
+      "name": "Venus",
+      "key": "c_venus",
+      "type": "Planet",
+      "cost": 3,
+      "hand": "Three of a Kind",
+      "effect": "Levels up Three of a Kind by 1 (+20 chips, +2 mult).",
+      "level_chips": 20,
+      "level_mult": 2,
+      "secret": false
+    },
+    {
+      "number": 5,
+      "name": "Saturn",
+      "key": "c_saturn",
+      "type": "Planet",
+      "cost": 3,
+      "hand": "Straight",
+      "effect": "Levels up Straight by 1 (+30 chips, +3 mult).",
+      "level_chips": 30,
+      "level_mult": 3,
+      "secret": false
+    },
+    {
+      "number": 6,
+      "name": "Jupiter",
+      "key": "c_jupiter",
+      "type": "Planet",
+      "cost": 3,
+      "hand": "Flush",
+      "effect": "Levels up Flush by 1 (+15 chips, +2 mult).",
+      "level_chips": 15,
+      "level_mult": 2,
+      "secret": false
+    },
+    {
+      "number": 7,
+      "name": "Earth",
+      "key": "c_earth",
+      "type": "Planet",
+      "cost": 3,
+      "hand": "Full House",
+      "effect": "Levels up Full House by 1 (+25 chips, +2 mult).",
+      "level_chips": 25,
+      "level_mult": 2,
+      "secret": false
+    },
+    {
+      "number": 8,
+      "name": "Mars",
+      "key": "c_mars",
+      "type": "Planet",
+      "cost": 3,
+      "hand": "Four of a Kind",
+      "effect": "Levels up Four of a Kind by 1 (+30 chips, +3 mult).",
+      "level_chips": 30,
+      "level_mult": 3,
+      "secret": false
+    },
+    {
+      "number": 9,
+      "name": "Neptune",
+      "key": "c_neptune",
+      "type": "Planet",
+      "cost": 3,
+      "hand": "Straight Flush",
+      "effect": "Levels up Straight Flush by 1 (+40 chips, +4 mult).",
+      "level_chips": 40,
+      "level_mult": 4,
+      "secret": false
+    },
+    {
+      "number": 10,
+      "name": "Planet X",
+      "key": "c_planet_x",
+      "type": "Planet",
+      "cost": 3,
+      "hand": "Five of a Kind",
+      "effect": "Levels up Five of a Kind by 1 (+35 chips, +3 mult).",
+      "level_chips": 35,
+      "level_mult": 3,
+      "secret": true,
+      "spawn_condition": "Only appears after Five of a Kind has been played this run."
+    },
+    {
+      "number": 11,
+      "name": "Ceres",
+      "key": "c_ceres",
+      "type": "Planet",
+      "cost": 3,
+      "hand": "Flush House",
+      "effect": "Levels up Flush House by 1 (+40 chips, +4 mult).",
+      "level_chips": 40,
+      "level_mult": 4,
+      "secret": true,
+      "spawn_condition": "Only appears after Flush House has been played this run."
+    },
+    {
+      "number": 12,
+      "name": "Eris",
+      "key": "c_eris",
+      "type": "Planet",
+      "cost": 3,
+      "hand": "Flush Five",
+      "effect": "Levels up Flush Five by 1 (+50 chips, +3 mult).",
+      "level_chips": 50,
+      "level_mult": 3,
+      "secret": true,
+      "spawn_condition": "Only appears after Flush Five has been played this run."
+    }
+  ],
+  "spectrals": [
+    {
+      "number": 1,
+      "name": "Familiar",
+      "key": "c_familiar",
+      "type": "Spectral",
+      "cost": 4,
+      "effect": "Destroy 1 random card in hand, then add 3 random Enhanced face cards (J/Q/K, never Stone) to hand.",
+      "destroy_random": 1,
+      "add_cards": {
+        "count": 3,
+        "ranks": "face",
+        "enhanced": true
+      },
+      "min_cards_in_hand": 2
+    },
+    {
+      "number": 2,
+      "name": "Grim",
+      "key": "c_grim",
+      "type": "Spectral",
+      "cost": 4,
+      "effect": "Destroy 1 random card in hand, then add 2 random Enhanced Aces (never Stone) to hand.",
+      "destroy_random": 1,
+      "add_cards": {
+        "count": 2,
+        "ranks": "Ace",
+        "enhanced": true
+      },
+      "min_cards_in_hand": 2
+    },
+    {
+      "number": 3,
+      "name": "Incantation",
+      "key": "c_incantation",
+      "type": "Spectral",
+      "cost": 4,
+      "effect": "Destroy 1 random card in hand, then add 4 random Enhanced number cards (2-10, never Stone) to hand.",
+      "destroy_random": 1,
+      "add_cards": {
+        "count": 4,
+        "ranks": "2-10",
+        "enhanced": true
+      },
+      "min_cards_in_hand": 2
+    },
+    {
+      "number": 4,
+      "name": "Talisman",
+      "key": "c_talisman",
+      "type": "Spectral",
+      "cost": 4,
+      "effect": "Add a Gold Seal to 1 selected card.",
+      "select": {
+        "min": 1,
+        "max": 1
+      },
+      "seal": "Gold"
+    },
+    {
+      "number": 5,
+      "name": "Aura",
+      "key": "c_aura",
+      "type": "Spectral",
+      "cost": 4,
+      "effect": "Give 1 selected edition-less card in hand Foil (50%), Holographic (35%) or Polychrome (15%).",
+      "select": {
+        "min": 1,
+        "max": 1
+      },
+      "edition_split": {
+        "foil": 0.5,
+        "holographic": 0.35,
+        "polychrome": 0.15
+      }
+    },
+    {
+      "number": 6,
+      "name": "Wraith",
+      "key": "c_wraith",
+      "type": "Spectral",
+      "cost": 4,
+      "effect": "Create a random Rare joker (needs a free joker slot) and set money to $0 (also wipes debt).",
+      "needs_room": true
+    },
+    {
+      "number": 7,
+      "name": "Sigil",
+      "key": "c_sigil",
+      "type": "Spectral",
+      "cost": 4,
+      "effect": "Convert every card in hand to one random suit (same suit for all).",
+      "min_cards_in_hand": 2
+    },
+    {
+      "number": 8,
+      "name": "Ouija",
+      "key": "c_ouija",
+      "type": "Spectral",
+      "cost": 4,
+      "effect": "Convert every card in hand to one random rank (same rank for all); permanently -1 hand size.",
+      "hand_size": -1,
+      "min_cards_in_hand": 2
+    },
+    {
+      "number": 9,
+      "name": "Ectoplasm",
+      "key": "c_ectoplasm",
+      "type": "Spectral",
+      "cost": 4,
+      "effect": "Give a random edition-less joker the Negative edition; permanently lose hand size. In-game text says -1, but the loss grows with each use in a run (1st use -1, 2nd -2, 3rd -3 ...).",
+      "hand_size": "-(number of times Ectoplasm used this run, including this one)"
+    },
+    {
+      "number": 10,
+      "name": "Immolate",
+      "key": "c_immolate",
+      "type": "Spectral",
+      "cost": 4,
+      "effect": "Destroy 5 random cards in hand and gain $20.",
+      "destroy_random": 5,
+      "dollars": 20,
+      "min_cards_in_hand": 2
+    },
+    {
+      "number": 11,
+      "name": "Ankh",
+      "key": "c_ankh",
+      "type": "Spectral",
+      "cost": 4,
+      "effect": "Copy a random joker (keeps edition except Negative, keeps stickers and scaling) and destroy all other non-Eternal jokers. Needs a free joker slot.",
+      "needs_room": true
+    },
+    {
+      "number": 12,
+      "name": "Deja Vu",
+      "key": "c_deja_vu",
+      "type": "Spectral",
+      "cost": 4,
+      "effect": "Add a Red Seal to 1 selected card.",
+      "select": {
+        "min": 1,
+        "max": 1
+      },
+      "seal": "Red"
+    },
+    {
+      "number": 13,
+      "name": "Hex",
+      "key": "c_hex",
+      "type": "Spectral",
+      "cost": 4,
+      "effect": "Give a random edition-less joker Polychrome and destroy all other non-Eternal jokers."
+    },
+    {
+      "number": 14,
+      "name": "Trance",
+      "key": "c_trance",
+      "type": "Spectral",
+      "cost": 4,
+      "effect": "Add a Blue Seal to 1 selected card.",
+      "select": {
+        "min": 1,
+        "max": 1
+      },
+      "seal": "Blue"
+    },
+    {
+      "number": 15,
+      "name": "Medium",
+      "key": "c_medium",
+      "type": "Spectral",
+      "cost": 4,
+      "effect": "Add a Purple Seal to 1 selected card.",
+      "select": {
+        "min": 1,
+        "max": 1
+      },
+      "seal": "Purple"
+    },
+    {
+      "number": 16,
+      "name": "Cryptid",
+      "key": "c_cryptid",
+      "type": "Spectral",
+      "cost": 4,
+      "effect": "Create 2 exact copies of 1 selected card in hand (all modifiers copied).",
+      "select": {
+        "min": 1,
+        "max": 1
+      },
+      "copies": 2
+    },
+    {
+      "number": 17,
+      "name": "The Soul",
+      "key": "c_soul",
+      "type": "Spectral",
+      "cost": 4,
+      "effect": "Create a random Legendary joker (needs a free joker slot). Never sold in the shop; each card in an Arcana or Spectral pack has a 0.3% chance to be The Soul.",
+      "needs_room": true,
+      "pack_only": true,
+      "pack_chance": 0.003,
+      "found_in": [
+        "Arcana Pack",
+        "Spectral Pack"
+      ]
+    },
+    {
+      "number": 18,
+      "name": "Black Hole",
+      "key": "c_black_hole",
+      "type": "Spectral",
+      "cost": 4,
+      "effect": "Level up every poker hand (including unplayed secret hands) by 1. Never sold in the shop; each card in a Celestial or Spectral pack (and Omen-Globe spectral slots of Arcana packs) has a 0.3% chance to be Black Hole.",
+      "pack_only": true,
+      "pack_chance": 0.003,
+      "found_in": [
+        "Celestial Pack",
+        "Spectral Pack",
+        "Arcana Pack (via Omen Globe)"
+      ]
+    }
+  ]
+}

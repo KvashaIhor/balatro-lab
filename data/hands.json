@@ -1,0 +1,171 @@
+{
+  "source": [
+    "https://balatrowiki.org/w/Poker_hands",
+    "https://balatrowiki.org/w/Planet_cards",
+    "https://balatrowiki.org/w/Black_Hole",
+    "https://balatrowiki.org/w/The_Arm",
+    "https://github.com/DivvyCr/Balatro-Simulation/blob/main/src/Engine.lua"
+  ],
+  "fetched": "2026-10-25",
+  "game_version": "1.0.1o-FULL (current per Template:CurrentVersion on balatrowiki.org)",
+  "level_formula": {
+    "chips": "chips(level) = max(0, chips + level_chips * (level - 1))",
+    "mult": "mult(level) = max(1, mult + level_mult * (level - 1))",
+    "start_level": 1,
+    "min_level": 1,
+    "notes": [
+      "All hands start a run at level 1; levels persist for the run only.",
+      "Level up sources: matching Planet card (+1), Black Hole (+1 to every hand incl. secret ones), Orbital Tag (+3 to one random visible hand), Space Joker / Burnt Joker (jokers file).",
+      "The Arm boss lowers the played hand by 1 level before scoring, never below level 1 (min level 1 since update 1.0.0k).",
+      "Royal Flush has no separate level; it uses Straight Flush's level and planet (Neptune).",
+      "Hand detection: the highest-priority hand type (priority 1 = checked first) that the played cards satisfy is used, regardless of level.",
+      "Secret hands (Five of a Kind, Flush House, Flush Five) are hidden until played once in the run; their planets cannot spawn until the hand has been played in the run."
+    ]
+  },
+  "hands": [
+    {
+      "name": "Flush Five",
+      "chips": 160,
+      "mult": 16,
+      "level_chips": 50,
+      "level_mult": 3,
+      "planet": "Eris",
+      "planet_key": "c_eris",
+      "secret": true,
+      "priority": 1,
+      "definition": "5 cards of the same rank that are also all one suit (any hand that is both Five of a Kind and a Flush). Scores all 5."
+    },
+    {
+      "name": "Flush House",
+      "chips": 140,
+      "mult": 14,
+      "level_chips": 40,
+      "level_mult": 4,
+      "planet": "Ceres",
+      "planet_key": "c_ceres",
+      "secret": true,
+      "priority": 2,
+      "definition": "A Full House whose cards are all one suit (any hand that is both a Full House and a Flush). Scores all 5."
+    },
+    {
+      "name": "Five of a Kind",
+      "chips": 120,
+      "mult": 12,
+      "level_chips": 35,
+      "level_mult": 3,
+      "planet": "Planet X",
+      "planet_key": "c_planet_x",
+      "secret": true,
+      "priority": 3,
+      "definition": "5 cards of the same rank, not all the same suit. Scores all 5."
+    },
+    {
+      "name": "Straight Flush",
+      "chips": 100,
+      "mult": 8,
+      "level_chips": 40,
+      "level_mult": 4,
+      "planet": "Neptune",
+      "planet_key": "c_neptune",
+      "secret": false,
+      "priority": 4,
+      "definition": "Any hand that is both a Straight and a Flush. A Royal Flush (10-J-Q-K-A suited) is displayed separately but is the same hand type for levels, planets, The Eye/The Mouth/The Ox and joker counters."
+    },
+    {
+      "name": "Four of a Kind",
+      "chips": 60,
+      "mult": 7,
+      "level_chips": 30,
+      "level_mult": 3,
+      "planet": "Mars",
+      "planet_key": "c_mars",
+      "secret": false,
+      "priority": 5,
+      "definition": "4 cards of one rank. Only those 4 cards score."
+    },
+    {
+      "name": "Full House",
+      "chips": 40,
+      "mult": 4,
+      "level_chips": 25,
+      "level_mult": 2,
+      "planet": "Earth",
+      "planet_key": "c_earth",
+      "secret": false,
+      "priority": 6,
+      "definition": "3 of one rank plus 2 of a different rank. Scores all 5."
+    },
+    {
+      "name": "Flush",
+      "chips": 35,
+      "mult": 4,
+      "level_chips": 15,
+      "level_mult": 2,
+      "planet": "Jupiter",
+      "planet_key": "c_jupiter",
+      "secret": false,
+      "priority": 7,
+      "definition": "5 cards of one suit (4 with Four Fingers). Only the flush cards score."
+    },
+    {
+      "name": "Straight",
+      "chips": 30,
+      "mult": 4,
+      "level_chips": 30,
+      "level_mult": 3,
+      "planet": "Saturn",
+      "planet_key": "c_saturn",
+      "secret": false,
+      "priority": 8,
+      "definition": "5 cards of consecutive rank (4 with Four Fingers; Shortcut allows one-rank gaps). Ace may be high (10-J-Q-K-A) or low (A-2-3-4-5) but a straight cannot wrap (K-A-2-3-4 is invalid). Only the straight cards score."
+    },
+    {
+      "name": "Three of a Kind",
+      "chips": 30,
+      "mult": 3,
+      "level_chips": 20,
+      "level_mult": 2,
+      "planet": "Venus",
+      "planet_key": "c_venus",
+      "secret": false,
+      "priority": 9,
+      "definition": "3 cards of one rank. Only those 3 score."
+    },
+    {
+      "name": "Two Pair",
+      "chips": 20,
+      "mult": 2,
+      "level_chips": 20,
+      "level_mult": 1,
+      "planet": "Uranus",
+      "planet_key": "c_uranus",
+      "secret": false,
+      "priority": 10,
+      "definition": "2 cards of one rank and 2 of another (different) rank. Those 4 score. Four/Five of a Kind do not count as containing Two Pair."
+    },
+    {
+      "name": "Pair",
+      "chips": 10,
+      "mult": 2,
+      "level_chips": 15,
+      "level_mult": 1,
+      "planet": "Mercury",
+      "planet_key": "c_mercury",
+      "secret": false,
+      "priority": 11,
+      "definition": "2 cards of one rank. Those 2 score."
+    },
+    {
+      "name": "High Card",
+      "chips": 5,
+      "mult": 1,
+      "level_chips": 10,
+      "level_mult": 1,
+      "planet": "Pluto",
+      "planet_key": "c_pluto",
+      "secret": false,
+      "priority": 12,
+      "definition": "No other hand applies; only the single highest-ranked played card scores."
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seed Finder</title>
+  <link rel="stylesheet" href="seed.css">
+</head>
+<body>
+  <header>
+    <h1>Seed Finder</h1>
+    <p class="sub">Enter what you saw at the start of a run (Red Deck, White Stake) and get its seed.</p>
+    <nav class="tabs"><a href="index.html">Run viewer</a><a href="seed.html" aria-current="page">Seed Finder</a><a href="plan.html">Seed Planner</a><a href="evolve.html">Evolution</a><a href="play.html">Play</a></nav>
+  </header>
+
+  <main>
+    <section class="panel" id="input">
+      <h2>First hand <span class="hint" id="hand-count">0/8</span></h2>
+      <p class="help">The 8 cards dealt for the Small Blind, before you play or discard anything.</p>
+      <div id="card-grid"></div>
+
+      <h2>Boss Blind <span class="hint">recommended</span></h2>
+      <div class="pick-row" id="boss-pick"></div>
+
+      <h2>Skip tags <span class="hint">optional</span></h2>
+      <div class="tag-rows">
+        <div><span class="row-label">Small Blind</span><div class="pick-row" id="small-pick"></div></div>
+        <div><span class="row-label">Big Blind</span><div class="pick-row" id="big-pick"></div></div>
+      </div>
+
+      <h2>First shop <span class="hint">optional</span></h2>
+      <div class="pick-row vouchers" id="voucher-pick"></div>
+      <div class="shop-inputs">
+        <input id="shop-1" list="shop-names" placeholder="Shop card 1">
+        <input id="shop-2" list="shop-names" placeholder="Shop card 2">
+        <datalist id="shop-names"></datalist>
+      </div>
+
+      <label class="check"><input type="checkbox" id="no-o" checked> The game made the seed (it never uses the letter O)</label>
+
+      <div class="actions">
+        <button class="btn red" id="find">Find seed</button>
+        <button class="btn" id="stop" disabled>Stop</button>
+        <button class="btn ghost" id="clear">Clear</button>
+      </div>
+      <p class="error" id="error"></p>
+    </section>
+
+    <section class="col">
+      <div class="panel" id="progress-panel">
+        <h2>Search</h2>
+        <div class="bar"><div id="bar-fill"></div></div>
+        <div id="progress-text" class="progress-text">Not started. A full search takes about 2.5 hours on this Mac and uses every core.</div>
+        <div id="table-text" class="progress-text table-text"></div>
+        <div id="results"></div>
+      </div>
+
+      <div class="panel">
+        <h2>Check a seed</h2>
+        <p class="help">What a seed's run shows at its start, as we compute it. Compare with the game to check us.</p>
+        <form id="check-form" class="check-form">
+          <input id="check-seed" placeholder="e.g. 4Z7TWAWF" maxlength="8" autocomplete="off">
+          <button class="btn blue">Show</button>
+        </form>
+        <div id="check-out"></div>
+      </div>
+
+      <div class="panel">
+        <h2>Help verify the finder</h2>
+        <p class="help">The first hand and boss haven't been confirmed in the real game yet. Start a new run with
+          Red Deck, White Stake, Seeded run, and one of these seeds; play the Small Blind (don't skip), beat it
+          without using consumables, and compare what you see with our prediction.</p>
+        <div class="pick-row" id="test-seeds"></div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="seed.js"></script>
+</body>
+</html>

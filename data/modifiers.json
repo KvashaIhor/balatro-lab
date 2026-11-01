@@ -1,0 +1,367 @@
+{
+  "source": [
+    "https://balatrowiki.org/w/Card_modifiers",
+    "https://balatrowiki.org/w/Bonus_cards",
+    "https://balatrowiki.org/w/Mult_cards",
+    "https://balatrowiki.org/w/Wild_cards",
+    "https://balatrowiki.org/w/Glass_cards",
+    "https://balatrowiki.org/w/Steel_cards",
+    "https://balatrowiki.org/w/Stone_cards",
+    "https://balatrowiki.org/w/Gold_cards",
+    "https://balatrowiki.org/w/Lucky_cards",
+    "https://balatrowiki.org/w/Foil",
+    "https://balatrowiki.org/w/Holographic",
+    "https://balatrowiki.org/w/Polychrome",
+    "https://balatrowiki.org/w/Negative",
+    "https://balatrowiki.org/w/Gold_Seal",
+    "https://balatrowiki.org/w/Red_Seal",
+    "https://balatrowiki.org/w/Blue_Seal",
+    "https://balatrowiki.org/w/Purple_Seal",
+    "https://balatrowiki.org/w/Eternal",
+    "https://balatrowiki.org/w/Perishable",
+    "https://balatrowiki.org/w/Rental",
+    "https://balatrowiki.org/w/The_Shop",
+    "https://balatrowiki.org/w/Listed_probability",
+    "https://balatrowiki.org/w/Guide:_Activation_Sequence",
+    "https://github.com/DivvyCr/Balatro-Simulation/blob/main/src/Engine.lua"
+  ],
+  "fetched": "2026-10-25",
+  "game_version": "1.0.1o-FULL (current per Template:CurrentVersion on balatrowiki.org)",
+  "general_rules": [
+    "A playing card can carry at most one Enhancement, one Edition and one Seal at the same time.",
+    "Applying a new Enhancement or Seal replaces the old one of that type. Editions cannot be overwritten (Aura/Wheel/Hex/Ectoplasm only target edition-less cards).",
+    "Jokers can have one Edition plus any number of in-run stickers (Eternal, Perishable, Rental).",
+    "Consumables normally have no modifiers; Perkeo can create Negative consumables.",
+    "Debuffed cards/jokers lose all modifier effects EXCEPT Negative's +1 slot and Stone's 'no rank/suit'. A debuffed Wild card counts as its printed suit.",
+    "Retriggers repeat Enhancement, Edition and Gold Seal payouts, but never re-trigger a Red Seal (Red Seal only ever adds 1 retrigger).",
+    "Probabilities written as '1 in N' are 'listed probabilities': Oops! All 6s doubles the numerator per copy (Glass break, Lucky rolls, Wheel of Fortune, The Wheel boss)."
+  ],
+  "enhancements": [
+    {
+      "name": "Bonus Card",
+      "key": "m_bonus",
+      "effect": "Adds +30 chips when it scores (on top of the card's rank chips).",
+      "chips": 30,
+      "timing": "on_scored",
+      "sources_to_apply": [
+        "The Hierophant (up to 2 cards)",
+        "Incantation/Familiar/Grim",
+        "Standard packs",
+        "Illusion shop cards"
+      ]
+    },
+    {
+      "name": "Mult Card",
+      "key": "m_mult",
+      "effect": "Adds +4 Mult when it scores.",
+      "mult": 4,
+      "timing": "on_scored",
+      "sources_to_apply": [
+        "The Empress (up to 2 cards)"
+      ]
+    },
+    {
+      "name": "Wild Card",
+      "key": "m_wild",
+      "effect": "Counts as every suit at once for hand detection and suit-based effects. Debuffed Wild cards revert to their printed suit. Suit-debuff bosses (The Club/Goad/Head/Window) debuff all Wild cards.",
+      "timing": "passive",
+      "sources_to_apply": [
+        "The Lovers (1 card)"
+      ]
+    },
+    {
+      "name": "Glass Card",
+      "key": "m_glass",
+      "effect": "x2 Mult when it scores. After the hand is fully scored, each scored (non-debuffed) Glass card rolls once to shatter (be destroyed).",
+      "x_mult": 2,
+      "destroy_odds": [
+        1,
+        4
+      ],
+      "timing": "x2 on_scored (each retrigger applies x2 again); break roll once per hand after scoring, retriggers do NOT add rolls",
+      "sources_to_apply": [
+        "Justice (1 card)"
+      ]
+    },
+    {
+      "name": "Steel Card",
+      "key": "m_steel",
+      "effect": "x1.5 Mult while it stays in hand when a hand is played (held-in-hand effect). Gives nothing when played.",
+      "held_x_mult": 1.5,
+      "timing": "held_in_hand (each hand played); retriggered by Red Seal and Mime",
+      "sources_to_apply": [
+        "The Chariot (1 card)"
+      ]
+    },
+    {
+      "name": "Stone Card",
+      "key": "m_stone",
+      "effect": "+50 chips when it scores; has no rank and no suit (cannot help form hands), and is ALWAYS added to the scoring cards when played, even if not part of the poker hand. Underlying rank/suit is kept and restored if the enhancement is replaced.",
+      "chips": 50,
+      "rank_chips": 0,
+      "always_scores": true,
+      "timing": "on_scored",
+      "sources_to_apply": [
+        "The Tower (1 card)",
+        "Marble Joker",
+        "Standard packs"
+      ]
+    },
+    {
+      "name": "Gold Card",
+      "key": "m_gold",
+      "effect": "Gives $3 at end of round if this card is still held in hand (not played). Retriggered by Red Seal and Mime.",
+      "end_of_round_dollars_if_held": 3,
+      "timing": "end_of_round, held_in_hand; money counts toward this round's interest",
+      "sources_to_apply": [
+        "The Devil (1 card)",
+        "Midas Mask (played face cards)"
+      ]
+    },
+    {
+      "name": "Lucky Card",
+      "key": "m_lucky",
+      "effect": "When scored, two independent rolls: 1 in 5 for +20 Mult and 1 in 15 for $20. Both can hit; each retrigger rolls again.",
+      "mult": 20,
+      "mult_odds": [
+        1,
+        5
+      ],
+      "dollars": 20,
+      "dollars_odds": [
+        1,
+        15
+      ],
+      "timing": "on_scored",
+      "expected_value_per_score": {
+        "mult": 4,
+        "dollars": 1.333
+      },
+      "sources_to_apply": [
+        "The Magician (up to 2 cards)"
+      ]
+    }
+  ],
+  "editions": [
+    {
+      "name": "Foil",
+      "key": "e_foil",
+      "effect": "+50 chips.",
+      "chips": 50,
+      "applies_to": [
+        "jokers",
+        "playing cards"
+      ],
+      "shop_price_added": 2,
+      "timing": "playing card: after its enhancement and seal, as part of the card's own trigger (repeated on retrigger). joker: added immediately BEFORE that joker's own independent effect in the joker pass."
+    },
+    {
+      "name": "Holographic",
+      "key": "e_holo",
+      "effect": "+10 Mult.",
+      "mult": 10,
+      "applies_to": [
+        "jokers",
+        "playing cards"
+      ],
+      "shop_price_added": 3,
+      "timing": "same slot as Foil (before the joker's own effect; on playing cards after enhancement/seal)."
+    },
+    {
+      "name": "Polychrome",
+      "key": "e_polychrome",
+      "effect": "x1.5 Mult.",
+      "x_mult": 1.5,
+      "applies_to": [
+        "jokers",
+        "playing cards"
+      ],
+      "shop_price_added": 5,
+      "timing": "playing card: last part of the card's own trigger. joker: applied AFTER the joker's own effect and after any Baseball Card bonus aimed at that joker."
+    },
+    {
+      "name": "Negative",
+      "key": "e_negative",
+      "effect": "+1 Joker slot (on a joker) or +1 consumable slot (on a consumable). No scoring effect. Still counts while debuffed.",
+      "slots": 1,
+      "applies_to": [
+        "jokers",
+        "consumables (Perkeo only)"
+      ],
+      "shop_price_added": 5,
+      "notes": "Invisible Joker and Ankh copies lose Negative. A Negative joker can be bought even with full slots."
+    }
+  ],
+  "edition_price_table": {
+    "Foil": {
+      "jokers": 2,
+      "playing_cards": 2
+    },
+    "Holographic": {
+      "jokers": 3,
+      "playing_cards": 3
+    },
+    "Polychrome": {
+      "jokers": 5,
+      "playing_cards": 5
+    },
+    "Negative": {
+      "jokers": 5,
+      "consumables": 5
+    }
+  },
+  "seals": [
+    {
+      "name": "Gold Seal",
+      "key": "Gold",
+      "effect": "Earn $3 when this card is played and scores. Paid again on every retrigger; $0 if debuffed.",
+      "dollars_on_score": 3,
+      "timing": "on_scored, part of the card's own trigger (after enhancement, before edition)",
+      "apply_with": "Talisman"
+    },
+    {
+      "name": "Red Seal",
+      "key": "Red",
+      "effect": "Retrigger this card 1 extra time. Works both when played-and-scored and for held-in-hand / end-of-round effects (Steel, Gold card, Blue Seal). Not itself retriggered by Mime/Hack/etc.",
+      "retriggers": 1,
+      "timing": "first retrigger in the queue (before joker retriggers)",
+      "apply_with": "Deja Vu"
+    },
+    {
+      "name": "Blue Seal",
+      "key": "Blue",
+      "effect": "If this card is held in hand at end of round, create the Planet card for the last poker hand played this round (needs a free consumable slot). Retriggerable by Red Seal/Mime (extra planets, room permitting).",
+      "timing": "end_of_round, held_in_hand",
+      "apply_with": "Trance"
+    },
+    {
+      "name": "Purple Seal",
+      "key": "Purple",
+      "effect": "When this card is discarded, create a random Tarot card (needs a free consumable slot).",
+      "timing": "on_discard",
+      "apply_with": "Medium"
+    }
+  ],
+  "stickers": [
+    {
+      "name": "Eternal",
+      "effect": "Joker cannot be sold or destroyed.",
+      "stake": "Black Stake and above",
+      "spawn_chance": 0.3,
+      "where": "shop jokers and Buffoon pack jokers",
+      "incompatible_jokers": [
+        "Gros Michel",
+        "Ice Cream",
+        "Cavendish",
+        "Luchador",
+        "Turtle Bean",
+        "Diet Cola",
+        "Popcorn",
+        "Ramen",
+        "Seltzer",
+        "Mr. Bones",
+        "Invisible Joker"
+      ],
+      "notes": "Mutually exclusive with Perishable. Never on jokers created by Judgement/Wraith/Soul/Top-up/Riff-Raff etc. (only shop and packs)."
+    },
+    {
+      "name": "Perishable",
+      "effect": "Joker becomes debuffed after 5 rounds (debuff happens at end of the 5th round, before cash-out, so cash-out money jokers effectively pay 4 times).",
+      "rounds": 5,
+      "stake": "Orange Stake and above",
+      "spawn_chance": 0.3,
+      "where": "shop jokers and Buffoon pack jokers",
+      "incompatible_jokers": [
+        "Ceremonial Dagger",
+        "Ride the Bus",
+        "Runner",
+        "Constellation",
+        "Green Joker",
+        "Red Card",
+        "Madness",
+        "Square Joker",
+        "Vampire",
+        "Hologram",
+        "Rocket",
+        "Obelisk",
+        "Lucky Cat",
+        "Flash Card",
+        "Spare Trousers",
+        "Castle",
+        "Glass Joker",
+        "Wee Joker"
+      ],
+      "notes": "Eternal/Perishable come from ONE roll: roll > 0.7 -> Eternal (30%), 0.4 < roll <= 0.7 -> Perishable (30%), else neither (40%). A debuffed joker keeps its sell value."
+    },
+    {
+      "name": "Rental",
+      "effect": "Joker's buy price becomes $1, but you lose $3 at the end of every round (charged before the cash-out payout, can push into debt, still charged while debuffed).",
+      "buy_price": 1,
+      "rent_per_round": 3,
+      "stake": "Gold Stake",
+      "spawn_chance": 0.3,
+      "where": "shop jokers and Buffoon pack jokers",
+      "notes": "Independent roll from Eternal/Perishable; all jokers are compatible."
+    }
+  ],
+  "appearance_rates": {
+    "jokers_shop_and_packs": {
+      "note": "One uniform roll r per joker: Negative if r > 1-0.003; else Polychrome if r > 1-0.006*R; else Holographic if r > 1-0.02*R; else Foil if r > 1-0.04*R; where R = edition rate (1 base, 2 Hone, 4 Glow Up). Negative is not scaled by Hone/Glow Up.",
+      "none": {
+        "negative": 0.003,
+        "polychrome": 0.003,
+        "holographic": 0.014,
+        "foil": 0.02
+      },
+      "hone": {
+        "negative": 0.003,
+        "polychrome": 0.009,
+        "holographic": 0.028,
+        "foil": 0.04
+      },
+      "glow_up": {
+        "negative": 0.003,
+        "polychrome": 0.021,
+        "holographic": 0.056,
+        "foil": 0.08
+      }
+    },
+    "standard_pack_playing_cards": {
+      "note": "Same edition roll with a x2 modifier and Negative excluded. Enhancement 40% (uniform over the 8 enhancements), Seal 20% (uniform over the 4 seals).",
+      "none": {
+        "polychrome": 0.012,
+        "holographic": 0.028,
+        "foil": 0.04
+      },
+      "hone": {
+        "polychrome": 0.024,
+        "holographic": 0.056,
+        "foil": 0.08
+      },
+      "glow_up": {
+        "polychrome": 0.048,
+        "holographic": 0.112,
+        "foil": 0.16
+      },
+      "enhancement_chance": 0.4,
+      "seal_chance": 0.2
+    },
+    "illusion_shop_playing_cards": {
+      "note": "Illusion voucher: shop playing cards are Enhanced 40% of the time and get an edition 20% of the time (of which Polychrome 15%, Holographic 35%, Foil 50%). Not affected by Hone/Glow Up. Despite its text, Illusion never adds seals (bug in 1.0.1o).",
+      "enhancement_chance": 0.4,
+      "edition_chance": 0.2,
+      "edition_split": {
+        "polychrome": 0.15,
+        "holographic": 0.35,
+        "foil": 0.5
+      },
+      "seal_chance": 0.0
+    },
+    "guaranteed_edition_split": {
+      "note": "Used by Aura and by a successful Wheel of Fortune (no Negative).",
+      "foil": 0.5,
+      "holographic": 0.35,
+      "polychrome": 0.15
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+ "comment": "The state in the press-kit screenshot Balatro_screenshot_1.jpg: The Wall, a Royal Flush scoring, the King's +10 chips just added.",
+ "kind": "play",
+ "ante": 3,
+ "round": 1,
+ "money": 14,
+ "blind": {
+  "name": "The Wall",
+  "kind": 2,
+  "chips": 8000,
+  "reward": 5,
+  "desc": "Extra large blind"
+ },
+ "round_score": 0,
+ "hands_left": 3,
+ "discards_left": 2,
+ "jokers": [
+  {
+   "name": "Obelisk"
+  },
+  {
+   "name": "Castle"
+  },
+  {
+   "name": "Troubadour"
+  }
+ ],
+ "joker_slots": 5,
+ "consumables": [
+  {
+   "name": "The Empress",
+   "kind": "Tarot"
+  },
+  {
+   "name": "Hex",
+   "kind": "Spectral"
+  }
+ ],
+ "consumable_slots": 3,
+ "hand_name": "Straight Flush",
+ "hand_display": "Royal Flush",
+ "level": 4,
+ "chips": 241,
+ "mult": 20,
+ "played": [
+  {
+   "rank": 14,
+   "suit": "Spades"
+  },
+  {
+   "rank": 13,
+   "suit": "Spades",
+   "enhancement": "Steel"
+  },
+  {
+   "rank": 12,
+   "suit": "Spades",
+   "edition": "Polychrome"
+  },
+  {
+   "rank": 11,
+   "suit": "Spades",
+   "enhancement": "Lucky"
+  },
+  {
+   "rank": 10,
+   "suit": "Spades"
+  }
+ ],
+ "scoring": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "popup": {
+  "card": 1,
+  "text": "+10"
+ },
+ "hand_after": [
+  {
+   "rank": 13,
+   "suit": "Spades",
+   "enhancement": "Gold"
+  },
+  {
+   "rank": 12,
+   "suit": "Spades"
+  },
+  {
+   "rank": 12,
+   "suit": "Spades"
+  },
+  {
+   "rank": 11,
+   "suit": "Spades"
+  }
+ ],
+ "hand_size": 10,
+ "deck_left": 4,
+ "deck_size": 51,
+ "deck_back": "Magic Deck",
+ "background": {
+  "colour_1": "#55466b",
+  "colour_2": "#7d459c",
+  "colour_3": "#180d21",
+  "contrast": 2,
+  "spin_amount": 0,
+  "time": 37.0,
+  "spin_time": 12.0
+ }
+}

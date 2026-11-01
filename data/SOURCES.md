@@ -1,0 +1,240 @@
+# Sources
+
+Fetched on 2026-10-25. All wiki pages were downloaded as raw wikitext through `https://balatrowiki.org/w/<Page>?action=raw`. The fetch log is `/Users/kvashaihor/Projects/evo/balatro/logs/fetch_rules_pages.log`.
+
+- **Primary source:** balatrowiki.org, the community wiki. Its text is copyrighted, so all descriptions in the data files are paraphrased and only the numbers are copied.
+- **Fandom fallback:** not needed. Every page needed was available on balatrowiki.org.
+- **Game version:** 1.0.1o-FULL, per `Template:CurrentVersion`. This is the current version on the wiki.
+
+## Secondary / cross-check source
+
+- **DivvyCr Balatro-Simulation:** https://github.com/DivvyCr/Balatro-Simulation/blob/main/src/Engine.lua. It is a mod that re-implements the game's `evaluate_play` scoring loop. It was used to cross-check these points in `scoring.md`:
+  - step order: before-jokers, then base, then Flint, then scored cards, then held cards, then jokers, then consumables, then Plasma;
+  - The Flint rounding;
+  - Plasma rounding;
+  - The Hook and The Tooth press-play timing.
+- **Repo listing used to locate that file:** https://github.com/DivvyCr/Balatro-Preview.
+
+## Wiki pages and modules (URL, then the files that used it)
+
+- https://balatrowiki.org/api.php?action=query&list=allpages — page discovery only
+- https://balatrowiki.org/w/Abandoned_Deck — decks.json
+- https://balatrowiki.org/w/Activation_Type — scoring.md
+- https://balatrowiki.org/w/Amber_Acorn — bosses.json
+- https://balatrowiki.org/w/Anaglyph_Deck — decks.json
+- https://balatrowiki.org/w/Ankh — consumables.json
+- https://balatrowiki.org/w/Antimatter — vouchers.json
+- https://balatrowiki.org/w/Astronomer — shop.json
+- https://balatrowiki.org/w/Aura — consumables.json
+- https://balatrowiki.org/w/Baseball_Card — scoring.md
+- https://balatrowiki.org/w/Big_Blind — blinds.json
+- https://balatrowiki.org/w/Black_Deck — decks.json
+- https://balatrowiki.org/w/Black_Hole — consumables.json, hands.json, shop.json
+- https://balatrowiki.org/w/Black_Stake — stakes.json
+- https://balatrowiki.org/w/Blank — vouchers.json
+- https://balatrowiki.org/w/Blinds_and_Antes — blinds.json, bosses.json, stakes.json
+- https://balatrowiki.org/w/Blue_Deck — decks.json
+- https://balatrowiki.org/w/Blue_Seal — modifiers.json
+- https://balatrowiki.org/w/Blue_Stake — stakes.json
+- https://balatrowiki.org/w/Bonus_cards — modifiers.json
+- https://balatrowiki.org/w/Booster_Packs — shop.json
+- https://balatrowiki.org/w/Boss_Tag — tags.json
+- https://balatrowiki.org/w/Buffoon_Tag — tags.json
+- https://balatrowiki.org/w/Card_modifiers — modifiers.json, scoring.md, shop.json, stakes.json
+- https://balatrowiki.org/w/Ceres — consumables.json
+- https://balatrowiki.org/w/Cerulean_Bell — bosses.json
+- https://balatrowiki.org/w/Charm_Tag — tags.json
+- https://balatrowiki.org/w/Checkered_Deck — decks.json
+- https://balatrowiki.org/w/Chips — scoring.md
+- https://balatrowiki.org/w/Clearance_Sale — shop.json, vouchers.json
+- https://balatrowiki.org/w/Consumable_slot — blinds.json, consumables.json
+- https://balatrowiki.org/w/Consumables — consumables.json
+- https://balatrowiki.org/w/Coupon_Tag — tags.json
+- https://balatrowiki.org/w/Crimson_Heart — bosses.json
+- https://balatrowiki.org/w/Cryptid — consumables.json
+- https://balatrowiki.org/w/Crystal_Ball — vouchers.json
+- https://balatrowiki.org/w/D6_Tag — tags.json
+- https://balatrowiki.org/w/Death — consumables.json
+- https://balatrowiki.org/w/Decks — decks.json
+- https://balatrowiki.org/w/Deja_Vu — consumables.json
+- https://balatrowiki.org/w/Director's_Cut — vouchers.json
+- https://balatrowiki.org/w/Discards — blinds.json
+- https://balatrowiki.org/w/Double_Tag — tags.json
+- https://balatrowiki.org/w/Economy_Tag — tags.json
+- https://balatrowiki.org/w/Ectoplasm — consumables.json
+- https://balatrowiki.org/w/Egg — shop.json
+- https://balatrowiki.org/w/Eris — consumables.json
+- https://balatrowiki.org/w/Erratic_Deck — decks.json
+- https://balatrowiki.org/w/Eternal — modifiers.json, stakes.json
+- https://balatrowiki.org/w/Ethereal_Tag — tags.json
+- https://balatrowiki.org/w/Familiar — consumables.json
+- https://balatrowiki.org/w/Foil — modifiers.json
+- https://balatrowiki.org/w/Foil_Tag — tags.json
+- https://balatrowiki.org/w/Garbage_Tag — tags.json
+- https://balatrowiki.org/w/Ghost_Deck — decks.json, shop.json
+- https://balatrowiki.org/w/Gift_Card — shop.json
+- https://balatrowiki.org/w/Glass_cards — modifiers.json, scoring.md
+- https://balatrowiki.org/w/Glow_Up — vouchers.json
+- https://balatrowiki.org/w/Gold_Seal — modifiers.json, scoring.md
+- https://balatrowiki.org/w/Gold_Stake — stakes.json
+- https://balatrowiki.org/w/Gold_cards — modifiers.json
+- https://balatrowiki.org/w/Grabber — vouchers.json
+- https://balatrowiki.org/w/Green_Deck — blinds.json, decks.json
+- https://balatrowiki.org/w/Green_Stake — stakes.json
+- https://balatrowiki.org/w/Grim — consumables.json
+- https://balatrowiki.org/w/Guide:_Activation_Sequence — modifiers.json, scoring.md
+- https://balatrowiki.org/w/Hand_size — blinds.json
+- https://balatrowiki.org/w/Hands — blinds.json
+- https://balatrowiki.org/w/Handy_Tag — tags.json
+- https://balatrowiki.org/w/Hanging_Chad — scoring.md
+- https://balatrowiki.org/w/Hex — consumables.json
+- https://balatrowiki.org/w/Hieroglyph — vouchers.json
+- https://balatrowiki.org/w/Holographic — modifiers.json
+- https://balatrowiki.org/w/Holographic_Tag — tags.json
+- https://balatrowiki.org/w/Hone — shop.json, vouchers.json
+- https://balatrowiki.org/w/Illusion — shop.json, vouchers.json
+- https://balatrowiki.org/w/Immolate — consumables.json
+- https://balatrowiki.org/w/Incantation — consumables.json
+- https://balatrowiki.org/w/Interest — blinds.json
+- https://balatrowiki.org/w/Investment_Tag — tags.json
+- https://balatrowiki.org/w/Joker_slot — blinds.json
+- https://balatrowiki.org/w/Jokers — scoring.md, scoring.md (Retrigger definition)
+- https://balatrowiki.org/w/Judgement — consumables.json, shop.json
+- https://balatrowiki.org/w/Juggle_Tag — tags.json
+- https://balatrowiki.org/w/Justice — consumables.json
+- https://balatrowiki.org/w/Liquidation — vouchers.json
+- https://balatrowiki.org/w/Listed_probability — consumables.json, modifiers.json, scoring.md
+- https://balatrowiki.org/w/Lucky_cards — modifiers.json, scoring.md
+- https://balatrowiki.org/w/Magic_Deck — decks.json
+- https://balatrowiki.org/w/Magic_Trick — shop.json, vouchers.json
+- https://balatrowiki.org/w/Medium — consumables.json
+- https://balatrowiki.org/w/Meteor_Tag — tags.json
+- https://balatrowiki.org/w/Mime — scoring.md
+- https://balatrowiki.org/w/Module:Ante_Table — blinds.json
+- https://balatrowiki.org/w/Module:Blind_Score — blinds.json
+- https://balatrowiki.org/w/Module:Jokers/data — modifiers.json (Eternal/Perishable incompatibility lists), stakes.json
+- https://balatrowiki.org/w/Module:Localization/en-us — internal keys (bl_*, c_*, v_*, tag_*, b_*, stake_*, m_*, e_*, p_*) in all JSON files
+- https://balatrowiki.org/w/Money — blinds.json, decks.json
+- https://balatrowiki.org/w/Money_Tree — vouchers.json
+- https://balatrowiki.org/w/Mult — scoring.md
+- https://balatrowiki.org/w/Mult_cards — modifiers.json
+- https://balatrowiki.org/w/Nacho_Tong — vouchers.json
+- https://balatrowiki.org/w/Nebula_Deck — decks.json
+- https://balatrowiki.org/w/Negative — modifiers.json
+- https://balatrowiki.org/w/Negative_Tag — tags.json
+- https://balatrowiki.org/w/Observatory — scoring.md, vouchers.json
+- https://balatrowiki.org/w/Omen_Globe — shop.json, vouchers.json
+- https://balatrowiki.org/w/Orange_Stake — stakes.json
+- https://balatrowiki.org/w/Orbital_Tag — tags.json
+- https://balatrowiki.org/w/Ouija — consumables.json
+- https://balatrowiki.org/w/Overstock — vouchers.json
+- https://balatrowiki.org/w/Overstock_Plus — vouchers.json
+- https://balatrowiki.org/w/Paint_Brush — vouchers.json
+- https://balatrowiki.org/w/Painted_Deck — decks.json
+- https://balatrowiki.org/w/Palette — vouchers.json
+- https://balatrowiki.org/w/Perishable — modifiers.json, stakes.json
+- https://balatrowiki.org/w/Petroglyph — vouchers.json
+- https://balatrowiki.org/w/Planet_Merchant — shop.json, vouchers.json
+- https://balatrowiki.org/w/Planet_Tycoon — vouchers.json
+- https://balatrowiki.org/w/Planet_X — consumables.json
+- https://balatrowiki.org/w/Planet_cards — consumables.json, hands.json, shop.json
+- https://balatrowiki.org/w/Plasma_Deck — blinds.json, decks.json, scoring.md
+- https://balatrowiki.org/w/Pluto — consumables.json
+- https://balatrowiki.org/w/Poker_hands — hands.json, scoring.md
+- https://balatrowiki.org/w/Polychrome — modifiers.json, scoring.md
+- https://balatrowiki.org/w/Polychrome_Tag — tags.json
+- https://balatrowiki.org/w/Purple_Seal — modifiers.json
+- https://balatrowiki.org/w/Purple_Stake — stakes.json
+- https://balatrowiki.org/w/Rare_Tag — tags.json
+- https://balatrowiki.org/w/Recyclomancy — vouchers.json
+- https://balatrowiki.org/w/Red_Deck — decks.json
+- https://balatrowiki.org/w/Red_Seal — modifiers.json, scoring.md
+- https://balatrowiki.org/w/Red_Stake — stakes.json
+- https://balatrowiki.org/w/Rental — modifiers.json, stakes.json
+- https://balatrowiki.org/w/Reroll_Glut — vouchers.json
+- https://balatrowiki.org/w/Reroll_Surplus — vouchers.json
+- https://balatrowiki.org/w/Retcon — vouchers.json
+- https://balatrowiki.org/w/Seed_Money — vouchers.json
+- https://balatrowiki.org/w/Showman — shop.json
+- https://balatrowiki.org/w/Sigil — consumables.json
+- https://balatrowiki.org/w/Skip — blinds.json, tags.json
+- https://balatrowiki.org/w/Small_Blind — blinds.json
+- https://balatrowiki.org/w/Spawn_condition — shop.json
+- https://balatrowiki.org/w/Spectral_cards — consumables.json
+- https://balatrowiki.org/w/Speed_Tag — tags.json
+- https://balatrowiki.org/w/Splash — scoring.md
+- https://balatrowiki.org/w/Stakes — blinds.json, stakes.json
+- https://balatrowiki.org/w/Standard_Tag — tags.json
+- https://balatrowiki.org/w/Steel_cards — modifiers.json, scoring.md
+- https://balatrowiki.org/w/Stone_cards — modifiers.json, scoring.md
+- https://balatrowiki.org/w/Strength — consumables.json
+- https://balatrowiki.org/w/Tags — blinds.json, tags.json
+- https://balatrowiki.org/w/Talisman — consumables.json
+- https://balatrowiki.org/w/Tarot_Merchant — shop.json, vouchers.json
+- https://balatrowiki.org/w/Tarot_Tycoon — shop.json, vouchers.json
+- https://balatrowiki.org/w/Tarot_cards — consumables.json, shop.json
+- https://balatrowiki.org/w/Telescope — shop.json, vouchers.json
+- https://balatrowiki.org/w/Temperance — consumables.json
+- https://balatrowiki.org/w/Template:CurrentVersion — game_version field (1.0.1o-FULL)
+- https://balatrowiki.org/w/Template:Edition_costs_table — modifiers.json, shop.json
+- https://balatrowiki.org/w/The_Arm — bosses.json, hands.json, scoring.md
+- https://balatrowiki.org/w/The_Chariot — consumables.json
+- https://balatrowiki.org/w/The_Club — bosses.json
+- https://balatrowiki.org/w/The_Devil — consumables.json
+- https://balatrowiki.org/w/The_Emperor — consumables.json
+- https://balatrowiki.org/w/The_Empress — consumables.json
+- https://balatrowiki.org/w/The_Eye — bosses.json
+- https://balatrowiki.org/w/The_Fish — bosses.json
+- https://balatrowiki.org/w/The_Flint — bosses.json, scoring.md
+- https://balatrowiki.org/w/The_Fool — consumables.json
+- https://balatrowiki.org/w/The_Goad — bosses.json
+- https://balatrowiki.org/w/The_Hanged_Man — consumables.json
+- https://balatrowiki.org/w/The_Head — bosses.json
+- https://balatrowiki.org/w/The_Hermit — consumables.json
+- https://balatrowiki.org/w/The_Hierophant — consumables.json
+- https://balatrowiki.org/w/The_High_Priestess — consumables.json
+- https://balatrowiki.org/w/The_Hook — bosses.json, scoring.md
+- https://balatrowiki.org/w/The_House — bosses.json
+- https://balatrowiki.org/w/The_Lovers — consumables.json
+- https://balatrowiki.org/w/The_Magician — consumables.json
+- https://balatrowiki.org/w/The_Manacle — bosses.json
+- https://balatrowiki.org/w/The_Mark — bosses.json
+- https://balatrowiki.org/w/The_Moon — consumables.json
+- https://balatrowiki.org/w/The_Mouth — bosses.json
+- https://balatrowiki.org/w/The_Needle — blinds.json, bosses.json
+- https://balatrowiki.org/w/The_Ox — bosses.json
+- https://balatrowiki.org/w/The_Pillar — bosses.json
+- https://balatrowiki.org/w/The_Plant — bosses.json
+- https://balatrowiki.org/w/The_Psychic — bosses.json
+- https://balatrowiki.org/w/The_Serpent — bosses.json
+- https://balatrowiki.org/w/The_Shop — modifiers.json, shop.json, vouchers.json
+- https://balatrowiki.org/w/The_Soul — consumables.json, shop.json
+- https://balatrowiki.org/w/The_Star — consumables.json
+- https://balatrowiki.org/w/The_Sun — consumables.json
+- https://balatrowiki.org/w/The_Tooth — bosses.json
+- https://balatrowiki.org/w/The_Tower — consumables.json
+- https://balatrowiki.org/w/The_Wall — blinds.json, bosses.json
+- https://balatrowiki.org/w/The_Water — bosses.json
+- https://balatrowiki.org/w/The_Wheel — bosses.json
+- https://balatrowiki.org/w/The_Wheel_of_Fortune — consumables.json
+- https://balatrowiki.org/w/The_Window — bosses.json
+- https://balatrowiki.org/w/The_World — consumables.json
+- https://balatrowiki.org/w/Top-up_Tag — tags.json
+- https://balatrowiki.org/w/Trance — consumables.json
+- https://balatrowiki.org/w/Uncommon_Tag — tags.json
+- https://balatrowiki.org/w/Update_1.0.1n — version check
+- https://balatrowiki.org/w/Update_1.0.1o — version check
+- https://balatrowiki.org/w/Verdant_Leaf — bosses.json
+- https://balatrowiki.org/w/Violet_Vessel — blinds.json, bosses.json
+- https://balatrowiki.org/w/Voucher_Tag — tags.json
+- https://balatrowiki.org/w/Vouchers — shop.json, vouchers.json
+- https://balatrowiki.org/w/Wasteful — vouchers.json
+- https://balatrowiki.org/w/White_Stake — stakes.json
+- https://balatrowiki.org/w/Wild_cards — modifiers.json
+- https://balatrowiki.org/w/Wraith — consumables.json
+- https://balatrowiki.org/w/Yellow_Deck — decks.json
+- https://balatrowiki.org/w/Zodiac_Deck — decks.json
+
+## Other URLs
+
+- https://github.com/DivvyCr/Balatro-Simulation/blob/main/src/Engine.lua — bosses.json, hands.json, modifiers.json, scoring.md

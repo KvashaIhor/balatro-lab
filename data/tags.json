@@ -1,0 +1,234 @@
+{
+  "source": [
+    "https://balatrowiki.org/w/Tags",
+    "https://balatrowiki.org/w/Skip",
+    "https://balatrowiki.org/w/Uncommon_Tag",
+    "https://balatrowiki.org/w/Rare_Tag",
+    "https://balatrowiki.org/w/Negative_Tag",
+    "https://balatrowiki.org/w/Foil_Tag",
+    "https://balatrowiki.org/w/Holographic_Tag",
+    "https://balatrowiki.org/w/Polychrome_Tag",
+    "https://balatrowiki.org/w/Investment_Tag",
+    "https://balatrowiki.org/w/Voucher_Tag",
+    "https://balatrowiki.org/w/Boss_Tag",
+    "https://balatrowiki.org/w/Standard_Tag",
+    "https://balatrowiki.org/w/Charm_Tag",
+    "https://balatrowiki.org/w/Meteor_Tag",
+    "https://balatrowiki.org/w/Buffoon_Tag",
+    "https://balatrowiki.org/w/Handy_Tag",
+    "https://balatrowiki.org/w/Garbage_Tag",
+    "https://balatrowiki.org/w/Ethereal_Tag",
+    "https://balatrowiki.org/w/Coupon_Tag",
+    "https://balatrowiki.org/w/Double_Tag",
+    "https://balatrowiki.org/w/Juggle_Tag",
+    "https://balatrowiki.org/w/D6_Tag",
+    "https://balatrowiki.org/w/Top-up_Tag",
+    "https://balatrowiki.org/w/Speed_Tag",
+    "https://balatrowiki.org/w/Orbital_Tag",
+    "https://balatrowiki.org/w/Economy_Tag"
+  ],
+  "fetched": "2026-10-25",
+  "game_version": "1.0.1o-FULL (current per Template:CurrentVersion on balatrowiki.org)",
+  "count": 24,
+  "rules": [
+    "Tags are earned by skipping a Small or Big Blind; each such blind shows its tag in advance.",
+    "Each tag is equally likely among the tags allowed at the current ante (min_ante). At ante 1 only 15 of the 24 are possible.",
+    "Duplicates are allowed (also within an ante). Held tags trigger oldest first.",
+    "Unlock-gated (profile) tags: Rare Tag needs Blueprint discovered; Negative/Foil/Holographic/Polychrome tags need their edition discovered. A simulator can assume all unlocked.",
+    "Other tag sources: Anaglyph Deck (Double Tag after each boss), Diet Cola (Double Tag when sold)."
+  ],
+  "tags": [
+    {
+      "number": 1,
+      "name": "Uncommon Tag",
+      "key": "tag_uncommon",
+      "min_ante": 1,
+      "effect": "Next shop: one card slot holds a free Uncommon joker.",
+      "triggers": "next shop"
+    },
+    {
+      "number": 2,
+      "name": "Rare Tag",
+      "key": "tag_rare",
+      "min_ante": 1,
+      "effect": "Next shop: one card slot holds a free Rare joker.",
+      "triggers": "next shop"
+    },
+    {
+      "number": 3,
+      "name": "Negative Tag",
+      "key": "tag_negative",
+      "min_ante": 2,
+      "effect": "The next edition-less joker shown in a shop becomes Negative and free.",
+      "triggers": "next shop with an edition-less joker (stored until then)"
+    },
+    {
+      "number": 4,
+      "name": "Foil Tag",
+      "key": "tag_foil",
+      "min_ante": 1,
+      "effect": "The next edition-less joker shown in a shop becomes Foil and free.",
+      "triggers": "next shop with an edition-less joker"
+    },
+    {
+      "number": 5,
+      "name": "Holographic Tag",
+      "key": "tag_holo",
+      "min_ante": 1,
+      "effect": "The next edition-less joker shown in a shop becomes Holographic and free.",
+      "triggers": "next shop with an edition-less joker"
+    },
+    {
+      "number": 6,
+      "name": "Polychrome Tag",
+      "key": "tag_polychrome",
+      "min_ante": 1,
+      "effect": "The next edition-less joker shown in a shop becomes Polychrome and free.",
+      "triggers": "next shop with an edition-less joker"
+    },
+    {
+      "number": 7,
+      "name": "Investment Tag",
+      "key": "tag_investment",
+      "min_ante": 1,
+      "effect": "Gain $25 after the next Boss Blind is defeated (paid at cash-out; stacks; paid even if saved by Mr. Bones).",
+      "triggers": "cash-out of next boss"
+    },
+    {
+      "number": 8,
+      "name": "Voucher Tag",
+      "key": "tag_voucher",
+      "min_ante": 1,
+      "effect": "Adds one extra voucher to the next shop (that shop only).",
+      "triggers": "next shop"
+    },
+    {
+      "number": 9,
+      "name": "Boss Tag",
+      "key": "tag_boss",
+      "min_ante": 1,
+      "effect": "Rerolls the upcoming Boss Blind.",
+      "triggers": "immediately (next blind-select screen)"
+    },
+    {
+      "number": 10,
+      "name": "Standard Tag",
+      "key": "tag_standard",
+      "min_ante": 2,
+      "effect": "Opens a free Mega Standard Pack.",
+      "triggers": "immediately"
+    },
+    {
+      "number": 11,
+      "name": "Charm Tag",
+      "key": "tag_charm",
+      "min_ante": 1,
+      "effect": "Opens a free Mega Arcana Pack.",
+      "triggers": "immediately"
+    },
+    {
+      "number": 12,
+      "name": "Meteor Tag",
+      "key": "tag_meteor",
+      "min_ante": 2,
+      "effect": "Opens a free Mega Celestial Pack.",
+      "triggers": "immediately"
+    },
+    {
+      "number": 13,
+      "name": "Buffoon Tag",
+      "key": "tag_buffoon",
+      "min_ante": 2,
+      "effect": "Opens a free Mega Buffoon Pack.",
+      "triggers": "immediately"
+    },
+    {
+      "number": 14,
+      "name": "Handy Tag",
+      "key": "tag_handy",
+      "min_ante": 2,
+      "effect": "Gain $1 for every hand played so far this run.",
+      "triggers": "immediately"
+    },
+    {
+      "number": 15,
+      "name": "Garbage Tag",
+      "key": "tag_garbage",
+      "min_ante": 2,
+      "effect": "Gain $1 for every discard left unused so far this run.",
+      "triggers": "immediately"
+    },
+    {
+      "number": 16,
+      "name": "Ethereal Tag",
+      "key": "tag_ethereal",
+      "min_ante": 2,
+      "effect": "Opens a free (normal) Spectral Pack: choose 1 of 2.",
+      "triggers": "immediately"
+    },
+    {
+      "number": 17,
+      "name": "Coupon Tag",
+      "key": "tag_coupon",
+      "min_ante": 1,
+      "effect": "In the next shop, the initially stocked cards and booster packs cost $0 (vouchers and rerolled cards keep normal prices).",
+      "triggers": "next shop"
+    },
+    {
+      "number": 18,
+      "name": "Double Tag",
+      "key": "tag_double",
+      "min_ante": 1,
+      "effect": "Gives a copy of the next tag you obtain (Double Tag itself excluded).",
+      "triggers": "on next tag gained"
+    },
+    {
+      "number": 19,
+      "name": "Juggle Tag",
+      "key": "tag_juggle",
+      "min_ante": 1,
+      "effect": "+3 hand size for the next round only (multiple stack).",
+      "triggers": "start of next round"
+    },
+    {
+      "number": 20,
+      "name": "D6 Tag",
+      "key": "tag_d_six",
+      "min_ante": 1,
+      "effect": "Rerolls in the next shop start at $0 (then rise by $1 per reroll as usual).",
+      "triggers": "next shop"
+    },
+    {
+      "number": 21,
+      "name": "Top-up Tag",
+      "key": "tag_top_up",
+      "min_ante": 2,
+      "effect": "Create up to 2 Common jokers (limited by free joker slots; no stickers).",
+      "triggers": "immediately"
+    },
+    {
+      "number": 22,
+      "name": "Speed Tag",
+      "key": "tag_skip",
+      "min_ante": 1,
+      "effect": "Gain $5 for every blind skipped this run (this skip included).",
+      "triggers": "immediately"
+    },
+    {
+      "number": 23,
+      "name": "Orbital Tag",
+      "key": "tag_orbital",
+      "min_ante": 2,
+      "effect": "Level up one random poker hand by 3 (hand fixed and shown when the tag is offered; secret hands only if already played).",
+      "triggers": "immediately"
+    },
+    {
+      "number": 24,
+      "name": "Economy Tag",
+      "key": "tag_economy",
+      "min_ante": 1,
+      "effect": "Double your money, adding at most $40 (gain = min(money, 40); nothing if money <= 0).",
+      "triggers": "immediately"
+    }
+  ]
+}

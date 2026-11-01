@@ -1,0 +1,152 @@
+# Source: https://balatrowiki.org/w/Jokers (fetched 2026-10-25). Effects paraphrased; numbers as listed.
+# n	name	rarity	cost	effect
+1	Joker	Common	2	+4 Mult
+2	Greedy Joker	Common	5	Scored Diamond cards give +3 Mult
+3	Lusty Joker	Common	5	Scored Heart cards give +3 Mult
+4	Wrathful Joker	Common	5	Scored Spade cards give +3 Mult
+5	Gluttonous Joker	Common	5	Scored Club cards give +3 Mult
+6	Jolly Joker	Common	3	+8 Mult if hand contains a Pair
+7	Zany Joker	Common	4	+12 Mult if hand contains Three of a Kind
+8	Mad Joker	Common	4	+10 Mult if hand contains Two Pair
+9	Crazy Joker	Common	4	+12 Mult if hand contains a Straight
+10	Droll Joker	Common	4	+10 Mult if hand contains a Flush
+11	Sly Joker	Common	3	+50 Chips if hand contains a Pair
+12	Wily Joker	Common	4	+100 Chips if hand contains Three of a Kind
+13	Clever Joker	Common	4	+80 Chips if hand contains Two Pair
+14	Devious Joker	Common	4	+100 Chips if hand contains a Straight
+15	Crafty Joker	Common	4	+80 Chips if hand contains a Flush
+16	Half Joker	Common	5	+20 Mult if hand has 3 or fewer cards
+17	Joker Stencil	Uncommon	8	X1 Mult for each empty Joker slot
+18	Four Fingers	Uncommon	7	Flushes and Straights can be made with 4 cards
+19	Mime	Uncommon	5	Retriggers held-in-hand abilities
+20	Credit Card	Common	1	Can go up to -$20 in debt
+21	Ceremonial Dagger	Uncommon	6	On Blind select, destroys Joker to the right, adds double its sell value to Mult
+22	Banner	Common	5	+30 Chips per remaining discard
+23	Mystic Summit	Common	5	+15 Mult when 0 discards remain
+24	Marble Joker	Uncommon	6	Adds a Stone card to deck on Blind select
+25	Loyalty Card	Uncommon	5	X4 Mult every 6 hands played
+26	8 Ball	Common	5	1 in 4 chance per scored 8 to create a Tarot card
+27	Misprint	Common	4	+0 to +23 Mult (random)
+28	Dusk	Uncommon	5	Retriggers all played cards in the final hand of the round
+29	Raised Fist	Common	5	Adds double the rank of lowest held card to Mult
+30	Chaos the Clown	Common	4	1 free reroll per shop
+31	Fibonacci	Uncommon	8	Scored Ace, 2, 3, 5, or 8 give +8 Mult
+32	Steel Joker	Uncommon	7	X0.2 Mult per Steel card in full deck
+33	Scary Face	Common	4	Scored face cards give +30 Chips
+34	Abstract Joker	Common	4	+3 Mult per Joker card owned
+35	Delayed Gratification	Common	4	Earn $2 per unused discard if none used by round end
+36	Hack	Uncommon	6	Retriggers each scored 2, 3, 4, or 5
+37	Pareidolia	Uncommon	5	All cards count as face cards
+38	Gros Michel	Common	5	+15 Mult; 1 in 6 chance to be destroyed at round end
+39	Even Steven	Common	4	Scored even-rank cards give +4 Mult
+40	Odd Todd	Common	4	Scored odd-rank cards give +31 Chips
+41	Scholar	Common	4	Scored Aces give +20 Chips and +4 Mult
+42	Business Card	Common	4	Scored face cards have 1 in 2 chance to give $2
+43	Supernova	Common	5	Adds times the poker hand was played this run to Mult
+44	Ride the Bus	Common	6	Gains +1 Mult per consecutive hand without a scoring face card
+45	Space Joker	Uncommon	5	1 in 4 chance to upgrade played hand's level
+46	Egg	Common	4	Gains $3 sell value at end of each round
+47	Burglar	Uncommon	6	On Blind select, +3 Hands and loses all discards
+48	Blackboard	Uncommon	6	X3 Mult if all held cards are Spades or Clubs
+49	Runner	Common	5	Gains +15 Chips when hand contains a Straight
+50	Ice Cream	Common	5	+100 Chips; loses 5 Chips per hand played
+51	DNA	Rare	8	If first hand is one card, copies it to deck and draws it
+52	Splash	Common	3	Every played card counts in scoring
+53	Blue Joker	Common	5	+2 Chips per remaining deck card
+54	Sixth Sense	Uncommon	6	If first hand is a single 6, destroys it to create a Spectral card
+55	Constellation	Uncommon	6	Gains X0.1 Mult per Planet card used
+56	Hiker	Uncommon	5	Scored cards permanently gain +5 Chips
+57	Faceless Joker	Common	4	Earn $5 if 3+ face cards are discarded together
+58	Green Joker	Common	4	+1 Mult per hand played, -1 Mult per discard
+59	Superposition	Common	4	Creates a Tarot if hand contains an Ace and a Straight
+60	To Do List	Common	4	Earn $4 if hand matches a target type (changes each round)
+61	Cavendish	Common	4	X3 Mult; 1 in 1000 chance to be destroyed at round end
+62	Card Sharp	Uncommon	6	X3 Mult if hand type was already played this round
+63	Red Card	Common	5	Gains +3 Mult when a Booster Pack is skipped
+64	Madness	Uncommon	7	On Small/Big Blind, gains X0.5 Mult and destroys a random Joker
+65	Square Joker	Common	4	Gains +4 Chips if hand has exactly 4 cards
+66	Séance	Uncommon	6	If hand is a Straight Flush, creates a random Spectral card
+67	Riff-Raff	Common	6	On Blind select, creates 2 Common Jokers
+68	Vampire	Uncommon	7	Gains X0.1 Mult per scored Enhanced card, removing its Enhancement
+69	Shortcut	Uncommon	7	Straights can have gaps of 1 rank
+70	Hologram	Uncommon	7	Gains X0.25 Mult per card added to deck
+71	Vagabond	Rare	8	Creates a Tarot if hand is played with $4 or less
+72	Baron	Rare	8	Each held King gives X1.5 Mult
+73	Cloud 9	Uncommon	7	Earn $1 per 9 in full deck at round end
+74	Rocket	Uncommon	6	Earn $1 at round end; payout rises by $2 per Boss defeated
+75	Obelisk	Rare	8	Gains X0.2 Mult per consecutive hand not using most played hand
+76	Midas Mask	Uncommon	7	Scored face cards become Gold cards
+77	Luchador	Uncommon	5	Selling it disables the current Boss Blind
+78	Photograph	Common	5	First scored face card gives X2 Mult
+79	Gift Card	Uncommon	6	Adds $1 sell value to every Joker and Consumable at round end
+80	Turtle Bean	Uncommon	6	+5 hand size, reduces by 1 each round
+81	Erosion	Uncommon	6	+4 Mult per card below starting deck size
+82	Reserved Parking	Common	6	Each held face card has 1 in 2 chance to give $1
+83	Mail-In Rebate	Common	4	Earn $5 per discarded rank (changes each round)
+84	To the Moon	Uncommon	5	Extra $1 interest per $5 held at round end
+85	Hallucination	Common	4	1 in 2 chance to create a Tarot when a Booster Pack opens
+86	Fortune Teller	Common	6	+1 Mult per Tarot used this run
+87	Juggler	Common	4	+1 hand size
+88	Drunkard	Common	4	+1 discard each round
+89	Stone Joker	Uncommon	6	+25 Chips per Stone card in full deck
+90	Golden Joker	Common	6	Earn $4 at round end
+91	Lucky Cat	Uncommon	6	Gains X0.25 Mult per successful Lucky card trigger
+92	Baseball Card	Rare	8	Each Uncommon Joker gives X1.5 Mult
+93	Bull	Uncommon	6	+2 Chips per $1 held
+94	Diet Cola	Uncommon	6	Selling it creates a free Double Tag
+95	Trading Card	Uncommon	6	If first discard is one card, destroys it and earns $3
+96	Flash Card	Uncommon	5	Gains +2 Mult per shop reroll
+97	Popcorn	Common	5	+20 Mult; loses 4 Mult per round played
+98	Spare Trousers	Uncommon	6	Gains +2 Mult if hand contains Two Pair
+99	Ancient Joker	Rare	8	Each scored card of a suit gives X1.5 Mult; suit changes each round
+100	Ramen	Uncommon	6	X2 Mult; loses X0.01 per card discarded
+101	Walkie Talkie	Common	4	Each scored 10 or 4 gives +10 Chips and +4 Mult
+102	Seltzer	Uncommon	6	Retriggers all played cards for next 10 hands
+103	Castle	Uncommon	6	Gains +3 Chips per discarded card of a suit (changes each round)
+104	Smiley Face	Common	4	Scored face cards give +5 Mult
+105	Campfire	Rare	9	Gains X0.25 Mult per card sold; resets when Boss is defeated
+106	Golden Ticket	Common	5	Scored Gold cards earn $4
+107	Mr. Bones	Uncommon	5	Prevents death if chips are at least 25% of requirement; self-destructs
+108	Acrobat	Uncommon	6	X3 Mult on final hand of round
+109	Sock and Buskin	Uncommon	6	Retriggers all scored face cards
+110	Swashbuckler	Common	4	Adds sell value of other Jokers to Mult
+111	Troubadour	Uncommon	6	+2 hand size, -1 hand each round
+112	Certificate	Uncommon	6	At round start, adds a random card with random seal to hand
+113	Smeared Joker	Uncommon	7	Hearts/Diamonds count as one suit; Spades/Clubs count as one suit
+114	Throwback	Uncommon	6	Gains X0.25 Mult per Blind skipped this run
+115	Hanging Chad	Common	4	Retriggers first scored card 2 extra times
+116	Rough Gem	Uncommon	7	Scored Diamond cards earn $1
+117	Bloodstone	Uncommon	7	1 in 2 chance scored Hearts give X1.5 Mult
+118	Arrowhead	Uncommon	7	Scored Spade cards give +50 Chips
+119	Onyx Agate	Uncommon	7	Scored Club cards give +7 Mult
+120	Glass Joker	Uncommon	6	Gains X0.75 Mult per Glass card destroyed
+121	Showman	Uncommon	5	Jokers, Tarots, Planets, and Spectrals may appear multiple times
+122	Flower Pot	Uncommon	6	X3 Mult if hand contains a Diamond, Club, Heart, and Spade
+123	Blueprint	Rare	10	Copies the ability of the Joker to the right
+124	Wee Joker	Rare	8	Gains +8 Chips when each scored 2 triggers
+125	Merry Andy	Uncommon	7	+3 discards each round, -1 hand size
+126	Oops! All 6s	Uncommon	4	Doubles all listed probabilities
+127	The Idol	Uncommon	6	Scored card of a specific rank and suit gives X2 Mult; changes each round
+128	Seeing Double	Uncommon	6	X2 Mult if hand has a scoring Club and a scoring card of another suit
+129	Matador	Uncommon	7	Earn $8 if hand triggers the Boss Blind ability
+130	Hit the Road	Rare	8	Gains X0.5 Mult per Jack discarded this round
+131	The Duo	Rare	8	X2 Mult if hand contains a Pair
+132	The Trio	Rare	8	X3 Mult if hand contains Three of a Kind
+133	The Family	Rare	8	X4 Mult if hand contains Four of a Kind
+134	The Order	Rare	8	X3 Mult if hand contains a Straight
+135	The Tribe	Rare	8	X2 Mult if hand contains a Flush
+136	Stuntman	Rare	7	+250 Chips, -2 hand size
+137	Invisible Joker	Rare	8	After 2 rounds, selling it duplicates a random Joker
+138	Brainstorm	Rare	10	Copies the ability of the leftmost Joker
+139	Satellite	Uncommon	6	Earn $1 per unique Planet card used at round end
+140	Shoot the Moon	Common	5	Each held Queen gives +13 Mult
+141	Driver's License	Rare	7	X3 Mult if 16+ Enhanced cards in full deck
+142	Cartomancer	Uncommon	6	Creates a Tarot when Blind is selected
+143	Astronomer	Uncommon	8	Planet cards and Celestial Packs in shop are free
+144	Burnt Joker	Rare	8	Upgrades level of first discarded hand each round
+145	Bootstraps	Uncommon	7	+2 Mult per $5 held
+146	Canio	Legendary	0	Gains X1 Mult when a face card is destroyed
+147	Triboulet	Legendary	0	Scored Kings and Queens each give X2 Mult
+148	Yorick	Legendary	0	Gains X1 Mult every 23 cards discarded
+149	Chicot	Legendary	0	Disables the effect of every Boss Blind
+150	Perkeo	Legendary	0	Creates a Negative copy of a random consumable at end of shop

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seed Planner</title>
+  <link rel="stylesheet" href="seed.css">
+  <link rel="stylesheet" href="cards.css">
+  <link rel="stylesheet" href="plan.css">
+</head>
+<body>
+  <div class="plan-page">
+    <header>
+      <h1>Seed Planner</h1>
+      <nav class="tabs"><a href="index.html">Run viewer</a><a href="seed.html">Seed Finder</a><a href="plan.html" aria-current="page">Seed Planner</a><a href="evolve.html">Evolution</a><a href="play.html">Play</a></nav>
+      <p class="sub">The planner tests strategies on this exact run (deck order, shops, packs, bosses) and gives you the
+        best line it finds, step by step.</p>
+    </header>
+
+    <main class="plan-main">
+      <section class="panel">
+        <form id="plan-form" class="plan-form">
+          <label>Seed <input id="seed" maxlength="8" placeholder="DD8JI5Y5" autocomplete="off" required></label>
+          <label>Deck <select id="deck"></select></label>
+          <label>Plan up to ante <select id="max-ante"><option>8</option><option selected>12</option><option>16</option><option>24</option><option>32</option></select></label>
+          <label>Search <select id="effort"><option value="quick">Quick (about 30 s)</option><option value="thorough">Thorough (no time limit)</option></select></label>
+          <button class="btn red" id="go">Plan this run</button>
+          <button class="btn" id="stop" type="button" disabled>Stop</button>
+        </form>
+        <div class="bar"><div id="bar-fill"></div></div>
+        <div id="progress-text" class="progress-text">White Stake. The planner keeps the best lines alive (6 in a quick
+          search, 12 in a thorough one), tries the most promising options of every decision on each, and scores an
+          option by playing three antes on. Quick stops at 30 seconds; thorough searches to the end of the run (2-3
+          minutes). Settled steps appear while it searches.</div>
+        <p class="error" id="error"></p>
+      </section>
+
+      <section class="panel" id="summary" hidden>
+        <div id="headline" class="headline"></div>
+        <div id="compare" class="progress-text"></div>
+        <div class="actions">
+          <a class="btn blue" id="watch" href="index.html#plan">Watch it in the run viewer</a>
+          <button class="btn" id="copy" type="button">Copy as text</button>
+        </div>
+      </section>
+
+      <p class="legend">Hands are shown as the game sorts them (by rank, high cards on the left); select the lifted
+        cards, counting from the left. Face-down cards show their back, with what the planner knows they are underneath.</p>
+
+      <section id="plan-steps" class="plan-steps"></section>
+
+      <section class="panel notes" id="notes" hidden>
+        <h2>How exact is this?</h2>
+        <div class="note-cols">
+          <div><h3>Exact for this seed</h3><ul id="exact"></ul></div>
+          <div><h3>Simulated (can differ from the game)</h3><ul id="simulated"></ul></div>
+        </div>
+        <p class="help">Follow the plan while the game matches it. If something differs (a card, a shop, a roll), the
+          rest of the plan no longer applies to your run. Keep the hand sorted by rank so positions match.</p>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="plan.js"></script>
+</body>
+</html>

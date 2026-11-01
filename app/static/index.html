@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Balatro Lab</title>
+  <link rel="stylesheet" href="cards.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="panels.css">
+</head>
+<body>
+  <!-- The game screen, laid out in the game's own 1920 x 1080 coordinates and scaled to the window. -->
+  <canvas id="bg" width="1920" height="1080"></canvas>
+  <div id="vignette"></div>
+  <div id="viewport">
+    <div id="game">
+
+      <aside id="sidebar">
+        <div id="blind-box" class="bx dark-box">
+          <div id="blind-title" class="bx boss-box"><span id="blind-name" class="t">—</span></div>
+          <div id="blind-panel" class="bx">
+            <div id="blind-desc" class="t">&nbsp;</div>
+            <img id="blind-chip" alt="">
+            <div id="score-box" class="bx">
+              <div id="score-at-least" class="t">Score at least</div>
+              <div id="target-row"><i class="chip-icon"></i><span id="target" class="t">0</span></div>
+              <div id="reward-row"><span class="t">Reward:</span> <span id="reward" class="t money"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="shop-sign" hidden>
+          <div class="marquee"></div>
+          <div class="improve t">Improve your run!</div>
+        </div>
+
+        <div id="round-box" class="bx boss-box">
+          <div id="round-label" class="t">Round<br>score</div>
+          <div id="round-inner" class="bx"><i class="chip-icon"></i><span id="round-score" class="t">0</span></div>
+        </div>
+
+        <div id="hand-box" class="bx">
+          <div id="hand-name-row"><span id="hand-name" class="t"></span> <span id="hand-level" class="t"></span></div>
+          <div id="chips-box" class="bx"><span id="chips" class="t">0</span></div>
+          <span id="times" class="t">X</span>
+          <div id="mult-box" class="bx"><span id="mult" class="t">0</span></div>
+        </div>
+
+        <div id="run-info" class="bx button-red"><span class="t">Run<br>Info</span></div>
+        <div id="options" class="bx button-orange"><span class="t">Options</span></div>
+
+        <div id="hands-box" class="bx boss-box stat"><div class="t label">Hands</div><div class="bx inner"><span id="hands" class="t big blue">0</span></div></div>
+        <div id="discards-box" class="bx boss-box stat"><div class="t label">Discards</div><div class="bx inner"><span id="discards" class="t big red">0</span></div></div>
+        <div id="money-box" class="bx boss-box"><div class="bx inner"><span id="money" class="t money">$0</span></div></div>
+        <div id="ante-box" class="bx boss-box stat"><div class="t label">Ante</div><div class="bx inner"><span id="ante" class="t big orange">1</span><span id="ante-of" class="t">/ 8</span></div></div>
+        <div id="round-num-box" class="bx boss-box stat"><div class="t label">Round</div><div class="bx inner"><span id="round-num" class="t big orange">1</span></div></div>
+      </aside>
+
+      <div id="joker-tray" class="tray"></div>
+      <div id="consumable-tray" class="tray"></div>
+      <div id="hand-tray" class="tray"></div>
+      <div id="joker-count" class="t count"></div>
+      <div id="consumable-count" class="t count"></div>
+      <div id="hand-count" class="t count"></div>
+      <div id="deck-count" class="t count"></div>
+      <div id="deck-pile"></div>
+      <div id="layer"></div>
+    </div>
+  </div>
+
+  <!-- Lab controls, outside the game screen. -->
+  <div id="dock">
+    <div class="dock-row">
+      <form id="controls">
+        <label>Model <select id="model-pick"></select></label>
+        <label>Seed <input id="seed" type="text" maxlength="8" pattern="[1-9A-Za-z]{1,8}" autocapitalize="characters" spellcheck="false" placeholder="random" title="A Balatro seed: 1-8 characters from 1-9 and A-Z (empty for a random one)"></label>
+        <label>Up to ante <input id="max-ante" type="number" min="1" max="16" value="8"></label>
+        <label>Deck <select id="deck-pick"><option value="">Plain</option></select></label>
+        <label>Stake <select id="stake-pick"></select></label>
+        <button type="submit" class="btn deal">Deal a run</button>
+      </form>
+      <div class="timeline">
+        <button class="btn icon" data-act="first" title="First (Home)">⏮</button>
+        <button class="btn icon" data-act="prev" title="Previous (←)">◀</button>
+        <button class="btn icon play" data-act="play" title="Play / pause (space)">▶</button>
+        <button class="btn icon" data-act="next" title="Next (→)">▶|</button>
+        <button class="btn icon" data-act="last" title="Last (End)">⏭</button>
+        <input type="range" id="scrub" min="0" max="0" value="0" aria-label="Step">
+        <div class="speed" role="radiogroup" aria-label="Speed">
+          <button data-speed="0.5" aria-checked="false">½×</button>
+          <button data-speed="1" aria-checked="true">1×</button>
+          <button data-speed="2" aria-checked="false">2×</button>
+          <button data-speed="4" aria-checked="false">4×</button>
+        </div>
+      </div>
+    </div>
+    <div class="dock-row">
+      <span id="run-label" class="run-label"></span>
+      <span id="run-result" class="run-result"></span>
+      <span id="step-label" class="step-label">—</span>
+      <span id="banner" class="banner">Deal a run to watch the bot play.</span>
+      <a class="dock-link" href="seed.html">Seed Finder</a>
+      <a class="dock-link plan-link" href="plan.html">Seed Planner</a>
+      <a class="dock-link plan-link" href="evolve.html">Evolution</a>
+      <a class="dock-link plan-link" href="play.html">Play</a>
+    </div>
+    <details class="picker">
+      <summary>Starting jokers <span id="picked-count">(0/5)</span> · score log</summary>
+      <div class="picker-grid" id="picker"></div>
+      <ol class="score-log" id="score-log"></ol>
+    </details>
+    <p class="credits">Font: <a href="https://managore.itch.io/m6x11">m6x11</a> by Daniel Linssen. Art from Balatro
+      (LocalThunk / Playstack). H hides this panel.</p>
+  </div>
+  <div class="tooltip" id="tooltip" hidden></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flame Test</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* A check of the score flames (flames.js, the game's shader): the real hand panel at a few scores, side by side,
+       each lit at load and held, so they can be set against the game. */
+    body { margin: 0; background: #1d2b2c; color: #e8e8e8; font: 16px sans-serif; }
+    #row { display: flex; flex-wrap: wrap; gap: 24px; padding: 24px 16px; }
+    .cell { position: relative; width: 413px; }
+    .cell .stage { position: relative; height: 230px; }
+    .cell .stage #sidebar { left: 0; top: 0; width: 420px; height: 230px; border: 0; }
+    .cell .stage #hand-box { top: 14px; }
+    .cell p { margin: 6px 0 0; }
+    #controls { padding: 0 16px; }
+  </style>
+</head>
+<body>
+  <div id="controls">
+    <label>Scores <input id="scores" value="300 900 6072 50000 1000000" size="40"></label>
+    <button id="go">Light again</button>
+    <span>Each flame flares and settles as in the game (about 1 s to its peak).</span>
+  </div>
+  <div id="row"></div>
+  <script type="module">
+    import { makeFlames } from "./flames.js";
+    const row = document.getElementById("row");
+    function light() {
+      row.replaceChildren();
+      for (const s of document.getElementById("scores").value.split(/\s+/).map(Number).filter((x) => x > 0)) {
+        const cell = document.createElement("div");
+        cell.className = "cell";
+        cell.innerHTML = `<div class="stage"><aside id="sidebar"><div id="hand-box" class="bx">
+            <div id="hand-name-row"><span id="hand-name" class="t">Full House</span></div>
+            <div id="chips-box" class="bx"><span id="chips" class="t">${Math.round(s / 10)}</span></div>
+            <span id="times" class="t">X</span>
+            <div id="mult-box" class="bx"><span id="mult" class="t">10</span></div>
+          </div></aside></div><p>score ${s.toLocaleString()}</p>`;
+        row.append(cell);
+        makeFlames(cell.querySelector("#hand-box")).ignite(s);
+      }
+    }
+    document.getElementById("go").addEventListener("click", light);
+    light();
+  </script>
+</body>
+</html>

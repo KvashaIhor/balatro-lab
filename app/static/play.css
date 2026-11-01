@@ -1,0 +1,92 @@
+/* The Play tab (play.html): the run viewer's screen (style.css) with the person's controls, and a side panel. */
+:root { --side-w: 380px; }
+#viewport { right: var(--side-w); }
+#side { position: fixed; top: 0; right: 0; bottom: var(--dock-h, 0px); width: var(--side-w); overflow: auto; z-index: 4;
+  padding: 10px 12px; display: grid; gap: 14px; align-content: start; background: rgba(16, 20, 26, 0.95);
+  border-left: 2px solid #2b3036; font-family: var(--font); font-size: 18px; color: #e8ecec; }
+#side h2 { margin: 0 0 6px; font-size: 22px; font-weight: normal; color: var(--money); }
+#side section { display: grid; gap: 6px; }
+.muted { color: #9aa6a8; } .small { font-size: 15px; margin: 0; }
+.toggle { display: flex; gap: 8px; align-items: center; cursor: pointer; }
+#hint[hidden] { display: none; }
+#hint { display: grid; gap: 6px; padding: 8px; border-radius: 8px; background: #1b2526; }
+#hint .choice { font-size: 20px; color: #fff; }
+#hint ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; font-size: 16px; }
+#hint li { display: flex; justify-content: space-between; gap: 10px; }
+#hint li b { font-weight: normal; color: var(--money); }
+#hint button { justify-self: start; }
+#hint details > summary { display: flex; justify-content: space-between; gap: 10px; cursor: pointer; list-style: none; }
+#hint details > summary::-webkit-details-marker { display: none; }
+#hint details > summary span::before { content: "▸ "; color: #8aa; }
+#hint details[open] > summary span::before { content: "▾ "; }
+#hint details > summary b { font-weight: normal; color: var(--money); }
+#hint .steps { list-style: none; margin: 2px 0 6px 16px; padding: 0; display: grid; gap: 1px; font-size: 14px; color: #b9c7c8; }
+#hint .steps li b { color: #d6e2e3; }
+.events { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; font-size: 16px; max-height: 22vh; overflow: auto; }
+.timeline-list { list-style: none; margin: 0; padding: 0; max-height: 34vh; overflow: auto; font-size: 15px; }
+.timeline-list li { display: grid; grid-template-columns: 38px 1fr; gap: 6px; padding: 2px 4px; border-radius: 4px; cursor: pointer; }
+.timeline-list li:hover { background: #2b3036; }
+.timeline-list li .n { color: #9aa6a8; text-align: right; }
+.timeline-list li.differs .text::after { content: "  ≠ bot"; color: #ff8a80; }
+.timeline-list li.aside { font-size: 13px; color: #8b9597; }                 /* sorting the hand: not a choice */
+.timeline-list li.ahead { opacity: 0.5; font-style: italic; }                /* after the cursor: the line ahead */
+.timeline-list li.next { opacity: 0.85; box-shadow: inset 4px 0 0 var(--money); background: #22292b; }
+.line-nav { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.line-nav .btn:disabled { opacity: 0.4; cursor: default; }
+.timeline-list li.ante-start { border-top: 1px solid #3a4048; margin-top: 4px; padding-top: 4px; }
+#branch-pick { font: inherit; color: inherit; background: #2b3036; border: 1px solid #44494f; border-radius: 4px; padding: 3px 6px; }
+#new-game { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+#new-game input, #new-game select, .saved select { font: inherit; color: inherit; background: #2b3036; border: 1px solid #44494f; border-radius: 4px; padding: 2px 6px; width: 110px; }
+.saved select { width: 260px; }
+
+/* the person's controls: picks rise on the board (board.js), the game's own buttons there take clicks, and the
+   tabs that act on a pick sit over it (#controls), hidden while a move plays out */
+#controls { position: absolute; inset: 0; z-index: 250; pointer-events: none; }
+#controls > * { pointer-events: auto; }
+body.animating #controls { display: none; }
+body.play #layer [data-key] { cursor: pointer; }
+body.play #layer > .group .button-play, body.play #layer > .group .button-discard, body.play #layer > .group .sort-pick,
+body.play #layer > .group .shop-button, body.play #layer > .group #pack-skip { pointer-events: auto; cursor: pointer; }
+body.play #layer .button-discard.off { filter: grayscale(1) brightness(0.65); }
+body.play #layer .sort-pick.active { transform: translateY(3px); filter: brightness(1.25); }   /* the hand's sort mode */
+body.animating #layer [data-key], body.animating #layer > .group * { cursor: default; }
+/* a move waiting for its button, as the game waits: the cash-out panel's Cash Out, the boss blind's Select */
+body.play.holding-cash #layer > .group .cash-button { pointer-events: auto; cursor: pointer; animation: live 0.9s ease-in-out infinite; }
+body.play.holding-select #layer .sel-select { cursor: pointer; animation: live 0.9s ease-in-out infinite; }
+@keyframes live { 50% { filter: brightness(1.2); } }
+.act-btn { position: relative; padding: 10px 16px 7px; border-radius: 10px; font-size: 32px; cursor: pointer; user-select: none;
+  background: var(--chips); box-shadow: 0 5px 0 var(--chips-lip); }
+#controls > .act-btn { position: absolute; white-space: nowrap; }
+.act-btn.green { background: #35bd86; box-shadow: 0 5px 0 #23825b; }
+.act-btn.red { background: var(--mult); box-shadow: 0 5px 0 var(--mult-lip); }
+.act-btn.orange { background: var(--orange); box-shadow: 0 5px 0 var(--orange-lip); }
+.act-btn.off { filter: grayscale(1) brightness(0.65); cursor: default; }
+.hand-buttons .bx { cursor: pointer; }
+.hand-buttons .sort-box { cursor: default; }
+.shop-button, #pack-skip { cursor: pointer; }
+.sel-select, .sel-skip-button { cursor: pointer; }
+#chips.est, #mult.est { font-size: 48px; }
+/* why the picked cards score nothing (a boss's rule, debuffs): in place of chips x mult, or a line under the hand's name */
+#hand-why { position: absolute; left: 15px; top: 103px; width: 384px; height: 88px; box-sizing: border-box; padding: 0 12px;
+  display: grid; place-items: center; text-align: center; white-space: normal; font-size: 30px; line-height: 1.05;
+  color: #fff; border-radius: 12px; background: rgba(0, 0, 0, 0.35); }
+#hand-why.small { top: 76px; height: 26px; padding: 0; font-size: 22px; background: none; color: #ffb3a8; }
+#hand-box.why #chips-box, #hand-box.why #mult-box, #hand-box.why #times { visibility: hidden; }
+.flash { position: absolute; left: 1046px; top: 560px; transform: translateX(-50%); z-index: 400; max-width: 900px; white-space: normal; text-align: center;
+  padding: 14px 22px 10px; border-radius: 12px; background: #1b2526; border: 3px solid var(--mult); font-size: 36px; }
+.prompt { position: absolute; left: 1046px; top: 380px; transform: translateX(-50%); z-index: 200; display: grid; justify-items: center; gap: 22px;
+  width: 760px; padding: 30px 30px 34px; border-radius: 16px; background: #1b2526; border: 4px solid var(--orange); }
+.prompt .t.title { font-size: 64px; }
+.prompt .t.body { font-size: 32px; white-space: normal; text-align: center; color: #e7ecec; }
+.prompt .row { display: flex; gap: 18px; }
+.events li.bad { color: #ff8a80; }
+body.busy, body.busy * { cursor: progress !important; }
+/* cards in hand are dragged to reorder them (play.js): never a text selection or an image drag */
+#game { user-select: none; -webkit-user-select: none; }
+#game img { -webkit-user-drag: none; }
+body.play #layer [data-key^="c"] { cursor: grab; }
+.endless-button { position: relative; padding: 18px 40px; border-radius: 12px; cursor: pointer; }
+.endless-button .t { font-size: 40px; color: #fff; }
+
+/* the rest of the bot's plan, under its first step */
+#hint .plan-line { color: #f6b245; font-size: 15px; margin: 2px 0 6px; }

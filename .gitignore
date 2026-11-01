@@ -1,0 +1,13 @@
+.pytest_cache/
+__pycache__/
+logs/
+ref/
+ref/out/
+runs/
+.DS_Store
+seedfinder/fastcheck
+seedfinder/table
+seedfinder/rainbow
+seedfinder/gpu_probe
+seedfinder/logs/
+seedfinder/tables/

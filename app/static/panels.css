@@ -1,0 +1,123 @@
+/* The run viewer's interactive screens (panels.js), in game pixels, matched to gameplay footage. */
+
+/* ---- tooltips: a grey panel, the name, a white box with the game's colours, rarity and edition pills ---- */
+.gtip { position: absolute; z-index: 300; pointer-events: none; }
+.gt { display: grid; justify-items: center; gap: 8px; min-width: 230px; max-width: 340px; padding: 10px 12px 12px;
+  background: #3d4749; border: 4px solid #c8d0d0; border-radius: 16px; box-shadow: 0 6px 0 rgba(0, 0, 0, 0.35); }
+.gt-name { font-size: 36px; color: #fff; }
+.gt-desc { width: 100%; padding: 8px 12px; border-radius: 10px; background: #fff; color: #4a5658; font: 25px/1.15 var(--font);
+  text-align: center; white-space: normal; }
+.gt-desc.small { font-size: 22px; }
+.gt-now { margin-top: 4px; color: #9aa6a8; }
+.gt-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.gt-pill { padding: 5px 20px 4px; border-radius: 10px; font-size: 24px; color: #fff; background: #009dff; box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3); }
+.gt-pill.common { background: #009dff; } .gt-pill.uncommon { background: #4bc292; } .gt-pill.rare { background: #fe5f55; }
+.gt-pill.legendary { background: #b26cbb; } .gt-pill.tarot { background: #a782d1; } .gt-pill.planet { background: #13afce; }
+.gt-pill.spectral { background: #4584fa; } .gt-pill.voucher { background: #fd682b; } .gt-pill.pack { background: #c94e48; }
+.gt-pill.edition { background: #6c7f82; } .gt-pill.sticker { background: #3d4b4e; }
+.gt-card { min-width: 0; padding: 6px; gap: 6px; background: #3d4749; border-color: #b9c3c3; border-radius: 14px; }
+.gt-card .gt-tag { padding: 5px 16px 4px; border-radius: 10px; background: #fff; color: #4a5658; font-size: 28px; text-shadow: none; }
+.gt-card .gt-desc { font-size: 24px; }
+.k-mult { color: var(--mult); } .k-chips { color: var(--chips); } .k-money { color: var(--money); } .k-odds { color: #35bd86; }
+.k-hand { color: var(--orange); } .k-xmult { padding: 0 5px; border-radius: 5px; background: var(--mult); color: #fff; }
+.k-spade { color: var(--spades); } .k-heart { color: var(--hearts); } .k-club { color: var(--clubs); } .k-diamond { color: var(--diamonds); }
+.k-seal.gold { color: #d7a339; } .k-seal.red { color: var(--mult); } .k-seal.blue { color: var(--chips); } .k-seal.purple { color: #8a59a5; }
+
+/* what can be opened or inspected */
+#run-info, #deck-pile { cursor: pointer; }
+#layer [data-key] { cursor: help; }
+
+/* ---- full-screen panels: dimmed board, a framed panel, red tabs (a marker over the open one), Back ---- */
+#overlay { position: absolute; inset: 0; z-index: 250; background: rgba(8, 14, 16, 0.6); }
+.ov-panel { position: absolute; background: #3a5055; border: 6px solid #c1cbcb; border-radius: 24px; box-shadow: 0 10px 0 rgba(0, 0, 0, 0.45); }
+.ov-tabs { position: absolute; left: 0; right: 0; top: 44px; display: flex; justify-content: center; gap: 16px; }
+.ov-tab { position: relative; padding: 16px 24px 12px; border-radius: 12px; background: var(--mult); box-shadow: 0 6px 0 var(--mult-lip);
+  font-size: 40px; cursor: pointer; }
+.ov-tab.on::before { content: ""; position: absolute; left: 50%; top: -34px; margin-left: -13px; border: 13px solid transparent;
+  border-top: 18px solid var(--mult); }
+.ov-back { position: absolute; left: 18px; right: 18px; bottom: 22px; height: 64px; display: grid; place-items: center;
+  border-radius: 12px; background: var(--orange); box-shadow: 0 6px 0 var(--orange-lip); font-size: 40px; cursor: pointer; }
+.ov-body { position: absolute; inset: 0; }
+
+/* Run Info: poker hands */
+.ri { left: 470px; top: 78px; width: 980px; height: 912px; }
+.ri-hands { position: absolute; left: 52px; right: 52px; top: 205px; display: grid; gap: 13px; }
+.ri-row { display: grid; grid-template-columns: 130px 1fr 222px 46px 70px; align-items: center; height: 50px; padding: 0 4px;
+  border-radius: 14px; background: #8d9a9c; box-shadow: 0 4px 0 #5d6b6d; cursor: help; }
+.ri-lvl { justify-self: start; padding: 6px 26px 4px; border-radius: 12px; background: #e9eeee; color: #4a5658; font-size: 34px; text-shadow: none; }
+.ri-name { justify-self: center; font-size: 36px; }
+.ri-cm { display: flex; align-items: center; height: 42px; }
+.ri-chips, .ri-mult { flex: 1; height: 42px; display: grid; align-items: center; font-size: 36px; border-radius: 10px; }
+.ri-chips { justify-items: end; padding-right: 8px; background: var(--chips); }
+.ri-mult { justify-items: start; padding-left: 8px; background: var(--mult); }
+.ri-x { color: var(--mult); font-size: 36px; padding: 0 2px; }
+.ri-hash { justify-self: center; font-size: 34px; }
+.ri-n { justify-self: stretch; text-align: center; padding: 4px 0 2px; border-radius: 10px; background: #263335; color: var(--orange); font-size: 34px; }
+/* Run Info: blinds */
+.ri-blinds-wrap { position: absolute; left: 40px; right: 40px; top: 190px; bottom: 120px; }
+.ri-ante { text-align: center; font-size: 34px; color: #d6dddd; margin-bottom: 14px; }
+.ri-blinds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.ri-blind { display: grid; justify-items: center; align-content: start; gap: 12px; min-height: 520px; padding: 16px 14px;
+  border-radius: 16px; background: #26393c; box-shadow: 0 6px 0 rgba(0, 0, 0, 0.35); }
+.ri-blind.current { outline: 4px solid var(--orange); }
+.ri-blind.defeated { opacity: 0.55; }
+.ri-state { padding: 6px 18px 4px; border-radius: 10px; background: var(--orange); font-size: 28px; }
+.ri-blind.defeated .ri-state { background: #5d6b6d; }
+.ri-blind.upcoming .ri-state { background: #4e5d60; }
+.ri-bname { font-size: 34px; }
+.ri-chip { width: 120px; height: 120px; }
+.ri-score { display: grid; justify-items: center; gap: 6px; font-size: 26px; padding: 10px 14px; border-radius: 12px; background: #1b2829; }
+.ri-target { display: flex; align-items: center; gap: 8px; font-size: 44px; color: var(--mult); }
+.ri-effect { padding: 8px 10px; border-radius: 10px; background: #fff; color: #4a5658; font: 23px/1.15 var(--font); text-align: center; white-space: normal; }
+/* Run Info: vouchers */
+.ri-vouchers { position: absolute; left: 50px; right: 50px; top: 210px; display: flex; flex-wrap: wrap; justify-content: center; gap: 26px; }
+.ri-voucher { display: grid; justify-items: center; gap: 8px; width: 190px; }
+.ri-voucher .voucher-art { position: relative; cursor: help; }
+.ri-vname { font-size: 26px; text-align: center; white-space: normal; }
+.ri-none { margin-top: 140px; font-size: 36px; color: #b7c1c2; }
+
+/* the deck */
+.dv { left: 165px; top: 62px; width: 1590px; height: 935px; }
+.dv-side { position: absolute; left: 40px; top: 145px; width: 250px; display: grid; gap: 16px; }
+.dv-deck, .dv-base, .dv-ranks, .dv-rows { border-radius: 16px; background: #1f2d2f; }
+.dv-deck { display: grid; justify-items: center; gap: 12px; padding: 14px; }
+.dv-name { font-size: 40px; }
+.dv-eff { width: 100%; padding: 14px 10px; border-radius: 10px; background: #fff; color: #4a5658; font: 26px/1.15 var(--font); text-align: center; white-space: normal; }
+.dv-base { padding: 12px; display: grid; gap: 10px; justify-items: center; }
+.dv-title { color: var(--mult); font-size: 32px; }
+.dv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px 10px; width: 100%; }
+.dv-count { display: grid; justify-items: center; gap: 4px; font-size: 30px; }
+.dv-icon { display: grid; place-items: center; min-width: 52px; height: 48px; padding: 0 6px; border-radius: 10px; background: #d9e0e0; color: #4a5658;
+  font-size: 30px; text-shadow: none; }
+.dv-icon.spades { color: var(--spades); } .dv-icon.hearts { color: var(--hearts); } .dv-icon.clubs { color: var(--clubs); } .dv-icon.diamonds { color: var(--diamonds); }
+.dv-stones { font-size: 24px; color: #c3cdcd; }
+.dv-ranks { position: absolute; left: 305px; top: 145px; width: 96px; padding: 8px 10px; display: grid; gap: 1px; }
+.dv-rank { display: grid; grid-template-columns: 40px 1fr; align-items: center; font-size: 32px; height: 44px; }
+.dv-r { display: grid; place-items: center; height: 38px; border-radius: 19px; background: #3c4e51; font-size: 28px; color: #d9e0e0; }
+.dv-rank > :last-child { text-align: right; }
+.dv-rows { position: absolute; left: 420px; top: 145px; width: 1130px; height: 640px; }
+.dv-card { position: absolute; transform: scale(0.78); transform-origin: 0 0; cursor: help; }
+.dv-card.gone { opacity: 0.32; filter: saturate(0.4); }
+.dv-total { position: absolute; left: 420px; top: 800px; width: 1130px; text-align: center; font-size: 30px; color: #c3cdcd; }
+
+/* "Choose your next Blind" (app.js selectCards): tall cards rising from the bottom, the next one raised */
+.sel-card { position: absolute; left: 0; top: 0; width: 300px; height: 800px; display: grid; justify-items: center; align-content: start; gap: 14px; padding: 26px 22px;
+  background: #2c3a3d; border: 6px solid #3f5054; border-radius: 18px; box-shadow: 0 8px 0 rgba(0, 0, 0, 0.35); }
+.sel-card.active { border-color: var(--orange); }
+.sel-card.boss { border-color: var(--blind); }
+.sel-card.defeated, .sel-card.skipped, .sel-card.upcoming { filter: brightness(0.7); }
+.sel-select { width: 230px; padding: 10px 0 8px; text-align: center; border-radius: 12px; background: var(--orange); box-shadow: 0 6px 0 var(--orange-lip); font-size: 40px; }
+.sel-state { width: 230px; padding: 10px 0 8px; text-align: center; border-radius: 12px; background: #4a5a5d; color: #9aa6a8; font-size: 36px; }
+.sel-card.skipped .sel-state { background: #5c4f2a; color: #e8c871; }
+.sel-name { width: 245px; padding: 8px 0 6px; text-align: center; border-radius: 12px; background: color-mix(in srgb, var(--blind) 45%, #1d2b2c);
+  border: 3px solid color-mix(in srgb, var(--blind) 70%, #000); font-size: 36px; }
+.sel-chip { width: 116px; height: 116px; }
+.sel-effect { white-space: normal; text-align: center; font-size: 25px; line-height: 1.15; color: #e7ecec; }
+.sel-score { display: grid; justify-items: center; gap: 6px; width: 255px; padding: 12px 8px; border-radius: 12px; background: #1b2829; font-size: 26px; }
+.sel-target { display: flex; align-items: center; gap: 8px; font-size: 50px; color: var(--mult); }
+.sel-or { font-size: 40px; }
+.sel-skip { display: flex; align-items: center; gap: 12px; padding: 10px; border-radius: 12px; background: #1b2829; }
+.sel-tag { width: 62px; height: 62px; cursor: help; }
+.sel-skip-button { padding: 14px 18px 12px; border-radius: 12px; background: var(--mult); box-shadow: 0 5px 0 var(--mult-lip); font-size: 34px; }
+.sel-ante { text-align: center; font-size: 28px; line-height: 1.2; color: #c3cdcd; margin-top: 10px; }
+.sel-ante b { color: var(--orange); font-weight: normal; font-size: 38px; }

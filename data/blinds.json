@@ -1,0 +1,337 @@
+{
+  "source": [
+    "https://balatrowiki.org/w/Blinds_and_Antes",
+    "https://balatrowiki.org/w/Small_Blind",
+    "https://balatrowiki.org/w/Big_Blind",
+    "https://balatrowiki.org/w/Stakes",
+    "https://balatrowiki.org/w/Money",
+    "https://balatrowiki.org/w/Interest",
+    "https://balatrowiki.org/w/Hands",
+    "https://balatrowiki.org/w/Discards",
+    "https://balatrowiki.org/w/Hand_size",
+    "https://balatrowiki.org/w/Joker_slot",
+    "https://balatrowiki.org/w/Consumable_slot",
+    "https://balatrowiki.org/w/Skip",
+    "https://balatrowiki.org/w/Tags",
+    "https://balatrowiki.org/w/Plasma_Deck",
+    "https://balatrowiki.org/w/Green_Deck",
+    "https://balatrowiki.org/w/Module:Ante_Table",
+    "https://balatrowiki.org/w/Module:Blind_Score",
+    "https://balatrowiki.org/w/The_Wall",
+    "https://balatrowiki.org/w/Violet_Vessel",
+    "https://balatrowiki.org/w/The_Needle"
+  ],
+  "fetched": "2026-10-25",
+  "game_version": "1.0.1o-FULL (current per Template:CurrentVersion on balatrowiki.org)",
+  "ante_base_chips": {
+    "note": "Base chip requirement ('base') per ante. Antes <= 0 (reachable only via Hieroglyph/Petroglyph) use 100. Plasma Deck doubles every requirement (ante_scaling = 2) on top of the stake table.",
+    "scaling_1_white_red": {
+      "0": 100,
+      "1": 300,
+      "2": 800,
+      "3": 2000,
+      "4": 5000,
+      "5": 11000,
+      "6": 20000,
+      "7": 35000,
+      "8": 50000
+    },
+    "scaling_2_green_black_blue": {
+      "0": 100,
+      "1": 300,
+      "2": 900,
+      "3": 2600,
+      "4": 8000,
+      "5": 20000,
+      "6": 36000,
+      "7": 60000,
+      "8": 100000
+    },
+    "scaling_3_purple_orange_gold": {
+      "0": 100,
+      "1": 300,
+      "2": 1000,
+      "3": 3200,
+      "4": 9000,
+      "5": 25000,
+      "6": 60000,
+      "7": 110000,
+      "8": 200000
+    },
+    "which_table": {
+      "White": 1,
+      "Red": 1,
+      "Green": 2,
+      "Black": 2,
+      "Blue": 2,
+      "Purple": 3,
+      "Orange": 3,
+      "Gold": 3
+    }
+  },
+  "endless_formula": {
+    "applies_to": "ante >= 9 (Endless Mode, after winning ante 8)",
+    "formula": "raw = A8 * (1.6 + (0.75 * c) ** (1 + 0.2 * c)) ** c, with c = ante - 8 and A8 = that stake table's ante-8 value; amount = floor(raw); then truncate to 2 significant digits: amount -= amount % 10**(floor(log10(amount)) - 1)",
+    "rounding": "Truncation (floor) to two significant figures. The wiki says 'rounded to two significant digits' but its own table (e.g. ante 9 white: raw 115,405 -> 110,000) shows truncation.",
+    "python": "def base(ante, a8):\n    c = ante - 8\n    amt = math.floor(a8 * (1.6 + (0.75*c)**(1 + 0.2*c))**c)\n    return amt - amt % 10**(math.floor(math.log10(amt)) - 1)",
+    "overflow": "From ante 39 the requirement exceeds the double-precision max (~1.8e308) and becomes nan; nan cannot be beaten, so ante 39 is effectively the end of Endless.",
+    "verified": "Formula reproduces the wiki table exactly for antes 9-12 at all three scalings (checked by script)."
+  },
+  "full_table_antes_0_to_39": {
+    "scaling_1_white_red": {
+      "0": 100,
+      "1": 300,
+      "2": 800,
+      "3": 2000,
+      "4": 5000,
+      "5": 11000,
+      "6": 20000,
+      "7": 35000,
+      "8": 50000,
+      "9": 110000,
+      "10": 560000,
+      "11": 7200000,
+      "12": 300000000,
+      "13": 47000000000,
+      "14": 29000000000000.0,
+      "15": 7.7e+16,
+      "16": 8.6e+20,
+      "17": 4.2e+25,
+      "18": 9.2e+30,
+      "19": 9.2e+36,
+      "20": 4.3e+43,
+      "21": 9.7e+50,
+      "22": 1e+59,
+      "23": 5.8e+67,
+      "24": 1.6e+77,
+      "25": 2.4e+87,
+      "26": 1.9e+98,
+      "27": 8.4e+109,
+      "28": 2e+122,
+      "29": 2.7e+135,
+      "30": 2.1e+149,
+      "31": 9.9e+163,
+      "32": 2.7e+179,
+      "33": 4.4e+195,
+      "34": 4.4e+212,
+      "35": 2.8e+230,
+      "36": 1.1e+249,
+      "37": 2.7e+268,
+      "38": 4.5e+288,
+      "39": "4.8e309 (overflows to nan)"
+    },
+    "scaling_2_green_black_blue": {
+      "0": 100,
+      "1": 300,
+      "2": 900,
+      "3": 2600,
+      "4": 8000,
+      "5": 20000,
+      "6": 36000,
+      "7": 60000,
+      "8": 100000,
+      "9": 230000,
+      "10": 1100000,
+      "11": 14000000,
+      "12": 600000000,
+      "13": 94000000000,
+      "14": 58000000000000.0,
+      "15": 1.5e+17,
+      "16": 1.7e+21,
+      "17": 8.4e+25,
+      "18": 1.8e+31,
+      "19": 1.8e+37,
+      "20": 8.6e+43,
+      "21": 1.9e+51,
+      "22": 2.1e+59,
+      "23": 1.1e+68,
+      "24": 3.3e+77,
+      "25": 4.9e+87,
+      "26": 3.9e+98,
+      "27": 1.6e+110,
+      "28": 4e+122,
+      "29": 5.5e+135,
+      "30": 4.3e+149,
+      "31": 1.9e+164,
+      "32": 5.4e+179,
+      "33": 8.9e+195,
+      "34": 8.9e+212,
+      "35": 5.6e+230,
+      "36": 2.2e+249,
+      "37": 5.5e+268,
+      "38": 9e+288,
+      "39": "9.6e309 (overflows)"
+    },
+    "scaling_3_purple_orange_gold": {
+      "0": 100,
+      "1": 300,
+      "2": 1000,
+      "3": 3200,
+      "4": 9000,
+      "5": 25000,
+      "6": 60000,
+      "7": 110000,
+      "8": 200000,
+      "9": 460000,
+      "10": 2200000,
+      "11": 29000000,
+      "12": 1200000000,
+      "13": 180000000000.0,
+      "14": 110000000000000.0,
+      "15": 3e+17,
+      "16": 3.4e+21,
+      "17": 1.6e+26,
+      "18": 3.7e+31,
+      "19": 3.7e+37,
+      "20": 1.7e+44,
+      "21": 3.8e+51,
+      "22": 4.2e+59,
+      "23": 2.3e+68,
+      "24": 6.6e+77,
+      "25": 9.8e+87,
+      "26": 7.8e+98,
+      "27": 3.3e+110,
+      "28": 8.1e+122,
+      "29": 1.1e+136,
+      "30": 8.6e+149,
+      "31": 3.9e+164,
+      "32": 1e+180,
+      "33": 1.7e+196,
+      "34": 1.7e+213,
+      "35": 1.1e+231,
+      "36": 4.4e+249,
+      "37": 1.1e+269,
+      "38": 1.8e+289,
+      "39": "1.9e310 (overflows)"
+    }
+  },
+  "blind_types": {
+    "Small Blind": {
+      "key": "bl_small",
+      "chip_mult": 1,
+      "reward": 3,
+      "skippable": true,
+      "notes": "No reward money on Red Stake and above."
+    },
+    "Big Blind": {
+      "key": "bl_big",
+      "chip_mult": 1.5,
+      "reward": 4,
+      "skippable": true
+    },
+    "Boss Blind": {
+      "chip_mult": 2,
+      "reward": 5,
+      "skippable": false,
+      "exceptions": {
+        "The Wall": 4,
+        "The Needle": 1,
+        "Violet Vessel": 6
+      },
+      "notes": "See bosses.json. Disabling The Wall / Violet Vessel (Chicot, Luchador) drops the requirement back to 2x base; a disabled Needle stays at 1x."
+    },
+    "Showdown Blind": {
+      "chip_mult": 2,
+      "reward": 8,
+      "skippable": false,
+      "antes": "every ante that is a multiple of 8 (8, 16, 24, 32)",
+      "exceptions": {
+        "Violet Vessel": 6
+      }
+    }
+  },
+  "required_score": "required = base(ante, stake table) * blind chip_mult * deck ante_scaling (Plasma = 2, others 1). You win the blind when total round score >= required.",
+  "run_structure": {
+    "start_ante": 1,
+    "win_ante": 8,
+    "blinds_per_ante": [
+      "Small Blind",
+      "Big Blind",
+      "Boss Blind"
+    ],
+    "ante_increase": "Ante goes up by 1 each time a Boss Blind is defeated.",
+    "endless": "After beating the ante-8 Showdown Blind the run is won; the player may continue (Endless) from ante 9.",
+    "loss": "If a round's hands run out before the requirement is met the run is lost (Mr. Bones saves once if score >= 25% of requirement; no blind reward then)."
+  },
+  "money_rules": {
+    "starting_money": 4,
+    "blind_rewards": {
+      "Small": 3,
+      "Big": 4,
+      "Boss": 5,
+      "Showdown": 8,
+      "Small_on_Red_Stake_and_above": 0
+    },
+    "per_remaining_hand": 1,
+    "per_remaining_discard": 0,
+    "green_deck_override": {
+      "per_remaining_hand": 2,
+      "per_remaining_discard": 1,
+      "interest": false
+    },
+    "interest": {
+      "rule": "interest = interest_amount * min(floor(money / 5), cap / 5); money measured at end of round before cash-out payouts (Gold cards, Reserved Parking etc. that pay during the round DO count; Golden Joker/Rocket etc. paid at cash-out do NOT).",
+      "per_5_dollars": 1,
+      "default_cap_dollars": 5,
+      "money_needed_for_cap": 25,
+      "Seed Money": {
+        "cap_dollars": 10,
+        "money_needed": 50
+      },
+      "Money Tree": {
+        "cap_dollars": 20,
+        "money_needed": 100
+      },
+      "To the Moon": "joker: +1 to interest_amount (an extra $1 per $5 held), cap on number of $5 blocks unchanged",
+      "no_interest": [
+        "Green Deck"
+      ],
+      "negative_money": "no interest when money < 5 (including debt)"
+    },
+    "cash_out_order": [
+      "blind reward",
+      "remaining hands ($1 each; Green Deck $2 + $1 per discard)",
+      "joker end-of-round money (Golden Joker, Cloud 9, Rocket, Satellite, Delayed Gratification...)",
+      "Investment Tag ($25, boss only)",
+      "interest"
+    ],
+    "end_of_round_before_cash_out": [
+      "Gold cards held in hand ($3 each, retriggerable)",
+      "Blue Seal planets",
+      "Rental charges ($3 per rental joker)",
+      "Perishable countdown",
+      "Egg/Gift Card sell value growth"
+    ],
+    "skipped_blinds_pay": "Skipping a blind gives its tag but no reward money and no shop visit."
+  },
+  "defaults": {
+    "hands_per_round": 4,
+    "discards_per_round": 3,
+    "hand_size": 8,
+    "joker_slots": 5,
+    "consumable_slots": 2,
+    "shop_reroll_base_cost": 5,
+    "deck_size": 52,
+    "min_hands_per_round": 1,
+    "max_cards_per_play_or_discard": 5,
+    "notes": [
+      "Blue Stake and above: -1 discard (2 by default).",
+      "A round always starts with at least 1 hand even if modifiers would reduce it to 0.",
+      "Hand size <= 0 when a blind starts is an instant loss.",
+      "Deck modifiers in decks.json, voucher modifiers in vouchers.json."
+    ]
+  },
+  "skip_rules": {
+    "skippable": [
+      "Small Blind",
+      "Big Blind"
+    ],
+    "not_skippable": [
+      "Boss Blind (incl. Showdown)"
+    ],
+    "reward": "Each Small/Big Blind displays one random tag (rolled when the ante starts); skipping that blind grants that tag. Both can be skipped in the same ante.",
+    "cost": "No blind reward money, no shop after a skipped blind, no hands played that round.",
+    "tag_trigger_order": "Held tags resolve oldest first.",
+    "avoid_boss": "Bosses can only be rerolled (Director's Cut/Retcon, $10 each, or Boss Tag) or disabled (Chicot, Luchador)."
+  }
+}

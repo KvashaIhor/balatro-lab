@@ -1,0 +1,383 @@
+{
+  "source": [
+    "https://balatrowiki.org/w/Blinds_and_Antes",
+    "https://balatrowiki.org/w/The_Hook",
+    "https://balatrowiki.org/w/The_Club",
+    "https://balatrowiki.org/w/The_Psychic",
+    "https://balatrowiki.org/w/The_Goad",
+    "https://balatrowiki.org/w/The_Window",
+    "https://balatrowiki.org/w/The_Manacle",
+    "https://balatrowiki.org/w/The_Pillar",
+    "https://balatrowiki.org/w/The_Head",
+    "https://balatrowiki.org/w/The_Arm",
+    "https://balatrowiki.org/w/The_Fish",
+    "https://balatrowiki.org/w/The_Flint",
+    "https://balatrowiki.org/w/The_House",
+    "https://balatrowiki.org/w/The_Mark",
+    "https://balatrowiki.org/w/The_Mouth",
+    "https://balatrowiki.org/w/The_Needle",
+    "https://balatrowiki.org/w/The_Wall",
+    "https://balatrowiki.org/w/The_Water",
+    "https://balatrowiki.org/w/The_Wheel",
+    "https://balatrowiki.org/w/The_Eye",
+    "https://balatrowiki.org/w/The_Tooth",
+    "https://balatrowiki.org/w/The_Plant",
+    "https://balatrowiki.org/w/The_Serpent",
+    "https://balatrowiki.org/w/The_Ox",
+    "https://balatrowiki.org/w/Amber_Acorn",
+    "https://balatrowiki.org/w/Verdant_Leaf",
+    "https://balatrowiki.org/w/Violet_Vessel",
+    "https://balatrowiki.org/w/Crimson_Heart",
+    "https://balatrowiki.org/w/Cerulean_Bell",
+    "https://github.com/DivvyCr/Balatro-Simulation/blob/main/src/Engine.lua"
+  ],
+  "fetched": "2026-10-25",
+  "game_version": "1.0.1o-FULL (current per Template:CurrentVersion on balatrowiki.org)",
+  "counts": {
+    "regular_bosses": 23,
+    "showdown_bosses": 5,
+    "total": 28
+  },
+  "selection_rules": [
+    "One Boss Blind is chosen per ante (when the ante begins); it is shown in advance and can be rerolled with Director's Cut (once per ante, $10), Retcon (unlimited, $10 each) or the Boss Tag.",
+    "If ante is a multiple of 8 (8, 16, 24, 32) only Showdown bosses are eligible; otherwise only regular bosses whose min_ante <= max(1, ante).",
+    "Antes <= 0 are treated as ante 1 for the min_ante check (8 bosses eligible at ante 1: Hook, Club, Psychic, Goad, Window, Manacle, Pillar, Head).",
+    "Among eligible bosses, only those used the FEWEST times so far this run can be picked (uniform random among them). Rerolled-away bosses count as used. So no boss repeats until every eligible one has appeared.",
+    "Rerolling on a multiple-of-8 ante always yields another Showdown boss; elsewhere a regular boss.",
+    "Hieroglyph/Petroglyph do not re-pick the current boss (it may then sit below its min ante); rerolling fixes that.",
+    "Hands that violate a boss restriction (Psychic, Mouth, Eye) can still be played but score 0 and trigger no scoring effects ('Not allowed!')."
+  ],
+  "disable": "Chicot (disables every boss on blind select) and Luchador (sell to disable current boss) remove the boss effect; The Wall/Violet Vessel requirement returns to 2x base, The Needle stays 1x, The Water/Needle/Manacle restore discards/hands/hand size.",
+  "bosses": [
+    {
+      "name": "The Hook",
+      "key": "bl_hook",
+      "effect": "After each hand is played, 2 random cards still held in hand are discarded.",
+      "short": "Discards 2 random held cards after each hand",
+      "min_ante": 1,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": [
+        "Happens when Play is pressed, BEFORE scoring, so those cards do not give held-in-hand effects (inferred from Steel cards page + Balatro-Simulation press_play order).",
+        "Discarded cards trigger discard effects for jokers."
+      ]
+    },
+    {
+      "name": "The Club",
+      "key": "bl_club",
+      "effect": "All Club cards are debuffed.",
+      "min_ante": 1,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": [
+        "Wild cards count as all suits and are debuffed too."
+      ]
+    },
+    {
+      "name": "The Psychic",
+      "key": "bl_psychic",
+      "effect": "A played hand must contain exactly 5 cards; otherwise it scores nothing ('Not allowed').",
+      "short": "A hand must have exactly 5 cards to score",
+      "min_ante": 1,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": [
+        "Non-scoring cards count toward the 5."
+      ]
+    },
+    {
+      "name": "The Goad",
+      "key": "bl_goad",
+      "effect": "All Spade cards are debuffed.",
+      "min_ante": 1,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": []
+    },
+    {
+      "name": "The Window",
+      "key": "bl_window",
+      "effect": "All Diamond cards are debuffed.",
+      "min_ante": 1,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": []
+    },
+    {
+      "name": "The Manacle",
+      "key": "bl_manacle",
+      "effect": "-1 hand size for this round.",
+      "short": "-1 hand size this round",
+      "min_ante": 1,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": []
+    },
+    {
+      "name": "The Pillar",
+      "key": "bl_pillar",
+      "effect": "Cards already played earlier in this ante (during its Small/Big Blind) are debuffed.",
+      "short": "Cards played this ante are debuffed",
+      "min_ante": 1,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": [
+        "Tracking survives Hieroglyph/Petroglyph ante changes."
+      ]
+    },
+    {
+      "name": "The Head",
+      "key": "bl_head",
+      "effect": "All Heart cards are debuffed.",
+      "min_ante": 1,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": []
+    },
+    {
+      "name": "The Arm",
+      "key": "bl_arm",
+      "effect": "Each played hand loses 1 level permanently, applied before it scores (no effect at level 1).",
+      "short": "Each hand played loses a level",
+      "min_ante": 2,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": [
+        "Levels lost stay lost after the round."
+      ]
+    },
+    {
+      "name": "The Fish",
+      "key": "bl_fish",
+      "effect": "Cards drawn after each played hand come in face down.",
+      "short": "Cards drawn after a hand come face down",
+      "min_ante": 2,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": []
+    },
+    {
+      "name": "The Flint",
+      "key": "bl_flint",
+      "effect": "The hand's base chips and base mult (from its level) are halved before card scoring.",
+      "short": "Base chips and mult are halved",
+      "min_ante": 2,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": [
+        "Rounding: chips = max(0, floor(chips/2 + 0.5)), mult = max(1, floor(mult/2 + 0.5)) (i.e. halves round up: High Card 5x1 -> 3x1).",
+        "Applied after 'before/on played' joker effects such as Space Joker level-ups (Balatro-Simulation order; wiki lists it under 'boss effects' at step 1)."
+      ]
+    },
+    {
+      "name": "The House",
+      "key": "bl_house",
+      "effect": "The first hand of the round is dealt face down.",
+      "short": "The first hand is dealt face down",
+      "min_ante": 2,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": []
+    },
+    {
+      "name": "The Mark",
+      "key": "bl_mark",
+      "effect": "All face cards are drawn face down.",
+      "min_ante": 2,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": []
+    },
+    {
+      "name": "The Mouth",
+      "key": "bl_mouth",
+      "effect": "Only the first hand type played this round may be scored; any other hand type scores nothing.",
+      "short": "Only the round's first hand type scores",
+      "min_ante": 2,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": []
+    },
+    {
+      "name": "The Needle",
+      "key": "bl_needle",
+      "effect": "You get only 1 hand this round.",
+      "min_ante": 2,
+      "chip_mult": 1,
+      "reward": 5,
+      "showdown": false,
+      "details": [
+        "Requirement is only 1x base. If disabled, hands are restored but the requirement stays 1x."
+      ]
+    },
+    {
+      "name": "The Wall",
+      "key": "bl_wall",
+      "effect": "Extra large blind: requirement is 4x base.",
+      "short": "Extra large blind",
+      "min_ante": 2,
+      "chip_mult": 4,
+      "reward": 5,
+      "showdown": false,
+      "details": [
+        "Disabled -> back to 2x base."
+      ]
+    },
+    {
+      "name": "The Water",
+      "key": "bl_water",
+      "effect": "Start the round with 0 discards.",
+      "min_ante": 2,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": []
+    },
+    {
+      "name": "The Wheel",
+      "key": "bl_wheel",
+      "effect": "Each card drawn has a 1 in 7 chance to be face down.",
+      "short": "1 in 7 cards drawn come face down",
+      "min_ante": 2,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": [
+        "Listed probability: Oops! All 6s makes it 2 in 7."
+      ]
+    },
+    {
+      "name": "The Eye",
+      "key": "bl_eye",
+      "effect": "Each hand type may be scored only once this round; repeats score nothing.",
+      "short": "Each hand type scores only once this round",
+      "min_ante": 3,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": []
+    },
+    {
+      "name": "The Tooth",
+      "key": "bl_tooth",
+      "effect": "Lose $1 for every card played (scoring or not); can push money below $0.",
+      "short": "Lose $1 for every card played",
+      "min_ante": 3,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": [
+        "Charged when Play is pressed, before scoring."
+      ]
+    },
+    {
+      "name": "The Plant",
+      "key": "bl_plant",
+      "effect": "All face cards (J, Q, K, and everything with Pareidolia) are debuffed.",
+      "short": "All face cards are debuffed",
+      "min_ante": 4,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": []
+    },
+    {
+      "name": "The Serpent",
+      "key": "bl_serpent",
+      "effect": "After every play or discard, always draw exactly 3 cards (regardless of how many were used).",
+      "short": "Always draw 3 cards after a play or discard",
+      "min_ante": 5,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": []
+    },
+    {
+      "name": "The Ox",
+      "key": "bl_ox",
+      "effect": "Playing the run's most played poker hand sets your money to $0.",
+      "short": "Playing the most played hand sets money to $0",
+      "min_ante": 6,
+      "chip_mult": 2,
+      "reward": 5,
+      "showdown": false,
+      "details": [
+        "'Most played hand' is fixed when the ante starts; ties broken randomly (wiki marks tie rule as needing verification).",
+        "Only the played hand type counts (a Straight Flush does not trigger it when the most played hand is Straight)."
+      ]
+    },
+    {
+      "name": "Amber Acorn",
+      "key": "bl_final_acorn",
+      "effect": "Flips all jokers face down and shuffles their order.",
+      "short": "Flips and shuffles all jokers",
+      "min_ante": 8,
+      "chip_mult": 2,
+      "reward": 8,
+      "showdown": true,
+      "details": []
+    },
+    {
+      "name": "Verdant Leaf",
+      "key": "bl_final_leaf",
+      "effect": "All playing cards are debuffed until 1 Joker is sold.",
+      "short": "All cards debuffed until a Joker is sold",
+      "min_ante": 8,
+      "chip_mult": 2,
+      "reward": 8,
+      "showdown": true,
+      "details": []
+    },
+    {
+      "name": "Violet Vessel",
+      "key": "bl_final_vessel",
+      "effect": "Very large blind: requirement is 6x base.",
+      "short": "Very large blind",
+      "min_ante": 8,
+      "chip_mult": 6,
+      "reward": 8,
+      "showdown": true,
+      "details": [
+        "Disabled -> back to 2x base."
+      ]
+    },
+    {
+      "name": "Crimson Heart",
+      "key": "bl_final_heart",
+      "effect": "Each hand, one random joker is disabled (debuffed); never the same joker twice in a row unless it is the only one.",
+      "short": "One random joker is disabled each hand",
+      "min_ante": 8,
+      "chip_mult": 2,
+      "reward": 8,
+      "showdown": true,
+      "details": [
+        "Jokers already debuffed are not chosen. The joker disabled on the winning hand stays disabled until the next shop (misses end-of-round effects)."
+      ]
+    },
+    {
+      "name": "Cerulean Bell",
+      "key": "bl_final_bell",
+      "effect": "One random card in hand is always force-selected; a new one is chosen after each play/discard if needed.",
+      "short": "One random card is always selected",
+      "min_ante": 8,
+      "chip_mult": 2,
+      "reward": 8,
+      "showdown": true,
+      "details": []
+    }
+  ]
+}

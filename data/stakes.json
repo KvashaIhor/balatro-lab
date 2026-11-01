@@ -1,0 +1,168 @@
+{
+  "source": [
+    "https://balatrowiki.org/w/Stakes",
+    "https://balatrowiki.org/w/White_Stake",
+    "https://balatrowiki.org/w/Red_Stake",
+    "https://balatrowiki.org/w/Green_Stake",
+    "https://balatrowiki.org/w/Black_Stake",
+    "https://balatrowiki.org/w/Blue_Stake",
+    "https://balatrowiki.org/w/Purple_Stake",
+    "https://balatrowiki.org/w/Orange_Stake",
+    "https://balatrowiki.org/w/Gold_Stake",
+    "https://balatrowiki.org/w/Eternal",
+    "https://balatrowiki.org/w/Perishable",
+    "https://balatrowiki.org/w/Rental",
+    "https://balatrowiki.org/w/Card_modifiers",
+    "https://balatrowiki.org/w/Blinds_and_Antes"
+  ],
+  "fetched": "2026-10-25",
+  "game_version": "1.0.1o-FULL (current per Template:CurrentVersion on balatrowiki.org)",
+  "count": 8,
+  "rule": "Stakes are cumulative: each stake includes every modifier of the stakes before it.",
+  "ante_scaling_tables": "see blinds.json ante_base_chips (1 = White/Red, 2 = Green/Black/Blue, 3 = Purple/Orange/Gold)",
+  "sticker_rules": {
+    "applies_to": "Jokers generated for the shop and for Buffoon packs only (not jokers created by Judgement, Wraith, The Soul, Top-up Tag, Riff-Raff, etc.).",
+    "eternal_perishable_roll": "One uniform roll r: r > 0.7 -> Eternal (if stake allows and joker is eternal-compatible); else if 0.4 < r <= 0.7 -> Perishable (if stake allows and joker is perishable-compatible). Hence 30% / 30% / 40% none, never both.",
+    "rental_roll": "Separate roll: > 0.7 -> Rental (30%) on Gold Stake. Compatible with Eternal or Perishable.",
+    "eternal": "Cannot be sold or destroyed.",
+    "perishable": "Debuffed after 5 rounds (debuff applied at the end of the 5th round, before cash-out).",
+    "rental": "Buy price $1; lose $3 at the end of each round (before payout, may cause debt).",
+    "incompatible": "See modifiers.json stickers[].incompatible_jokers (from Module:Jokers/data eternal_compat / perishable_compat flags)."
+  },
+  "stakes": [
+    {
+      "number": 1,
+      "name": "White Stake",
+      "key": "stake_white",
+      "adds": "Base difficulty.",
+      "modifiers": {},
+      "cumulative": {
+        "small_blind_reward": 3,
+        "ante_scaling_table": 1,
+        "eternal_chance": 0,
+        "perishable_chance": 0,
+        "rental_chance": 0,
+        "discards_delta": 0
+      }
+    },
+    {
+      "number": 2,
+      "name": "Red Stake",
+      "key": "stake_red",
+      "adds": "Small Blind gives no reward money.",
+      "modifiers": {
+        "small_blind_reward": 0
+      },
+      "cumulative": {
+        "small_blind_reward": 0,
+        "ante_scaling_table": 1,
+        "eternal_chance": 0,
+        "perishable_chance": 0,
+        "rental_chance": 0,
+        "discards_delta": 0
+      }
+    },
+    {
+      "number": 3,
+      "name": "Green Stake",
+      "key": "stake_green",
+      "adds": "Required score scales faster each ante (scaling table 2).",
+      "modifiers": {
+        "ante_scaling_table": 2
+      },
+      "cumulative": {
+        "small_blind_reward": 0,
+        "ante_scaling_table": 2,
+        "eternal_chance": 0,
+        "perishable_chance": 0,
+        "rental_chance": 0,
+        "discards_delta": 0
+      }
+    },
+    {
+      "number": 4,
+      "name": "Black Stake",
+      "key": "stake_black",
+      "adds": "Shop/pack jokers can be Eternal (30%).",
+      "modifiers": {
+        "eternal_chance": 0.3
+      },
+      "cumulative": {
+        "small_blind_reward": 0,
+        "ante_scaling_table": 2,
+        "eternal_chance": 0.3,
+        "perishable_chance": 0,
+        "rental_chance": 0,
+        "discards_delta": 0
+      }
+    },
+    {
+      "number": 5,
+      "name": "Blue Stake",
+      "key": "stake_blue",
+      "adds": "-1 discard per round.",
+      "modifiers": {
+        "discards": -1
+      },
+      "cumulative": {
+        "small_blind_reward": 0,
+        "ante_scaling_table": 2,
+        "eternal_chance": 0.3,
+        "perishable_chance": 0,
+        "rental_chance": 0,
+        "discards_delta": -1
+      }
+    },
+    {
+      "number": 6,
+      "name": "Purple Stake",
+      "key": "stake_purple",
+      "adds": "Required score scales even faster (scaling table 3).",
+      "modifiers": {
+        "ante_scaling_table": 3
+      },
+      "cumulative": {
+        "small_blind_reward": 0,
+        "ante_scaling_table": 3,
+        "eternal_chance": 0.3,
+        "perishable_chance": 0,
+        "rental_chance": 0,
+        "discards_delta": -1
+      }
+    },
+    {
+      "number": 7,
+      "name": "Orange Stake",
+      "key": "stake_orange",
+      "adds": "Shop/pack jokers can be Perishable (30%).",
+      "modifiers": {
+        "perishable_chance": 0.3
+      },
+      "cumulative": {
+        "small_blind_reward": 0,
+        "ante_scaling_table": 3,
+        "eternal_chance": 0.3,
+        "perishable_chance": 0.3,
+        "rental_chance": 0,
+        "discards_delta": -1
+      }
+    },
+    {
+      "number": 8,
+      "name": "Gold Stake",
+      "key": "stake_gold",
+      "adds": "Shop/pack jokers can be Rental (30%).",
+      "modifiers": {
+        "rental_chance": 0.3
+      },
+      "cumulative": {
+        "small_blind_reward": 0,
+        "ante_scaling_table": 3,
+        "eternal_chance": 0.3,
+        "perishable_chance": 0.3,
+        "rental_chance": 0.3,
+        "discards_delta": -1
+      }
+    }
+  ]
+}

@@ -1,0 +1,4530 @@
+[
+  {
+    "n": 1,
+    "name": "Joker",
+    "key": "j_joker",
+    "rarity": "Common",
+    "cost": 2,
+    "effect": "Adds +4 Mult to every played hand.",
+    "timing": "independent",
+    "values": {
+      "mult": 4
+    },
+    "condition": "Always (any scored hand).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 2,
+    "name": "Greedy Joker",
+    "key": "j_greedy_joker",
+    "rarity": "Common",
+    "cost": 5,
+    "effect": "Each scoring Diamond card adds +3 Mult as it scores.",
+    "timing": "on_scored_card",
+    "values": {
+      "mult_per_card": 3,
+      "suit": "Diamonds"
+    },
+    "condition": "Scoring card whose suit counts as Diamonds.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Uses the card's suit test: Wild cards count as every suit; with Smeared Joker, Hearts<->Diamonds and Spades<->Clubs count as each other.",
+      "Fires once per scoring trigger, so each retrigger (Red Seal, Hack, Sock and Buskin, Dusk, Seltzer, Hanging Chad, Blueprint-copied retriggers) fires it again.",
+      "Debuffed scoring cards produce no effects at all, so they never trigger it. Stone cards have no suit."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Greedy_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 3,
+    "name": "Lusty Joker",
+    "key": "j_lusty_joker",
+    "rarity": "Common",
+    "cost": 5,
+    "effect": "Each scoring Heart card adds +3 Mult as it scores.",
+    "timing": "on_scored_card",
+    "values": {
+      "mult_per_card": 3,
+      "suit": "Hearts"
+    },
+    "condition": "Scoring card whose suit counts as Hearts.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Uses the card's suit test: Wild cards count as every suit; with Smeared Joker, Hearts<->Diamonds and Spades<->Clubs count as each other.",
+      "Fires once per scoring trigger, so each retrigger (Red Seal, Hack, Sock and Buskin, Dusk, Seltzer, Hanging Chad, Blueprint-copied retriggers) fires it again.",
+      "Debuffed scoring cards produce no effects at all, so they never trigger it. Stone cards have no suit."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Lusty_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 4,
+    "name": "Wrathful Joker",
+    "key": "j_wrathful_joker",
+    "rarity": "Common",
+    "cost": 5,
+    "effect": "Each scoring Spade card adds +3 Mult as it scores.",
+    "timing": "on_scored_card",
+    "values": {
+      "mult_per_card": 3,
+      "suit": "Spades"
+    },
+    "condition": "Scoring card whose suit counts as Spades.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Uses the card's suit test: Wild cards count as every suit; with Smeared Joker, Hearts<->Diamonds and Spades<->Clubs count as each other.",
+      "Fires once per scoring trigger, so each retrigger (Red Seal, Hack, Sock and Buskin, Dusk, Seltzer, Hanging Chad, Blueprint-copied retriggers) fires it again.",
+      "Debuffed scoring cards produce no effects at all, so they never trigger it. Stone cards have no suit."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Wrathful_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 5,
+    "name": "Gluttonous Joker",
+    "key": "j_gluttenous_joker",
+    "rarity": "Common",
+    "cost": 5,
+    "effect": "Each scoring Club card adds +3 Mult as it scores.",
+    "timing": "on_scored_card",
+    "values": {
+      "mult_per_card": 3,
+      "suit": "Clubs"
+    },
+    "condition": "Scoring card whose suit counts as Clubs.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Uses the card's suit test: Wild cards count as every suit; with Smeared Joker, Hearts<->Diamonds and Spades<->Clubs count as each other.",
+      "Fires once per scoring trigger, so each retrigger (Red Seal, Hack, Sock and Buskin, Dusk, Seltzer, Hanging Chad, Blueprint-copied retriggers) fires it again.",
+      "Debuffed scoring cards produce no effects at all, so they never trigger it. Stone cards have no suit."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Gluttonous_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 6,
+    "name": "Jolly Joker",
+    "key": "j_jolly",
+    "rarity": "Common",
+    "cost": 3,
+    "effect": "Adds +8 Mult when the played hand contains a Pair.",
+    "timing": "independent",
+    "values": {
+      "mult": 8,
+      "hand_type": "Pair"
+    },
+    "condition": "Played hand CONTAINS a Pair (any two played cards of the same rank): true for Pair, Two Pair, Three of a Kind, Full House, Four of a Kind, Five of a Kind, Flush House, Flush Five, and for a Flush/Straight whose played cards include a repeated rank. Uses all played cards, not only scoring ones; Stone cards have no rank.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Not affected by retriggers. Does not fire on a hand that a Boss Blind declares not allowed (e.g. The Psychic, The Eye, The Mouth), since no joker scoring happens then."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Jolly_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 7,
+    "name": "Zany Joker",
+    "key": "j_zany",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Adds +12 Mult when the played hand contains a Three of a Kind.",
+    "timing": "independent",
+    "values": {
+      "mult": 12,
+      "hand_type": "Three of a Kind"
+    },
+    "condition": "Played hand CONTAINS a Three of a Kind: true for Three of a Kind, Full House, Four of a Kind, Five of a Kind, Flush House, Flush Five (and a Flush with three of one rank).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Not affected by retriggers. Does not fire on a hand that a Boss Blind declares not allowed (e.g. The Psychic, The Eye, The Mouth), since no joker scoring happens then."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Zany_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 8,
+    "name": "Mad Joker",
+    "key": "j_mad",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Adds +10 Mult when the played hand contains a Two Pair.",
+    "timing": "independent",
+    "values": {
+      "mult": 10,
+      "hand_type": "Two Pair"
+    },
+    "condition": "Played hand CONTAINS a Two Pair: true for Two Pair, Full House and Flush House (two exact pairs, or one exact triple plus one exact pair), and a Flush with two repeated ranks. FALSE for Four of a Kind and Five of a Kind (rank groups are counted by exact size).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Not affected by retriggers. Does not fire on a hand that a Boss Blind declares not allowed (e.g. The Psychic, The Eye, The Mouth), since no joker scoring happens then."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Mad_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 9,
+    "name": "Crazy Joker",
+    "key": "j_crazy",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Adds +12 Mult when the played hand contains a Straight.",
+    "timing": "independent",
+    "values": {
+      "mult": 12,
+      "hand_type": "Straight"
+    },
+    "condition": "Played hand CONTAINS a Straight: true for Straight and Straight Flush (incl. Royal Flush). With Four Fingers a 4-card run counts; with Shortcut single-rank gaps are allowed. Ace can be high or low but straights do not wrap.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Not affected by retriggers. Does not fire on a hand that a Boss Blind declares not allowed (e.g. The Psychic, The Eye, The Mouth), since no joker scoring happens then."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Crazy_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 10,
+    "name": "Droll Joker",
+    "key": "j_droll",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Adds +10 Mult when the played hand contains a Flush.",
+    "timing": "independent",
+    "values": {
+      "mult": 10,
+      "hand_type": "Flush"
+    },
+    "condition": "Played hand CONTAINS a Flush: true for Flush, Straight Flush, Flush House, Flush Five (and e.g. a Four of a Kind/Full House whose 5 cards share a suit). With Four Fingers 4 same-suit cards suffice. Wild cards count for every suit; Smeared Joker merges red and black suits.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Not affected by retriggers. Does not fire on a hand that a Boss Blind declares not allowed (e.g. The Psychic, The Eye, The Mouth), since no joker scoring happens then."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Droll_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 11,
+    "name": "Sly Joker",
+    "key": "j_sly",
+    "rarity": "Common",
+    "cost": 3,
+    "effect": "Adds +50 Chips when the played hand contains a Pair.",
+    "timing": "independent",
+    "values": {
+      "chips": 50,
+      "hand_type": "Pair"
+    },
+    "condition": "Played hand CONTAINS a Pair (any two played cards of the same rank): true for Pair, Two Pair, Three of a Kind, Full House, Four of a Kind, Five of a Kind, Flush House, Flush Five, and for a Flush/Straight whose played cards include a repeated rank. Uses all played cards, not only scoring ones; Stone cards have no rank.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Not affected by retriggers. Does not fire on a hand that a Boss Blind declares not allowed (e.g. The Psychic, The Eye, The Mouth), since no joker scoring happens then."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Sly_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 12,
+    "name": "Wily Joker",
+    "key": "j_wily",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Adds +100 Chips when the played hand contains a Three of a Kind.",
+    "timing": "independent",
+    "values": {
+      "chips": 100,
+      "hand_type": "Three of a Kind"
+    },
+    "condition": "Played hand CONTAINS a Three of a Kind: true for Three of a Kind, Full House, Four of a Kind, Five of a Kind, Flush House, Flush Five (and a Flush with three of one rank).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Not affected by retriggers. Does not fire on a hand that a Boss Blind declares not allowed (e.g. The Psychic, The Eye, The Mouth), since no joker scoring happens then."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Wily_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 13,
+    "name": "Clever Joker",
+    "key": "j_clever",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Adds +80 Chips when the played hand contains a Two Pair.",
+    "timing": "independent",
+    "values": {
+      "chips": 80,
+      "hand_type": "Two Pair"
+    },
+    "condition": "Played hand CONTAINS a Two Pair: true for Two Pair, Full House and Flush House (two exact pairs, or one exact triple plus one exact pair), and a Flush with two repeated ranks. FALSE for Four of a Kind and Five of a Kind (rank groups are counted by exact size).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Not affected by retriggers. Does not fire on a hand that a Boss Blind declares not allowed (e.g. The Psychic, The Eye, The Mouth), since no joker scoring happens then."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Clever_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 14,
+    "name": "Devious Joker",
+    "key": "j_devious",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Adds +100 Chips when the played hand contains a Straight.",
+    "timing": "independent",
+    "values": {
+      "chips": 100,
+      "hand_type": "Straight"
+    },
+    "condition": "Played hand CONTAINS a Straight: true for Straight and Straight Flush (incl. Royal Flush). With Four Fingers a 4-card run counts; with Shortcut single-rank gaps are allowed. Ace can be high or low but straights do not wrap.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Not affected by retriggers. Does not fire on a hand that a Boss Blind declares not allowed (e.g. The Psychic, The Eye, The Mouth), since no joker scoring happens then."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Devious_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 15,
+    "name": "Crafty Joker",
+    "key": "j_crafty",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Adds +80 Chips when the played hand contains a Flush.",
+    "timing": "independent",
+    "values": {
+      "chips": 80,
+      "hand_type": "Flush"
+    },
+    "condition": "Played hand CONTAINS a Flush: true for Flush, Straight Flush, Flush House, Flush Five (and e.g. a Four of a Kind/Full House whose 5 cards share a suit). With Four Fingers 4 same-suit cards suffice. Wild cards count for every suit; Smeared Joker merges red and black suits.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Not affected by retriggers. Does not fire on a hand that a Boss Blind declares not allowed (e.g. The Psychic, The Eye, The Mouth), since no joker scoring happens then."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Crafty_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 16,
+    "name": "Half Joker",
+    "key": "j_half",
+    "rarity": "Common",
+    "cost": 5,
+    "effect": "Adds +20 Mult when 3 or fewer cards are played.",
+    "timing": "independent",
+    "values": {
+      "mult": 20,
+      "max_cards_played": 3
+    },
+    "condition": "Number of cards PLAYED (selected and played, including non-scoring cards) is <= 3. Scoring status is irrelevant.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Half_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 17,
+    "name": "Joker Stencil",
+    "key": "j_stencil",
+    "rarity": "Uncommon",
+    "cost": 8,
+    "effect": "Gives XMult equal to the number of empty Joker slots, with every Joker Stencil counting as an empty slot.",
+    "timing": "independent",
+    "values": {
+      "xmult_formula": "(joker_slot_limit - jokers_owned) + number_of_Joker_Stencils_owned",
+      "xmult_per_empty_slot": 1
+    },
+    "condition": "Applies when the computed value is > 1 (X1 does nothing).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Each Stencil counts itself (and every other Stencil) as empty: 5 slots, 2 Stencils, no other jokers -> each Stencil gives X5.",
+      "Negative jokers raise the slot limit by 1, so they effectively do not occupy a slot. A Negative Stencil adds +1 to every Stencil.",
+      "Debuffed jokers still occupy slots. Consumables are irrelevant.",
+      "Blueprint/Brainstorm copy the Stencil's current XMult but do NOT count as Stencils themselves (they occupy a slot, lowering the value by 1).",
+      "Value is recomputed continuously, so buying/selling/destroying jokers changes it immediately."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Joker_Stencil",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 18,
+    "name": "Four Fingers",
+    "key": "j_four_fingers",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect": "Flushes and Straights can be made with 4 cards instead of 5.",
+    "timing": "passive",
+    "values": {
+      "min_cards_for_flush_or_straight": 4
+    },
+    "condition": "Always while owned (not copyable).",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Played hand must still have 4 or 5 cards to form these hands.",
+      "A 5-card hand containing a 4-card straight and a 4-card flush (possibly using different cards) is a Straight Flush.",
+      "Straight scoring includes every played card whose rank is part of the run (duplicates of a rank in the run also score).",
+      "Multiple copies do not stack further."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Four_Fingers",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 19,
+    "name": "Mime",
+    "key": "j_mime",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect": "Retriggers the held-in-hand abilities of every card held in hand one extra time.",
+    "timing": [
+      "on_held_card",
+      "end_of_round"
+    ],
+    "values": {
+      "retriggers": 1
+    },
+    "condition": "For each card held in hand that produced at least one held effect this pass (its own Steel X1.5, or a held-card joker effect such as Baron, Shoot the Moon, Raised Fist, Reserved Parking).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Also applies to end-of-round held effects: Gold cards ($3) and Blue Seals (Planet) are retriggered at end of round.",
+      "Each Mime (and each Blueprint/Brainstorm copying Mime) adds one more retrigger; Red Seal on a held card adds another. Retriggers stack additively.",
+      "Does not retrigger a held card that had no effect; for Reserved Parking this means a failed roll is only retried when another held effect exists on that card.",
+      "Does NOT affect Blackboard (Blackboard is an independent check, not a per-card held ability).",
+      "Debuffed held cards produce no effects so are not retriggered."
+    ],
+    "wiki_activation_type": "On Held",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Mime",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 20,
+    "name": "Credit Card",
+    "key": "j_credit_card",
+    "rarity": "Common",
+    "cost": 1,
+    "effect": "Lets money go down to -$20 (debt).",
+    "timing": "passive",
+    "values": {
+      "debt_limit": -20
+    },
+    "condition": "Always while owned.",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Implemented as bankrupt threshold lowered by $20 per copy (multiple copies stack).",
+      "If sold while in debt you cannot buy anything until money is >= 0 again.",
+      "Interest is only paid when money >= $5; Bull/Bootstraps give nothing at <= $0."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Credit_Card",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 21,
+    "name": "Ceremonial Dagger",
+    "key": "j_ceremonial",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "When a Blind is selected, destroys the Joker immediately to its right and permanently gains Mult equal to twice that Joker's sell value.",
+    "timing": [
+      "on_blind_select",
+      "independent"
+    ],
+    "values": {
+      "start_mult": 0,
+      "gain_mult_formula": "2 * sell_value_of_destroyed_joker"
+    },
+    "condition": "On selecting any Blind (Small, Big or Boss): a Joker exists directly to the right, it is not Eternal and not already being destroyed. In scoring: gives +current Mult if > 0.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": false,
+    "random_parts": null,
+    "notes": [
+      "Rightmost Dagger destroys nothing. Eternal neighbour -> nothing destroyed and no gain.",
+      "Sell value = max(1, floor(cost/2)) + accumulated extra value (Egg, Gift Card); cost includes edition surcharges and discounts.",
+      "Blueprint/Brainstorm copy only the +Mult, never the destruction.",
+      "Not Perishable-compatible. Dagger can be moved freely during the round since destruction only happens at Blind selection.",
+      "Joker-order matters versus other blind-select jokers (resolved left to right)."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Ceremonial_Dagger",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 22,
+    "name": "Banner",
+    "key": "j_banner",
+    "rarity": "Common",
+    "cost": 5,
+    "effect": "Adds +30 Chips for each discard remaining.",
+    "timing": "independent",
+    "values": {
+      "chips_per_discard_left": 30
+    },
+    "condition": "discards_left > 0 at the moment the hand is scored (discards already used this round are not counted).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Burglar sets discards to 0, making Banner give nothing that round."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Banner",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 23,
+    "name": "Mystic Summit",
+    "key": "j_mystic_summit",
+    "rarity": "Common",
+    "cost": 5,
+    "effect": "Adds +15 Mult when you have no discards remaining.",
+    "timing": "independent",
+    "values": {
+      "mult": 15,
+      "discards_left_required": 0
+    },
+    "condition": "discards_left == 0 at scoring time (used up, or removed by Burglar, etc.).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Mystic_Summit",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 24,
+    "name": "Marble Joker",
+    "key": "j_marble",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "When a Blind is selected, adds one Stone card to the deck.",
+    "timing": "on_blind_select",
+    "values": {
+      "stone_cards_added": 1
+    },
+    "condition": "On selecting any Blind.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": "Underlying rank/suit of the Stone card is a random standard card (irrelevant: Stone cards have no rank/suit).",
+    "notes": [
+      "The Stone card goes into the draw pile (not directly to hand).",
+      "Counts as a playing card added to the deck (Hologram +X0.25). Increases full-deck size (affects Erosion, Stone Joker, Driver's License).",
+      "Blueprint/Brainstorm copies add one extra Stone card each."
+    ],
+    "wiki_activation_type": "On Blind Select",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Marble_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 25,
+    "name": "Loyalty Card",
+    "key": "j_loyalty_card",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect": "Gives X4 Mult on every 6th hand played after this Joker was obtained.",
+    "timing": "independent",
+    "values": {
+      "xmult": 4,
+      "every_n_hands": 6
+    },
+    "condition": "Let k = (total hands played this run) - (hands played when this Joker was created), evaluated during scoring before the current hand is counted. Fires when k mod 6 == 5, i.e. on the 6th, 12th, 18th... hand since acquisition. The counter spans rounds and antes.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Counter is based on the run-wide hand count, so hands that a Boss Blind declares not allowed still advance it (but give no scoring).",
+      "A copy created with Ankh keeps the original's counter.",
+      "Blueprint/Brainstorm copy the X4 on the same hand it is active."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Loyalty_Card",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 26,
+    "name": "8 Ball",
+    "key": "j_8_ball",
+    "rarity": "Common",
+    "cost": 5,
+    "effect": "Each scoring 8 has a 1 in 4 chance to create a Tarot card.",
+    "timing": "on_scored_card",
+    "values": {
+      "odds": "1 in 4",
+      "rank": 8,
+      "creates": "Tarot"
+    },
+    "condition": "Scoring card is an 8 (rank id 8) and there is a free consumable slot (pending creations count).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": "1 in 4 per scoring trigger of an 8 (each retrigger rolls again). Oops! All 6s doubles the numerator.",
+    "notes": [
+      "No card is created if consumable slots are full."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/8_Ball",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 27,
+    "name": "Misprint",
+    "key": "j_misprint",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Adds a random amount of Mult from 0 to 23 to each played hand.",
+    "timing": "independent",
+    "values": {
+      "mult_min": 0,
+      "mult_max": 23
+    },
+    "condition": "Always.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": "Uniform random integer in [0, 23] drawn independently each hand (and for each Blueprint copy).",
+    "notes": [
+      "Expected value +11.5 Mult."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Misprint",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 28,
+    "name": "Dusk",
+    "key": "j_dusk",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect": "Retriggers every scoring card once during the last hand of the round.",
+    "timing": "on_scored_card",
+    "values": {
+      "retriggers": 1
+    },
+    "condition": "hands_left == 0 at scoring time (the hand being played is the last available hand this round; hands_left is decremented before scoring).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Does not fire on an earlier hand that happens to beat the Blind.",
+      "Retriggers stack with Red Seal and other retrigger jokers (additively).",
+      "Burglar/Grabber-type extra hands delay when the final hand occurs."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Dusk",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 29,
+    "name": "Raised Fist",
+    "key": "j_raised_fist",
+    "rarity": "Common",
+    "cost": 5,
+    "effect": "Adds Mult equal to double the rank value of the lowest-ranked card held in hand.",
+    "timing": "on_held_card",
+    "values": {
+      "mult_formula": "2 * chip_value_of_lowest_held_card",
+      "examples": {
+        "2": 4,
+        "10": 20,
+        "J/Q/K": 20,
+        "A": 22
+      }
+    },
+    "condition": "Among cards held in hand (not Stone cards), picks the one with the lowest rank (2 lowest, Ace highest). Ties -> the RIGHTMOST such card. Gives +2x that card's base chip value (number cards = face value, J/Q/K = 10, Ace = 11).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "If the chosen card is debuffed it gives +0 (the joker does not fall back to another card).",
+      "Hiker bonus chips on the card are NOT included.",
+      "It is a held-card effect on that specific card, so Mime and a Red Seal on that card retrigger it.",
+      "Only fires if at least one non-Stone card is held."
+    ],
+    "wiki_activation_type": "On Held",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Raised_Fist",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 30,
+    "name": "Chaos the Clown",
+    "key": "j_chaos",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Grants one free shop reroll in each shop.",
+    "timing": "passive",
+    "values": {
+      "free_rerolls_per_shop": 1
+    },
+    "condition": "Always while owned (not copyable).",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Free rerolls are reset to the number of Chaos copies at the start of each round (so once per shop visit); multiple copies stack.",
+      "Buying it inside a shop grants a free reroll immediately; selling it removes an unused free reroll.",
+      "A free reroll does not advance the reroll price; the next paid reroll costs what it would have."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "inferred",
+    "source": [
+      "https://balatrowiki.org/w/Chaos_the_Clown",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 31,
+    "name": "Fibonacci",
+    "key": "j_fibonacci",
+    "rarity": "Uncommon",
+    "cost": 8,
+    "effect": "Each scoring Ace, 2, 3, 5 or 8 adds +8 Mult.",
+    "timing": "on_scored_card",
+    "values": {
+      "mult_per_card": 8,
+      "ranks": [
+        "A",
+        "2",
+        "3",
+        "5",
+        "8"
+      ]
+    },
+    "condition": "Scoring card rank is Ace, 2, 3, 5 or 8.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Retriggers fire it again. Stone cards never match."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Fibonacci",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 32,
+    "name": "Steel Joker",
+    "key": "j_steel_joker",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect": "Gives X(1 + 0.2 per Steel card in the full deck).",
+    "timing": "independent",
+    "values": {
+      "xmult_per_steel_card": 0.2,
+      "xmult_formula": "1 + 0.2 * steel_cards_in_full_deck"
+    },
+    "condition": "At least one Steel card in the full deck (all owned playing cards: draw pile, hand, discard, played).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Single multiplier, not one per card. Steel cards count wherever they are (also when debuffed).",
+      "Only appears in shop/packs if the deck contains at least one Steel card (enhancement gate)."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Steel_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ],
+    "spawn_condition": "Only obtainable if there is at least 1 Steel card currently in the player's deck."
+  },
+  {
+    "n": 33,
+    "name": "Scary Face",
+    "key": "j_scary_face",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Each scoring face card adds +30 Chips.",
+    "timing": "on_scored_card",
+    "values": {
+      "chips_per_card": 30
+    },
+    "condition": "Scoring card is a face card (J, Q, K; every card with Pareidolia). Debuffed cards never count.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Retriggers fire it again."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Scary_Face",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 34,
+    "name": "Abstract Joker",
+    "key": "j_abstract",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Adds +3 Mult for each Joker you own.",
+    "timing": "independent",
+    "values": {
+      "mult_per_joker": 3,
+      "mult_formula": "3 * number_of_jokers_owned"
+    },
+    "condition": "Always; counts every card in the Joker area including itself, debuffed and Negative jokers.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "With 5 jokers: +15 Mult."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Abstract_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 35,
+    "name": "Delayed Gratification",
+    "key": "j_delayed_grat",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "At end of round, earn $2 per unused discard if no discards were used that round.",
+    "timing": "end_of_round",
+    "values": {
+      "dollars_per_discard_left": 2
+    },
+    "condition": "discards_used == 0 this round and discards_left > 0 when the round ends. Paid during the cash-out with other end-of-round money.",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "The Hook's forced discards do not count as discards used.",
+      "Not copyable (end-of-round money is never copied). Debuffed -> no payout."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Delayed_Gratification",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 36,
+    "name": "Hack",
+    "key": "j_hack",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Retriggers each scoring 2, 3, 4 or 5 once.",
+    "timing": "on_scored_card",
+    "values": {
+      "retriggers": 1,
+      "ranks": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ]
+    },
+    "condition": "Scoring card rank is 2, 3, 4 or 5.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Stacks additively with Red Seal and other retrigger jokers; a retrigger replays the card's chips, enhancement, edition and all on-scored joker effects."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Hack",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 37,
+    "name": "Pareidolia",
+    "key": "j_pareidolia",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect": "Every playing card counts as a face card.",
+    "timing": "passive",
+    "values": {},
+    "condition": "Always while owned (not copyable).",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Affects jokers (Scary Face, Smiley Face, Business Card, Photograph, Sock and Buskin, Midas Mask, Ride the Bus, Faceless Joker, Reserved Parking, Canio...) and Boss Blinds (The Plant debuffs every card).",
+      "Applies to Stone cards too. Debuffed cards are still not 'face' for joker purposes.",
+      "Ranks, suits and chip values are unchanged (Baron still needs real Kings, Hit the Road real Jacks, Triboulet real K/Q)."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Pareidolia",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 38,
+    "name": "Gros Michel",
+    "key": "j_gros_michel",
+    "rarity": "Common",
+    "cost": 5,
+    "effect": "Adds +15 Mult; at end of each round has a 1 in 6 chance to be destroyed.",
+    "timing": [
+      "independent",
+      "end_of_round"
+    ],
+    "values": {
+      "mult": 15,
+      "chance_destroy": "1 in 6"
+    },
+    "condition": "+15 Mult always. End-of-round roll each round it is held.",
+    "blueprint_compatible": true,
+    "eternal_compatible": false,
+    "perishable_compatible": true,
+    "random_parts": "1 in 6 destruction roll at end of every round (Oops! All 6s doubles to 2 in 6).",
+    "notes": [
+      "When it destroys itself ('Extinct!') the run flag gros_michel_extinct is set: Gros Michel never appears again and Cavendish becomes able to appear.",
+      "Selling or other destruction (Dagger, Madness, Hex...) does NOT set the flag.",
+      "Cannot be Eternal. Blueprint copies only the +15 Mult."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Gros_Michel",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ],
+    "spawn_condition": "Only obtainable while Gros Michel has not yet gone \"extinct\" during the current run."
+  },
+  {
+    "n": 39,
+    "name": "Even Steven",
+    "key": "j_even_steven",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Each scoring card of even rank (10, 8, 6, 4, 2) adds +4 Mult.",
+    "timing": "on_scored_card",
+    "values": {
+      "mult_per_card": 4,
+      "ranks": [
+        "2",
+        "4",
+        "6",
+        "8",
+        "10"
+      ]
+    },
+    "condition": "Scoring card rank is 2, 4, 6, 8 or 10 (face cards and Aces excluded).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Even_Steven",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 40,
+    "name": "Odd Todd",
+    "key": "j_odd_todd",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Each scoring card of odd rank (A, 9, 7, 5, 3) adds +31 Chips.",
+    "timing": "on_scored_card",
+    "values": {
+      "chips_per_card": 31,
+      "ranks": [
+        "A",
+        "3",
+        "5",
+        "7",
+        "9"
+      ]
+    },
+    "condition": "Scoring card rank is Ace, 3, 5, 7 or 9.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Odd_Todd",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 41,
+    "name": "Scholar",
+    "key": "j_scholar",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Each scoring Ace adds +20 Chips and +4 Mult.",
+    "timing": "on_scored_card",
+    "values": {
+      "chips_per_card": 20,
+      "mult_per_card": 4,
+      "rank": "A"
+    },
+    "condition": "Scoring card is an Ace.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Scholar",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 42,
+    "name": "Business Card",
+    "key": "j_business",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Each scoring face card has a 1 in 2 chance to earn $2.",
+    "timing": "on_scored_card",
+    "values": {
+      "dollars": 2,
+      "odds": "1 in 2"
+    },
+    "condition": "Scoring card is a face card (non-debuffed; all cards with Pareidolia).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": "Independent 1 in 2 roll per scoring trigger (retriggers roll again).",
+    "notes": [
+      "Money counts for Bull/Bootstraps later in the same hand (dollar buffer) but not for Vagabond."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Business_Card",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 43,
+    "name": "Supernova",
+    "key": "j_supernova",
+    "rarity": "Common",
+    "cost": 5,
+    "effect": "Adds Mult equal to the number of times the played poker hand has been played this run.",
+    "timing": "independent",
+    "values": {
+      "mult_formula": "times_played_this_run(played_hand_type)"
+    },
+    "condition": "Always; the count INCLUDES the current play (first-ever Flush gives +1).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Retroactive: counts plays made before this joker was bought.",
+      "Uses the hand type actually scored (e.g. Full House counts Full House plays, not Pair plays).",
+      "Hands a Boss Blind declares not allowed still increase the play count (but give no scoring)."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Supernova",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 44,
+    "name": "Ride the Bus",
+    "key": "j_ride_the_bus",
+    "rarity": "Common",
+    "cost": 6,
+    "effect": "Gains +1 Mult for each consecutive hand played without a scoring face card; resets to 0 when a face card scores.",
+    "timing": [
+      "before_scoring",
+      "independent"
+    ],
+    "values": {
+      "start_mult": 0,
+      "gain_mult": 1,
+      "reset_to": 0
+    },
+    "condition": "Before scoring: if any SCORING card is a face card (J/Q/K, or any card with Pareidolia; debuffed cards are not faces) -> Mult resets to 0; otherwise Mult += 1. Then gives +current Mult if > 0.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": false,
+    "random_parts": null,
+    "notes": [
+      "The +1 for the current hand applies to that same hand.",
+      "Non-scoring face cards in the played hand do not reset it.",
+      "Not Perishable-compatible. Blueprint copies only the +Mult (not the scaling or reset)."
+    ],
+    "wiki_activation_type": "Mixed",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Ride_the_Bus",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 45,
+    "name": "Space Joker",
+    "key": "j_space",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect": "Each played hand has a 1 in 4 chance to level up its poker hand before scoring.",
+    "timing": "before_scoring",
+    "values": {
+      "odds": "1 in 4",
+      "levels": 1
+    },
+    "condition": "Every allowed played hand.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": "1 in 4 per hand (each Blueprint/Brainstorm copy rolls independently). Oops! All 6s -> 2 in 4.",
+    "notes": [
+      "The level-up happens before chips/mult are read, so the current hand already scores at the new level.",
+      "Does not count as a Planet card used (no Constellation, no Satellite)."
+    ],
+    "wiki_activation_type": "On Played",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Space_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 46,
+    "name": "Egg",
+    "key": "j_egg",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Gains $3 of sell value at the end of every round.",
+    "timing": "end_of_round",
+    "values": {
+      "sell_value_gain_per_round": 3
+    },
+    "condition": "End of every round while held.",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Base sell value $2 (cost $4); after n rounds sell value = 2 + 3n (before Gift Card etc.).",
+      "Feeds Ceremonial Dagger and Swashbuckler. Not copyable."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Egg",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 47,
+    "name": "Burglar",
+    "key": "j_burglar",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "When a Blind is selected, gain +3 hands and lose all discards for that round.",
+    "timing": "on_blind_select",
+    "values": {
+      "hands_added": 3,
+      "discards_set_to": 0
+    },
+    "condition": "On selecting any Blind.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Applied at blind selection, so selling/debuffing Burglar mid-round does not undo it.",
+      "Copyable: each Blueprint/Brainstorm copy adds another +3 hands.",
+      "Ceremonial Dagger to its left destroys it before it acts."
+    ],
+    "wiki_activation_type": "On Blind Select",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Burglar",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 48,
+    "name": "Blackboard",
+    "key": "j_blackboard",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Gives X3 Mult if every card left in hand is a Spade or Club.",
+    "timing": "independent",
+    "values": {
+      "xmult": 3
+    },
+    "condition": "Every card held in hand (after the play) counts as Spades or Clubs; vacuously true with 0 cards held. Wild cards count (unless debuffed); debuffed non-Wild cards still count by their printed suit; any Stone card held breaks it.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Not affected by Mime (it is not a per-card held ability)."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Blackboard",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 49,
+    "name": "Runner",
+    "key": "j_runner",
+    "rarity": "Common",
+    "cost": 5,
+    "effect": "Gains +15 Chips whenever the played hand contains a Straight; gives its accumulated Chips.",
+    "timing": [
+      "before_scoring",
+      "independent"
+    ],
+    "values": {
+      "start_chips": 0,
+      "gain_chips": 15
+    },
+    "condition": "Played hand CONTAINS a Straight: true for Straight and Straight Flush (incl. Royal Flush). With Four Fingers a 4-card run counts; with Shortcut single-rank gaps are allowed. Ace can be high or low but straights do not wrap. Gain happens before scoring; then gives +current Chips.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": false,
+    "random_parts": null,
+    "notes": [
+      "The gain applies to the current hand. Not Perishable-compatible. Blueprint copies only the chips."
+    ],
+    "wiki_activation_type": "Mixed",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Runner",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 50,
+    "name": "Ice Cream",
+    "key": "j_ice_cream",
+    "rarity": "Common",
+    "cost": 5,
+    "effect": "Gives +100 Chips, losing 5 Chips after every hand played; melts at 0.",
+    "timing": [
+      "independent",
+      "after_scoring"
+    ],
+    "values": {
+      "start_chips": 100,
+      "chips_lost_per_hand": 5
+    },
+    "condition": "Always gives current Chips. After each hand played (including hands that score nothing because a Boss Blind disallowed them), Chips -= 5; if that would reach 0 it is destroyed instead.",
+    "blueprint_compatible": true,
+    "eternal_compatible": false,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Gives 100, 95, ..., 5 over 20 hands, then is destroyed after the 20th.",
+      "Sell value does not change (sell before it melts). Not Eternal-compatible."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Ice_Cream",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 51,
+    "name": "DNA",
+    "key": "j_dna",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect": "If the first hand of the round is a single card, adds a permanent copy of it to the deck and puts the copy in hand.",
+    "timing": "before_scoring",
+    "values": {
+      "copies": 1
+    },
+    "condition": "First hand of the round (no hands played yet this round) and exactly 1 card played.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "The copy keeps enhancement, edition, seal and Hiker bonus chips; it is made before scoring (so Vampire/Midas Mask to its left change what is copied).",
+      "Counts as a playing card added (Hologram +X0.25).",
+      "Copyable: each Blueprint/Brainstorm copy adds another copy. Hanging Chad does not create extra copies.",
+      "A hand disallowed by the Boss Blind (e.g. The Psychic) does not trigger it."
+    ],
+    "wiki_activation_type": "On Played",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/DNA",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 52,
+    "name": "Splash",
+    "key": "j_splash",
+    "rarity": "Common",
+    "cost": 3,
+    "effect": "Every played card counts as a scoring card.",
+    "timing": "passive",
+    "values": {},
+    "condition": "Always while owned (not copyable).",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "All played cards score: they add chips, trigger enhancements/seals/editions and on-scored jokers, can be retriggered.",
+      "Hand type is still determined normally. Hanging Chad then targets the leftmost played card."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Splash",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 53,
+    "name": "Blue Joker",
+    "key": "j_blue_joker",
+    "rarity": "Common",
+    "cost": 5,
+    "effect": "Adds +2 Chips for each card remaining in the draw pile.",
+    "timing": "independent",
+    "values": {
+      "chips_per_deck_card": 2
+    },
+    "condition": "Draw pile not empty at scoring time (count = cards not yet drawn this round; hand, played and discarded cards excluded).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Full 52-card deck with 8-card hand before first play: 44 cards in pile -> +88 Chips."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Blue_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 54,
+    "name": "Sixth Sense",
+    "key": "j_sixth_sense",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "If the first hand of the round is a single 6, destroys it and creates a Spectral card.",
+    "timing": "after_scoring",
+    "values": {
+      "rank": 6,
+      "creates": "Spectral"
+    },
+    "condition": "First hand of the round, exactly 1 card played and that card is a 6. Resolved after scoring (destroy phase).",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "The 6 is destroyed even if there is no consumable room (Spectral only created if room).",
+      "Works even if the 6 is debuffed; not affected by retriggers.",
+      "Does not trigger if the hand is disallowed by the Boss Blind.",
+      "Cannot create The Soul or Black Hole. Not copyable."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Sixth_Sense",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 55,
+    "name": "Constellation",
+    "key": "j_constellation",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Gains X0.1 Mult each time a Planet card is used.",
+    "timing": [
+      "on_consumable_used",
+      "independent"
+    ],
+    "values": {
+      "start_xmult": 1,
+      "gain_xmult": 0.1
+    },
+    "condition": "Any Planet card used (from consumable slot or directly from a Celestial pack). Gives current XMult if > 1.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": false,
+    "random_parts": null,
+    "notes": [
+      "Not retroactive. Black Hole (Spectral), Orbital Tag, Space Joker and Burnt Joker level-ups do NOT count.",
+      "Not Perishable-compatible. Blueprint copies only the XMult."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Constellation",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 56,
+    "name": "Hiker",
+    "key": "j_hiker",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect": "Each scoring card permanently gains +5 Chips.",
+    "timing": "on_scored_card",
+    "values": {
+      "perma_chips_per_trigger": 5
+    },
+    "condition": "Every scoring card, every time it is triggered (each retrigger adds another +5).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Bonus is applied after the card's own chips for that trigger, so it benefits later triggers/hands.",
+      "Bonus is permanent on the card (kept if Hiker is sold, copied by DNA/Cryptid/Death), and also applies to Stone cards.",
+      "Raised Fist ignores Hiker bonus."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Hiker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 57,
+    "name": "Faceless Joker",
+    "key": "j_faceless",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Earn $5 when 3 or more face cards are discarded at once.",
+    "timing": "on_discard",
+    "values": {
+      "dollars": 5,
+      "min_face_cards": 3
+    },
+    "condition": "A single discard action containing >= 3 face cards (debuffed cards are not faces; with Pareidolia every card is a face).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Once per discard action (not per card). Copyable."
+    ],
+    "wiki_activation_type": "On Discard",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Faceless_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 58,
+    "name": "Green Joker",
+    "key": "j_green_joker",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Gains +1 Mult per hand played and loses 1 Mult per discard (never below 0).",
+    "timing": [
+      "before_scoring",
+      "on_discard",
+      "independent"
+    ],
+    "values": {
+      "start_mult": 0,
+      "gain_mult_per_hand": 1,
+      "lose_mult_per_discard": 1,
+      "min_mult": 0
+    },
+    "condition": "+1 before scoring of each allowed hand (applies to that hand). -1 once per discard action regardless of cards discarded. Gives +current Mult if > 0.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": false,
+    "random_parts": null,
+    "notes": [
+      "The Hook's forced discards also count as a discard action.",
+      "Not Perishable-compatible. Blueprint copies only the +Mult."
+    ],
+    "wiki_activation_type": "Mixed",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Green_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 59,
+    "name": "Superposition",
+    "key": "j_superposition",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Creates a Tarot card if the played hand contains a Straight and an Ace scores.",
+    "timing": "independent",
+    "values": {
+      "creates": "Tarot"
+    },
+    "condition": "Played hand CONTAINS a Straight: true for Straight and Straight Flush (incl. Royal Flush). With Four Fingers a 4-card run counts; with Shortcut single-rank gaps are allowed. Ace can be high or low but straights do not wrap. AND at least one SCORING card is an Ace. Needs a free consumable slot.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Only Tarot cards (no Planets since 0.9.3g)."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Superposition",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 60,
+    "name": "To Do List",
+    "key": "j_todo_list",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Earn $4 if the played hand type matches the listed poker hand; the listed hand changes at the end of each round.",
+    "timing": [
+      "before_scoring",
+      "end_of_round"
+    ],
+    "values": {
+      "dollars": 4
+    },
+    "condition": "Played hand TYPE equals the target exactly (the hand as named, not hands it contains). Target re-rolled at end of every round to a random visible hand type different from the current one.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": "Target hand: uniform among visible poker hands except the current target (secret hands are only eligible once played this run).",
+    "notes": [
+      "Each copy rolls its own target independently (unlike Mail-In Rebate/Castle/Ancient/Idol, which are shared).",
+      "Copyable: Blueprint pays another $4 on a match."
+    ],
+    "wiki_activation_type": "On Played",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/To_Do_List",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 61,
+    "name": "Cavendish",
+    "key": "j_cavendish",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Gives X3 Mult; at end of each round has a 1 in 1000 chance to be destroyed.",
+    "timing": [
+      "independent",
+      "end_of_round"
+    ],
+    "values": {
+      "xmult": 3,
+      "chance_destroy": "1 in 1000"
+    },
+    "condition": "Always X3. End-of-round destruction roll each round.",
+    "blueprint_compatible": true,
+    "eternal_compatible": false,
+    "perishable_compatible": true,
+    "random_parts": "1 in 1000 destruction roll per round (2 in 1000 with Oops! All 6s).",
+    "notes": [
+      "Only appears after Gros Michel has gone extinct (destroyed itself) this run. Unlike Gros Michel, it can reappear after its own extinction.",
+      "Cannot be Eternal."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Cavendish",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ],
+    "spawn_condition": "Only obtainable if Gros Michel has gone \"extinct\" during the current run."
+  },
+  {
+    "n": 62,
+    "name": "Card Sharp",
+    "key": "j_card_sharp",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Gives X3 Mult if this poker hand type was already played earlier this round.",
+    "timing": "independent",
+    "values": {
+      "xmult": 3
+    },
+    "condition": "The played hand TYPE has been played at least twice this round counting the current play (played_this_round > 1). Exact hand type, not contained hands.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Counts reset at the start of each round."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Card_Sharp",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 63,
+    "name": "Red Card",
+    "key": "j_red_card",
+    "rarity": "Common",
+    "cost": 5,
+    "effect": "Gains +3 Mult whenever a Booster Pack is skipped.",
+    "timing": [
+      "on_booster",
+      "independent"
+    ],
+    "values": {
+      "start_mult": 0,
+      "gain_mult": 3
+    },
+    "condition": "Pressing Skip in any opened Booster Pack (shop-bought or from tags). Once per pack skipped. Gives +current Mult if > 0.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": false,
+    "random_parts": null,
+    "notes": [
+      "Not retroactive. A Mega pack can be partially used and then skipped to still trigger it.",
+      "Not Perishable-compatible."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Red_Card",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 64,
+    "name": "Madness",
+    "key": "j_madness",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect": "When a Small or Big Blind is selected, gains X0.5 Mult and destroys a random other Joker.",
+    "timing": [
+      "on_blind_select",
+      "independent"
+    ],
+    "values": {
+      "start_xmult": 1,
+      "gain_xmult": 0.5
+    },
+    "condition": "On selecting a non-Boss Blind: always +X0.5; destroys a random Joker that is not itself, not Eternal, not already being destroyed (if any). Does nothing on Boss Blinds. Gives current XMult if > 1.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": false,
+    "random_parts": "Which Joker is destroyed is uniform among eligible Jokers.",
+    "notes": [
+      "Gain happens even if nothing can be destroyed. It can destroy other copies of Madness.",
+      "Blueprint copies only the XMult. Not Perishable-compatible."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Madness",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 65,
+    "name": "Square Joker",
+    "key": "j_square",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Gains +4 Chips if exactly 4 cards are played; gives its accumulated Chips.",
+    "timing": [
+      "before_scoring",
+      "independent"
+    ],
+    "values": {
+      "start_chips": 0,
+      "gain_chips": 4,
+      "cards_played_required": 4
+    },
+    "condition": "Before scoring: number of cards PLAYED is exactly 4 (scoring irrelevant, debuffed allowed). Then gives +current Chips if > 0.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": false,
+    "random_parts": null,
+    "notes": [
+      "The gain applies to the current hand. Not Perishable-compatible."
+    ],
+    "wiki_activation_type": "Mixed",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Square_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 66,
+    "name": "Séance",
+    "key": "j_seance",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Creates a random Spectral card if the played hand contains a Straight Flush.",
+    "timing": "independent",
+    "values": {
+      "creates": "Spectral"
+    },
+    "condition": "Played hand contains a Straight Flush (Straight Flush / Royal Flush; with Four Fingers the straight and flush may use different 4-card sets). Needs a free consumable slot.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Cannot create The Soul or Black Hole."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/S%C3%A9ance",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 67,
+    "name": "Riff-Raff",
+    "key": "j_riff_raff",
+    "rarity": "Common",
+    "cost": 6,
+    "effect": "When a Blind is selected, creates up to 2 Common Jokers if there is room.",
+    "timing": "on_blind_select",
+    "values": {
+      "jokers_created": 2,
+      "rarity_created": "Common"
+    },
+    "condition": "On selecting any Blind, if (jokers owned + pending) < joker slot limit; creates min(2, free slots).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": "Created jokers are random Commons (normal pool rules; can roll editions incl. Negative). Never get Eternal/Perishable/Rental stickers except via challenge rules.",
+    "notes": [
+      "With Showman it can create Riff-Raff/duplicates. Can create Cavendish if Gros Michel is extinct.",
+      "If Dagger/Madness to its LEFT frees a slot first, Riff-Raff can use it."
+    ],
+    "wiki_activation_type": "On Blind Select",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Riff-Raff",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 68,
+    "name": "Vampire",
+    "key": "j_vampire",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect": "Removes the Enhancement from every scoring Enhanced card and gains X0.1 Mult per card.",
+    "timing": [
+      "before_scoring",
+      "independent"
+    ],
+    "values": {
+      "start_xmult": 1,
+      "gain_xmult_per_card": 0.1
+    },
+    "condition": "Before scoring: each SCORING card with any Enhancement (Bonus, Mult, Wild, Glass, Steel, Stone, Gold, Lucky) that is not debuffed loses it; +X0.1 each. Gives current XMult if > 1.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": false,
+    "random_parts": null,
+    "notes": [
+      "Removed enhancements do not apply this hand (Glass gives no X2 and cannot break; Stone gives no +50 but the card still scores; Wild removal does not change the hand type).",
+      "Seals and editions are untouched. Only the leftmost Vampire strips cards; order vs Midas Mask matters (Midas left of Vampire -> faces turn Gold then get eaten).",
+      "Not Perishable-compatible. Blueprint copies only the XMult."
+    ],
+    "wiki_activation_type": "Mixed",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Vampire",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 69,
+    "name": "Shortcut",
+    "key": "j_shortcut",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect": "Straights may contain one-rank gaps between cards (e.g. 2 4 5 7 9 is a Straight).",
+    "timing": "passive",
+    "values": {
+      "max_gap": 1
+    },
+    "condition": "Always while owned (not copyable).",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "A gap of exactly one missing rank may occur between any adjacent cards, repeatedly (2 4 6 8 10 is a Straight), but two consecutive missing ranks break it.",
+      "No wrap-around; Ace is high (after K) or low (before 2).",
+      "Combines with Four Fingers."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Shortcut",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 70,
+    "name": "Hologram",
+    "key": "j_hologram",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect": "Gains X0.25 Mult every time a playing card is added to your deck.",
+    "timing": [
+      "on_playing_card_added",
+      "independent"
+    ],
+    "values": {
+      "start_xmult": 1,
+      "gain_xmult_per_card": 0.25
+    },
+    "condition": "Each playing card added to the deck after acquisition (Standard pack picks, playing cards bought in shop, DNA, Marble Joker, Certificate, Cryptid, Familiar/Grim/Incantation). Gives current XMult if > 1.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": false,
+    "random_parts": null,
+    "notes": [
+      "Only gaining matters; destroying the added cards later does not reduce it.",
+      "Not retroactive; not Perishable-compatible."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Hologram",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 71,
+    "name": "Vagabond",
+    "key": "j_vagabond",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect": "Creates a Tarot card when a hand is played while you have $4 or less.",
+    "timing": "independent",
+    "values": {
+      "max_dollars": 4,
+      "creates": "Tarot"
+    },
+    "condition": "Money <= $4 when the hand is scored, using the money total from before this hand's payouts (money earned by the same hand's Gold Seals, Business Card, etc. is not counted). Needs a free consumable slot.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "In debt (Credit Card) it always qualifies."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Vagabond",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 72,
+    "name": "Baron",
+    "key": "j_baron",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect": "Each King held in hand gives X1.5 Mult.",
+    "timing": "on_held_card",
+    "values": {
+      "xmult_per_card": 1.5,
+      "rank": "K"
+    },
+    "condition": "Card held in hand (not played) is a King and not debuffed.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Retriggered by Mime and by a Red Seal on the held King (each retrigger is another X1.5).",
+      "Pareidolia does not make other ranks Kings."
+    ],
+    "wiki_activation_type": "On Held",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Baron",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 73,
+    "name": "Cloud 9",
+    "key": "j_cloud_9",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect": "Earn $1 at end of round for each 9 in your full deck.",
+    "timing": "end_of_round",
+    "values": {
+      "dollars_per_nine": 1
+    },
+    "condition": "Counts every 9 among all owned playing cards (Stone cards excluded, debuffed 9s included). Paid at cash-out.",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Standard deck: $4 per round. Not copyable."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Cloud_9",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 74,
+    "name": "Rocket",
+    "key": "j_rocket",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Earn $1 at end of round; the payout grows by $2 each time a Boss Blind is defeated.",
+    "timing": "end_of_round",
+    "values": {
+      "start_dollars": 1,
+      "dollar_increase_per_boss": 2
+    },
+    "condition": "Pays every round. When a Boss Blind is beaten, the +$2 increase is applied before that round's payout.",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": false,
+    "random_parts": null,
+    "notes": [
+      "Not copyable; not Perishable-compatible."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Rocket",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 75,
+    "name": "Obelisk",
+    "key": "j_obelisk",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect": "Gains X0.2 Mult for each consecutive hand that is not your most played poker hand; resets to X1 otherwise.",
+    "timing": [
+      "before_scoring",
+      "independent"
+    ],
+    "values": {
+      "start_xmult": 1,
+      "gain_xmult": 0.2,
+      "reset_to": 1
+    },
+    "condition": "Before scoring (play counts already include the current hand): if the played hand type's run play count is STRICTLY greater than that of every other visible hand type -> reset to X1; otherwise (some other visible type has >= as many plays) -> +X0.2. Gives current XMult if > 1.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": false,
+    "random_parts": null,
+    "notes": [
+      "Ties are safe: playing a hand type that is tied for most played (after counting this play) still gains.",
+      "Hands disallowed by the Boss Blind neither gain nor reset (but do increase that hand's play count).",
+      "Not Perishable-compatible. Blueprint copies only the XMult."
+    ],
+    "wiki_activation_type": "Mixed",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Obelisk",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 76,
+    "name": "Midas Mask",
+    "key": "j_midas_mask",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect": "Turns every scoring face card into a Gold card.",
+    "timing": "before_scoring",
+    "values": {
+      "enhancement_applied": "Gold"
+    },
+    "condition": "Before scoring: each SCORING card that is a face card (non-debuffed; all cards with Pareidolia) gets the Gold enhancement, replacing any existing enhancement.",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Gold cards do nothing when played; they pay $3 if held at end of round in later rounds.",
+      "Overwrites Glass/Steel/Lucky etc. Not copyable."
+    ],
+    "wiki_activation_type": "On Played",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Midas_Mask",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 77,
+    "name": "Luchador",
+    "key": "j_luchador",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect": "Sell this Joker during a Boss Blind to disable that Boss Blind.",
+    "timing": "on_sell",
+    "values": {},
+    "condition": "Sold while the current Blind is a Boss Blind that is not already disabled, and Luchador is not debuffed.",
+    "blueprint_compatible": true,
+    "eternal_compatible": false,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Selling it outside a Boss Blind does nothing. Cannot be Eternal.",
+      "Blueprint/Brainstorm copying Luchador: selling the Blueprint/Brainstorm also disables the Boss Blind.",
+      "Disabling The Needle restores hands but not the requirement; The Wall/Violet Vessel requirement returns to normal."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Luchador",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 78,
+    "name": "Photograph",
+    "key": "j_photograph",
+    "rarity": "Common",
+    "cost": 5,
+    "effect": "The first scoring face card gives X2 Mult when scored.",
+    "timing": "on_scored_card",
+    "values": {
+      "xmult": 2
+    },
+    "condition": "Scoring card is the first (leftmost) face card in the scoring hand (debuffed faces are not faces; with Pareidolia the first scoring card).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Retriggers of that card fire it again (Red Seal, Sock and Buskin, Hanging Chad if it is first).",
+      "Applies after the card's own enhancement/edition contribution for that trigger."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Photograph",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 79,
+    "name": "Gift Card",
+    "key": "j_gift",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "At end of round, adds $1 of sell value to every Joker and consumable you hold.",
+    "timing": "end_of_round",
+    "values": {
+      "sell_value_gain": 1
+    },
+    "condition": "End of every round; applies to all jokers (including itself and debuffed ones) and all consumables.",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Feeds Swashbuckler, Ceremonial Dagger, Campfire economics. Not copyable."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Gift_Card",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 80,
+    "name": "Turtle Bean",
+    "key": "j_turtle_bean",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Gives +5 hand size, which drops by 1 at the end of each round; destroyed when it reaches 0.",
+    "timing": [
+      "passive",
+      "end_of_round"
+    ],
+    "values": {
+      "start_hand_size": 5,
+      "hand_size_lost_per_round": 1
+    },
+    "condition": "Always while owned; decrement at end of every round.",
+    "blueprint_compatible": false,
+    "eternal_compatible": false,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Gives +5, +4, +3, +2, +1 over 5 rounds, then is destroyed at the 5th round end.",
+      "Not copyable; cannot be Eternal."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Turtle_Bean",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 81,
+    "name": "Erosion",
+    "key": "j_erosion",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Adds +4 Mult for each card your full deck is below its starting size.",
+    "timing": "independent",
+    "values": {
+      "mult_per_missing_card": 4,
+      "mult_formula": "4 * max(0, starting_deck_size - current_full_deck_size)"
+    },
+    "condition": "starting_deck_size is the deck size at run start (52 standard; 40 Abandoned; challenge-specific otherwise). Gives nothing if deck >= start size.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Added cards (Marble, DNA, Standard packs) offset removed ones."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Erosion",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 82,
+    "name": "Reserved Parking",
+    "key": "j_reserved_parking",
+    "rarity": "Common",
+    "cost": 6,
+    "effect": "Each face card held in hand has a 1 in 2 chance to earn $1.",
+    "timing": "on_held_card",
+    "values": {
+      "dollars": 1,
+      "odds": "1 in 2"
+    },
+    "condition": "Card held in hand is a face card (non-debuffed; all cards with Pareidolia).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": "1 in 2 per held face card per hand.",
+    "notes": [
+      "Mime/Red Seal only retrigger a held card that produced an effect, so a failed roll is only retried if some other held effect (Steel, Baron, Shoot the Moon...) fired on that card."
+    ],
+    "wiki_activation_type": "On Held",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Reserved_Parking",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 83,
+    "name": "Mail-In Rebate",
+    "key": "j_mail",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Earn $5 for each discarded card of the listed rank; the rank changes every round.",
+    "timing": "on_discard",
+    "values": {
+      "dollars_per_card": 5
+    },
+    "condition": "Each discarded card (not debuffed) whose rank equals the current target rank.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": "Target rank re-rolled at end of every round (and at run start) by picking a uniformly random non-Stone card from the full deck, so common ranks are more likely and the same rank can repeat. Defaults to Ace if the deck has no ranked cards.",
+    "notes": [
+      "All copies share the same target rank. Copyable. The Hook's forced discards also pay."
+    ],
+    "wiki_activation_type": "On Discard",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Mail-In_Rebate",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 84,
+    "name": "To the Moon",
+    "key": "j_to_the_moon",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect": "Earn an extra $1 of interest per $5 held at end of round.",
+    "timing": [
+      "passive",
+      "end_of_round"
+    ],
+    "values": {
+      "extra_interest_per_5_dollars": 1
+    },
+    "condition": "End-of-round interest: interest = interest_amount * min(floor(money/5), interest_cap/5); To the Moon adds +1 to interest_amount. Requires money >= $5.",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Default cap $25 -> max interest $5 normally, $10 with one To the Moon. Seed Money/Money Tree raise the cap to $50/$100.",
+      "Stacks per copy. No effect with Green Deck/no-interest modifiers. Not copyable."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/To_the_Moon",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 85,
+    "name": "Hallucination",
+    "key": "j_hallucination",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "1 in 2 chance to create a Tarot card when any Booster Pack is opened.",
+    "timing": "on_booster",
+    "values": {
+      "odds": "1 in 2",
+      "creates": "Tarot"
+    },
+    "condition": "Opening any Booster Pack, with a free consumable slot.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": "1 in 2 per pack opened (each Blueprint copy rolls separately).",
+    "notes": [],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Hallucination",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 86,
+    "name": "Fortune Teller",
+    "key": "j_fortune_teller",
+    "rarity": "Common",
+    "cost": 6,
+    "effect": "Adds +1 Mult for every Tarot card used this run.",
+    "timing": "independent",
+    "values": {
+      "mult_per_tarot_used": 1
+    },
+    "condition": "Gives +N Mult where N = Tarot cards used in the whole run (retroactive, includes Tarots used before buying it), if N > 0.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Fortune_Teller",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 87,
+    "name": "Juggler",
+    "key": "j_juggler",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Gives +1 hand size.",
+    "timing": "passive",
+    "values": {
+      "hand_size": 1
+    },
+    "condition": "Always while owned.",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Not copyable."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Juggler",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 88,
+    "name": "Drunkard",
+    "key": "j_drunkard",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Gives +1 discard each round.",
+    "timing": "passive",
+    "values": {
+      "discards": 1
+    },
+    "condition": "Always while owned (applied immediately on purchase too).",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Not copyable."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Drunkard",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 89,
+    "name": "Stone Joker",
+    "key": "j_stone",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Adds +25 Chips for each Stone card in your full deck.",
+    "timing": "independent",
+    "values": {
+      "chips_per_stone_card": 25
+    },
+    "condition": "At least one Stone card among all owned playing cards.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Only appears if the deck has a Stone card (enhancement gate)."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Stone_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ],
+    "spawn_condition": "Only obtainable if there is at least 1 Stone card currently in the player's deck."
+  },
+  {
+    "n": 90,
+    "name": "Golden Joker",
+    "key": "j_golden",
+    "rarity": "Common",
+    "cost": 6,
+    "effect": "Earn $4 at end of round.",
+    "timing": "end_of_round",
+    "values": {
+      "dollars": 4
+    },
+    "condition": "End of every round (cash-out).",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Not copyable."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Golden_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 91,
+    "name": "Lucky Cat",
+    "key": "j_lucky_cat",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Gains X0.25 Mult every time a Lucky card successfully triggers.",
+    "timing": [
+      "on_scored_card",
+      "independent"
+    ],
+    "values": {
+      "start_xmult": 1,
+      "gain_xmult": 0.25
+    },
+    "condition": "A scoring Lucky card hits its 1 in 5 (+20 Mult) and/or 1 in 15 ($20) roll; hitting both counts once. Gain happens during scoring, before the joker pass, so it applies to the same hand.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": false,
+    "random_parts": "Depends on Lucky card odds (1 in 5 mult, 1 in 15 money; doubled by Oops! All 6s).",
+    "notes": [
+      "Each retrigger of a Lucky card can trigger again. Only appears if the deck has a Lucky card. Not Perishable-compatible."
+    ],
+    "wiki_activation_type": "Mixed",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Lucky_Cat",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ],
+    "spawn_condition": "Only obtainable if there is at least 1 Lucky card currently in the player's deck."
+  },
+  {
+    "n": 92,
+    "name": "Baseball Card",
+    "key": "j_baseball",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect": "Each Uncommon Joker you own gives X1.5 Mult.",
+    "timing": "on_other_joker",
+    "values": {
+      "xmult_per_uncommon_joker": 1.5
+    },
+    "condition": "For every Joker of Uncommon rarity (not Rare/Legendary), applied right after that Joker's own effect in the left-to-right joker pass, whether or not that Joker did anything (even if debuffed).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Position matters: +Mult jokers to the left of an Uncommon joker get multiplied.",
+      "Baseball Card itself is Rare and does not count. Blueprint/Brainstorm copies add another X1.5 per Uncommon joker."
+    ],
+    "wiki_activation_type": "On Other Jokers",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Baseball_Card",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 93,
+    "name": "Bull",
+    "key": "j_bull",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Adds +2 Chips for every $1 you have.",
+    "timing": "independent",
+    "values": {
+      "chips_per_dollar": 2
+    },
+    "condition": "Money > 0 at scoring time, including money earned earlier in the same hand (dollar buffer). Gives nothing at $0 or in debt.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Bull",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 94,
+    "name": "Diet Cola",
+    "key": "j_diet_cola",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Sell this Joker to create a free Double Tag.",
+    "timing": "on_sell",
+    "values": {
+      "tag_created": "Double Tag"
+    },
+    "condition": "When sold (any time).",
+    "blueprint_compatible": true,
+    "eternal_compatible": false,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Cannot be Eternal. Selling a Blueprint/Brainstorm that copies Diet Cola also creates a Double Tag."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Diet_Cola",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 95,
+    "name": "Trading Card",
+    "key": "j_trading",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "If the first discard of the round is a single card, destroys it and earns $3.",
+    "timing": "on_discard",
+    "values": {
+      "dollars": 3,
+      "cards_in_discard": 1
+    },
+    "condition": "First discard of the round (no discards used yet) contains exactly 1 card.",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "The card is destroyed (deck thinning; Glass cards shatter and count for Glass Joker; destroyed face cards count for Canio).",
+      "Multiple copies each pay $3 for the same discard. Not copyable."
+    ],
+    "wiki_activation_type": "On Discard",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Trading_Card",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 96,
+    "name": "Flash Card",
+    "key": "j_flash",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect": "Gains +2 Mult every time the shop is rerolled.",
+    "timing": [
+      "on_reroll",
+      "independent"
+    ],
+    "values": {
+      "start_mult": 0,
+      "gain_mult": 2
+    },
+    "condition": "Every shop reroll (paid or free). Gives +current Mult if > 0.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": false,
+    "random_parts": null,
+    "notes": [
+      "Not retroactive; not Perishable-compatible."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Flash_Card",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 97,
+    "name": "Popcorn",
+    "key": "j_popcorn",
+    "rarity": "Common",
+    "cost": 5,
+    "effect": "Gives +20 Mult, losing 4 Mult at the end of each round; destroyed at 0.",
+    "timing": [
+      "independent",
+      "end_of_round"
+    ],
+    "values": {
+      "start_mult": 20,
+      "mult_lost_per_round": 4
+    },
+    "condition": "Always gives current Mult. At end of each round Mult -= 4; if that would reach 0 it is destroyed instead.",
+    "blueprint_compatible": true,
+    "eternal_compatible": false,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Gives 20, 16, 12, 8, 4 over 5 rounds, destroyed at the 5th round end. Cannot be Eternal."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Popcorn",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 98,
+    "name": "Spare Trousers",
+    "key": "j_trousers",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Gains +2 Mult whenever the played hand contains a Two Pair.",
+    "timing": [
+      "before_scoring",
+      "independent"
+    ],
+    "values": {
+      "start_mult": 0,
+      "gain_mult": 2
+    },
+    "condition": "Played hand CONTAINS a Two Pair: true for Two Pair, Full House and Flush House (two exact pairs, or one exact triple plus one exact pair), and a Flush with two repeated ranks. FALSE for Four of a Kind and Five of a Kind (rank groups are counted by exact size). Gain happens before scoring (applies to this hand); then gives +current Mult if > 0.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": false,
+    "random_parts": null,
+    "notes": [
+      "Not Perishable-compatible."
+    ],
+    "wiki_activation_type": "Mixed",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Spare_Trousers",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 99,
+    "name": "Ancient Joker",
+    "key": "j_ancient",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect": "Each scoring card of the listed suit gives X1.5 Mult; the suit changes at end of round.",
+    "timing": [
+      "on_scored_card",
+      "end_of_round"
+    ],
+    "values": {
+      "xmult_per_card": 1.5
+    },
+    "condition": "Scoring card counts as the current suit (Wild cards always; Smeared Joker pairs).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": "At end of every round the suit changes to one of the 3 OTHER suits uniformly (deck composition ignored). Initial suit uniform among all 4.",
+    "notes": [
+      "All copies share the same suit.",
+      "Fires once per scoring trigger, so each retrigger (Red Seal, Hack, Sock and Buskin, Dusk, Seltzer, Hanging Chad, Blueprint-copied retriggers) fires it again."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Ancient_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 100,
+    "name": "Ramen",
+    "key": "j_ramen",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Gives X2 Mult, losing X0.01 for every card discarded; destroyed when it would fall to X1.",
+    "timing": [
+      "independent",
+      "on_discard"
+    ],
+    "values": {
+      "start_xmult": 2,
+      "xmult_lost_per_discarded_card": 0.01
+    },
+    "condition": "Every card discarded (per card, including The Hook's forced discards) -> -X0.01. If the result would be <= X1 it is destroyed instead.",
+    "blueprint_compatible": true,
+    "eternal_compatible": false,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Destroyed on the 100th card discarded (it reaches X1.01 after 99).",
+      "Non-scoring played cards are not discards. Cannot be Eternal."
+    ],
+    "wiki_activation_type": "Mixed",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Ramen",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 101,
+    "name": "Walkie Talkie",
+    "key": "j_walkie_talkie",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Each scoring 10 or 4 adds +10 Chips and +4 Mult.",
+    "timing": "on_scored_card",
+    "values": {
+      "chips_per_card": 10,
+      "mult_per_card": 4,
+      "ranks": [
+        "10",
+        "4"
+      ]
+    },
+    "condition": "Scoring card rank is 10 or 4.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Retriggers fire it again."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Walkie_Talkie",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 102,
+    "name": "Seltzer",
+    "key": "j_selzer",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Retriggers every scoring card once for the next 10 hands, then is used up.",
+    "timing": [
+      "on_scored_card",
+      "after_scoring"
+    ],
+    "values": {
+      "retriggers": 1,
+      "hands_remaining_start": 10
+    },
+    "condition": "Every scoring card of every played hand while hands remain. Counter -1 after each hand played (including hands the Boss Blind disallows); destroyed when the counter would reach 0 (after the 10th hand).",
+    "blueprint_compatible": true,
+    "eternal_compatible": false,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Blueprint copies add another retrigger but do not consume extra charges.",
+      "Cannot be Eternal."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Seltzer",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 103,
+    "name": "Castle",
+    "key": "j_castle",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Gains +3 Chips per discarded card of the listed suit; the suit changes every round.",
+    "timing": [
+      "on_discard",
+      "independent"
+    ],
+    "values": {
+      "start_chips": 0,
+      "gain_chips_per_card": 3
+    },
+    "condition": "Each discarded card (not debuffed) that counts as the target suit (Wild cards and Smeared Joker pairs count). Gives +current Chips if > 0.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": false,
+    "random_parts": "Target suit re-rolled at end of every round (and run start) from a uniformly random non-Stone card in the full deck (weighted by deck suit composition, may repeat). Defaults to Spades if no suited cards.",
+    "notes": [
+      "All copies share the same suit. The Hook's forced discards also count.",
+      "Not Perishable-compatible. Blueprint copies only the Chips."
+    ],
+    "wiki_activation_type": "Mixed",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Castle",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 104,
+    "name": "Smiley Face",
+    "key": "j_smiley",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Each scoring face card adds +5 Mult.",
+    "timing": "on_scored_card",
+    "values": {
+      "mult_per_card": 5
+    },
+    "condition": "Scoring card is a face card (non-debuffed; every card with Pareidolia).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Retriggers fire it again."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Smiley_Face",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 105,
+    "name": "Campfire",
+    "key": "j_campfire",
+    "rarity": "Rare",
+    "cost": 9,
+    "effect": "Gains X0.25 Mult for each card sold; resets to X1 when a Boss Blind is defeated.",
+    "timing": [
+      "on_sell",
+      "independent",
+      "end_of_round"
+    ],
+    "values": {
+      "start_xmult": 1,
+      "gain_xmult_per_card_sold": 0.25,
+      "reset_to": 1
+    },
+    "condition": "Any Joker or consumable sold (other than Campfire itself) -> +X0.25. At end of a Boss Blind round it resets to X1. Gives current XMult if > 1.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Destroying cards (Dagger, Hex, using consumables) does not count; only selling.",
+      "Is Perishable-compatible (unlike most scaling jokers). Blueprint copies only the XMult."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Campfire",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 106,
+    "name": "Golden Ticket",
+    "key": "j_ticket",
+    "rarity": "Common",
+    "cost": 5,
+    "effect": "Each scoring Gold card earns $4.",
+    "timing": "on_scored_card",
+    "values": {
+      "dollars_per_card": 4
+    },
+    "condition": "Scoring card has the Gold enhancement (at scoring time).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Midas Mask applies Gold before scoring, so Midas-converted faces pay immediately; Vampire to the left strips Gold first.",
+      "Only appears if the deck has a Gold card (enhancement gate)."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Golden_Ticket",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ],
+    "spawn_condition": "Only obtainable if there is at least 1 Gold card currently in the player's deck."
+  },
+  {
+    "n": 107,
+    "name": "Mr. Bones",
+    "key": "j_mr_bones",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect": "Prevents a loss if you scored at least 25% of the Blind's requirement, then destroys itself.",
+    "timing": "end_of_round",
+    "values": {
+      "min_fraction_of_blind": 0.25
+    },
+    "condition": "At round end, if the Blind was not beaten (game would be over) and round chips / blind chips >= 0.25.",
+    "blueprint_compatible": false,
+    "eternal_compatible": false,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "The round counts as won but the Blind's reward money is not paid (interest and other end-of-round money still are).",
+      "Wiki: does not save you when you run out of cards (see open questions).",
+      "Not copyable; cannot be Eternal."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "inferred",
+    "source": [
+      "https://balatrowiki.org/w/Mr._Bones",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 108,
+    "name": "Acrobat",
+    "key": "j_acrobat",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Gives X3 Mult on the final hand of the round.",
+    "timing": "independent",
+    "values": {
+      "xmult": 3
+    },
+    "condition": "hands_left == 0 at scoring time (this is the last available hand of the round).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Not triggered by an earlier hand that happens to win the round."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Acrobat",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 109,
+    "name": "Sock and Buskin",
+    "key": "j_sock_and_buskin",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Retriggers every scoring face card once.",
+    "timing": "on_scored_card",
+    "values": {
+      "retriggers": 1
+    },
+    "condition": "Scoring card is a face card (non-debuffed; every card with Pareidolia).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Does not affect held cards. Stacks additively with Red Seal and other retriggers."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Sock_and_Buskin",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 110,
+    "name": "Swashbuckler",
+    "key": "j_swashbuckler",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Adds Mult equal to the total sell value of all your other Jokers.",
+    "timing": "independent",
+    "values": {
+      "mult_formula": "sum(sell_value of every other owned joker)"
+    },
+    "condition": "Gives +sum if > 0; includes debuffed jokers, excludes itself and consumables.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Sell value per joker = max(1, floor(cost/2)) + extra value (Egg, Gift Card); cost includes edition surcharge (+$2 Foil, +$3 Holographic, +$5 Polychrome, +$5 Negative) and discounts. Rental jokers have sell value $1 (+extra value)."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Swashbuckler",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 111,
+    "name": "Troubadour",
+    "key": "j_troubadour",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Gives +2 hand size but -1 hand every round.",
+    "timing": "passive",
+    "values": {
+      "hand_size": 2,
+      "hands_per_round": -1
+    },
+    "condition": "Always while owned (applied to the per-round hand count; hands never drop below 1).",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Buying it mid-round reduces hands starting next round; selling mid-round keeps the -1 hand for the current round.",
+      "Not copyable."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Troubadour",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 112,
+    "name": "Certificate",
+    "key": "j_certificate",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "When a round begins, adds a random playing card with a random seal directly to your hand (and deck).",
+    "timing": "on_round_start",
+    "values": {
+      "cards_added": 1
+    },
+    "condition": "When the first hand of each round is drawn (after Blind selection).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": "Card face uniform among the 52 standard rank/suit combinations, no enhancement; seal uniform among Red, Blue, Gold, Purple (25% each).",
+    "notes": [
+      "The card is added to hand even beyond hand size and stays in the deck permanently (Hologram +X0.25, increases deck size).",
+      "Copyable: each Blueprint/Brainstorm copy adds another card. Boss Blind debuffs apply to it."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Certificate",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 113,
+    "name": "Smeared Joker",
+    "key": "j_smeared",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect": "Hearts and Diamonds count as the same suit, and Spades and Clubs count as the same suit.",
+    "timing": "passive",
+    "values": {},
+    "condition": "Always while owned (not copyable).",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Affects flush detection and every suit-based joker/blind (a Heart counts as a Diamond and vice versa).",
+      "With Seeing Double, a single scoring Spade counts as both Club and Spade, satisfying it alone."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Smeared_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 114,
+    "name": "Throwback",
+    "key": "j_throwback",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Gives X0.25 Mult for each Blind skipped this run.",
+    "timing": "independent",
+    "values": {
+      "xmult_per_skip": 0.25,
+      "xmult_formula": "1 + 0.25 * blinds_skipped_this_run"
+    },
+    "condition": "Skips counted over the whole run (retroactive, including before purchase). Applies if > X1.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Throwback",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 115,
+    "name": "Hanging Chad",
+    "key": "j_hanging_chad",
+    "rarity": "Common",
+    "cost": 4,
+    "effect": "Retriggers the first scoring card 2 extra times.",
+    "timing": "on_scored_card",
+    "values": {
+      "retriggers": 2
+    },
+    "condition": "Scoring card is the first card of the scoring hand (leftmost scoring card; with Splash the leftmost played card).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Red Seal on that card adds a further retrigger (4 triggers total). Debuffed first card: nothing happens."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Hanging_Chad",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 116,
+    "name": "Rough Gem",
+    "key": "j_rough_gem",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect": "Each scoring Diamond card earns $1.",
+    "timing": "on_scored_card",
+    "values": {
+      "dollars_per_card": 1,
+      "suit": "Diamonds"
+    },
+    "condition": "Scoring card counts as Diamonds (Wild, Smeared).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Fires once per scoring trigger, so each retrigger (Red Seal, Hack, Sock and Buskin, Dusk, Seltzer, Hanging Chad, Blueprint-copied retriggers) fires it again."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Rough_Gem",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 117,
+    "name": "Bloodstone",
+    "key": "j_bloodstone",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect": "Each scoring Heart card has a 1 in 2 chance to give X1.5 Mult.",
+    "timing": "on_scored_card",
+    "values": {
+      "xmult": 1.5,
+      "odds": "1 in 2",
+      "suit": "Hearts"
+    },
+    "condition": "Scoring card counts as Hearts (Wild, Smeared).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": "Independent 1 in 2 roll per scoring trigger (retriggers roll again).",
+    "notes": [],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Bloodstone",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 118,
+    "name": "Arrowhead",
+    "key": "j_arrowhead",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect": "Each scoring Spade card adds +50 Chips.",
+    "timing": "on_scored_card",
+    "values": {
+      "chips_per_card": 50,
+      "suit": "Spades"
+    },
+    "condition": "Scoring card counts as Spades (Wild, Smeared).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Fires once per scoring trigger, so each retrigger (Red Seal, Hack, Sock and Buskin, Dusk, Seltzer, Hanging Chad, Blueprint-copied retriggers) fires it again."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Arrowhead",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 119,
+    "name": "Onyx Agate",
+    "key": "j_onyx_agate",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect": "Each scoring Club card adds +7 Mult.",
+    "timing": "on_scored_card",
+    "values": {
+      "mult_per_card": 7,
+      "suit": "Clubs"
+    },
+    "condition": "Scoring card counts as Clubs (Wild, Smeared).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Fires once per scoring trigger, so each retrigger (Red Seal, Hack, Sock and Buskin, Dusk, Seltzer, Hanging Chad, Blueprint-copied retriggers) fires it again."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Onyx_Agate",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 120,
+    "name": "Glass Joker",
+    "key": "j_glass",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Gains X0.75 Mult for every Glass card destroyed.",
+    "timing": [
+      "on_cards_destroyed",
+      "independent"
+    ],
+    "values": {
+      "start_xmult": 1,
+      "gain_xmult_per_glass": 0.75
+    },
+    "condition": "Each Glass card that shatters when scored, or is destroyed while in play/discard (Sixth Sense, Trading Card), or is destroyed by The Hanged Man. Gives current XMult if > 1.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": false,
+    "random_parts": null,
+    "notes": [
+      "Glass destroyed by Spectral cards (Immolate, Familiar, Grim, Incantation) does NOT count (known bug).",
+      "Only appears if the deck has a Glass card. Not Perishable-compatible."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Glass_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ],
+    "spawn_condition": "Only obtainable if there is at least 1 Glass card currently in the player's deck."
+  },
+  {
+    "n": 121,
+    "name": "Showman",
+    "key": "j_ring_master",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect": "Jokers, Tarot, Planet and Spectral cards may appear even if you already have them.",
+    "timing": "passive",
+    "values": {},
+    "condition": "Always while owned (not copyable).",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Removes the duplicate restriction for shop, packs and card generators (Riff-Raff, Judgement, Emperor...)."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "inferred",
+    "source": [
+      "https://balatrowiki.org/w/Showman",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 122,
+    "name": "Flower Pot",
+    "key": "j_flower_pot",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Gives X3 Mult if the scoring cards include a Diamond, a Club, a Heart and a Spade.",
+    "timing": "independent",
+    "values": {
+      "xmult": 3
+    },
+    "condition": "Among SCORING cards: each non-Wild card is assigned to the first matching suit of Hearts, Diamonds, Spades, Clubs that is still missing (printed suit counts even if debuffed); then each Wild card (not debuffed) fills one missing suit. Triggers if all four suits are covered (needs >= 4 scoring cards).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Each card fills at most one suit, but with Smeared Joker a red card can fill Hearts or Diamonds and a black card Spades or Clubs, so two red + two black scoring cards suffice.",
+      "Debuffed Wild cards count for nothing (bug in 1.0.1)."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Flower_Pot",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 123,
+    "name": "Blueprint",
+    "key": "j_blueprint",
+    "rarity": "Rare",
+    "cost": 10,
+    "effect": "Copies the ability of the Joker immediately to its right.",
+    "timing": "copy",
+    "values": {},
+    "condition": "A Joker exists directly to its right. The copy is evaluated at Blueprint's own position in the joker order.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Copies every context the target reacts to while Blueprint is the one being called: on-scored, held, retriggers, before-scoring (e.g. Space Joker, DNA, To Do List), independent XMult/+Mult/+Chips, other-joker (Baseball Card), blind select (Burglar, Cartomancer, Marble, Riff-Raff), discard (Burnt Joker, Faceless, Mail-In Rebate), booster open (Hallucination), end of shop (Perkeo), round start (Certificate), selling (selling Blueprint copying Luchador/Diet Cola triggers them).",
+      "Never copies: end-of-round money (Golden Joker, Cloud 9, Rocket, Satellite, Delayed Gratification), passive rule changes (hand size, discards, Four Fingers, Pareidolia, Showman, Chicot...), scaling/increments and resets (only the current value is copied), self-destruction/destruction effects (Dagger, Madness's destroy, Trading Card, Sixth Sense), editions and stickers of the target, debuffed targets.",
+      "Chance-based targets roll independently for the copy.",
+      "Blueprint copying Brainstorm copies Brainstorm's target (and vice versa); chains are followed but self-loops stop.",
+      "Rightmost Blueprint does nothing. Blueprint is itself copyable."
+    ],
+    "wiki_activation_type": null,
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Blueprint",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 124,
+    "name": "Wee Joker",
+    "key": "j_wee",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect": "Gains +8 Chips whenever a scoring 2 is triggered; gives its accumulated Chips.",
+    "timing": [
+      "on_scored_card",
+      "independent"
+    ],
+    "values": {
+      "start_chips": 0,
+      "gain_chips_per_two": 8
+    },
+    "condition": "Each scoring trigger of a card of rank 2 (retriggers count). Gives +current Chips if > 0 (current hand's gains included).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": false,
+    "random_parts": null,
+    "notes": [
+      "Not Perishable-compatible. Blueprint copies only the Chips."
+    ],
+    "wiki_activation_type": "Mixed",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Wee_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 125,
+    "name": "Merry Andy",
+    "key": "j_merry_andy",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect": "Gives +3 discards each round but -1 hand size.",
+    "timing": "passive",
+    "values": {
+      "discards": 3,
+      "hand_size": -1
+    },
+    "condition": "Always while owned.",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Not copyable."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Merry_Andy",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 126,
+    "name": "Oops! All 6s",
+    "key": "j_oops",
+    "rarity": "Uncommon",
+    "cost": 4,
+    "effect": "Doubles all listed probabilities (e.g. 1 in 4 becomes 2 in 4).",
+    "timing": "passive",
+    "values": {
+      "probability_multiplier": 2
+    },
+    "condition": "Always while owned (not copyable).",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Multiplies the global probability numerator by 2 per copy (2 copies -> x4).",
+      "Affects every 'N in M' chance: Lucky cards, Glass breaking, Wheel of Fortune, Business Card, Bloodstone, 8 Ball, Space Joker, Reserved Parking, Hallucination, Gros Michel/Cavendish extinction, The Wheel boss. Not the X-ray Vision challenge flip."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Oops!_All_6s",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 127,
+    "name": "The Idol",
+    "key": "j_idol",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Each scoring card of the listed rank and suit gives X2 Mult; the card changes every round.",
+    "timing": [
+      "on_scored_card",
+      "end_of_round"
+    ],
+    "values": {
+      "xmult_per_card": 2
+    },
+    "condition": "Scoring card has the target rank AND counts as the target suit (Wild cards and Smeared Joker pairs match on suit).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": "Target re-rolled at end of every round (and at run start) by copying rank+suit of a uniformly random non-Stone card in the full deck (defaults to Ace of Spades if none).",
+    "notes": [
+      "All copies share the same target. Retriggers fire it again."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/The_Idol",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 128,
+    "name": "Seeing Double",
+    "key": "j_seeing_double",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Gives X2 Mult if the scoring cards include a Club and a card of another suit.",
+    "timing": "independent",
+    "values": {
+      "xmult": 2
+    },
+    "condition": "Among SCORING cards: non-Wild cards are counted for every suit they count as (debuffed cards count for nothing); then each Wild card fills Clubs first, else another missing suit. Triggers if Clubs >= 1 and (Hearts or Diamonds or Spades) >= 1.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "With Smeared Joker a single scoring Spade or Club satisfies it by itself."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Seeing_Double",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 129,
+    "name": "Matador",
+    "key": "j_matador",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect": "Earn $8 whenever a played hand triggers the Boss Blind's ability.",
+    "timing": [
+      "independent",
+      "on_hand_not_allowed"
+    ],
+    "values": {
+      "dollars": 8
+    },
+    "condition": "During a Boss Blind the played hand: contains a scoring debuffed card (The Window/Head/Club/Goad suit debuffs, The Plant, The Pillar, Verdant Leaf), or is disallowed (The Psychic <5 cards, The Eye repeat type, The Mouth other type), or is halved by The Flint, or is levelled down by The Arm (hand level >= 2), or matches The Ox's most played hand.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "The Hook, The Tooth and Crimson Heart never trigger it (their trigger flag is cleared before scoring).",
+      "A debuffed card must be in the scoring hand to count. Pays per hand. Copyable."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Matador",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 130,
+    "name": "Hit the Road",
+    "key": "j_hit_the_road",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect": "Gains X0.5 Mult for every Jack discarded this round; resets at end of round.",
+    "timing": [
+      "on_discard",
+      "independent",
+      "end_of_round"
+    ],
+    "values": {
+      "start_xmult": 1,
+      "gain_xmult_per_jack": 0.5,
+      "reset_to": 1
+    },
+    "condition": "Each discarded card of rank Jack (not debuffed; Pareidolia does not apply). Reset to X1 at end of every round. Gives current XMult if > 1.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "All copies gain from the same discards. Blueprint copies only the XMult."
+    ],
+    "wiki_activation_type": "Mixed",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Hit_the_Road",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 131,
+    "name": "The Duo",
+    "key": "j_duo",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect": "Gives X2 Mult if the played hand contains a Pair.",
+    "timing": "independent",
+    "values": {
+      "xmult": 2,
+      "hand_type": "Pair"
+    },
+    "condition": "Played hand CONTAINS a Pair (any two played cards of the same rank): true for Pair, Two Pair, Three of a Kind, Full House, Four of a Kind, Five of a Kind, Flush House, Flush Five, and for a Flush/Straight whose played cards include a repeated rank. Uses all played cards, not only scoring ones; Stone cards have no rank.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "The contained hand does not need to be made of scoring cards."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/The_Duo",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 132,
+    "name": "The Trio",
+    "key": "j_trio",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect": "Gives X3 Mult if the played hand contains a Three of a Kind.",
+    "timing": "independent",
+    "values": {
+      "xmult": 3,
+      "hand_type": "Three of a Kind"
+    },
+    "condition": "Played hand CONTAINS a Three of a Kind: true for Three of a Kind, Full House, Four of a Kind, Five of a Kind, Flush House, Flush Five (and a Flush with three of one rank).",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "The contained hand does not need to be made of scoring cards."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/The_Trio",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 133,
+    "name": "The Family",
+    "key": "j_family",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect": "Gives X4 Mult if the played hand contains a Four of a Kind.",
+    "timing": "independent",
+    "values": {
+      "xmult": 4,
+      "hand_type": "Four of a Kind"
+    },
+    "condition": "Played hand CONTAINS a Four of a Kind: true for Four of a Kind, Five of a Kind and Flush Five.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "The contained hand does not need to be made of scoring cards."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/The_Family",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 134,
+    "name": "The Order",
+    "key": "j_order",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect": "Gives X3 Mult if the played hand contains a Straight.",
+    "timing": "independent",
+    "values": {
+      "xmult": 3,
+      "hand_type": "Straight"
+    },
+    "condition": "Played hand CONTAINS a Straight: true for Straight and Straight Flush (incl. Royal Flush). With Four Fingers a 4-card run counts; with Shortcut single-rank gaps are allowed. Ace can be high or low but straights do not wrap.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "The contained hand does not need to be made of scoring cards."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/The_Order",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 135,
+    "name": "The Tribe",
+    "key": "j_tribe",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect": "Gives X2 Mult if the played hand contains a Flush.",
+    "timing": "independent",
+    "values": {
+      "xmult": 2,
+      "hand_type": "Flush"
+    },
+    "condition": "Played hand CONTAINS a Flush: true for Flush, Straight Flush, Flush House, Flush Five (and e.g. a Four of a Kind/Full House whose 5 cards share a suit). With Four Fingers 4 same-suit cards suffice. Wild cards count for every suit; Smeared Joker merges red and black suits.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "The contained hand does not need to be made of scoring cards."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/The_Tribe",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 136,
+    "name": "Stuntman",
+    "key": "j_stuntman",
+    "rarity": "Rare",
+    "cost": 7,
+    "effect": "Gives +250 Chips but -2 hand size.",
+    "timing": [
+      "independent",
+      "passive"
+    ],
+    "values": {
+      "chips": 250,
+      "hand_size": -2
+    },
+    "condition": "Always while owned.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Blueprint copies the +250 Chips but not the hand-size penalty."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Stuntman",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 137,
+    "name": "Invisible Joker",
+    "key": "j_invisible",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect": "After 2 rounds, sell this Joker to duplicate a random other Joker.",
+    "timing": [
+      "end_of_round",
+      "on_sell"
+    ],
+    "values": {
+      "rounds_required": 2
+    },
+    "condition": "Round counter +1 at each end of round; when sold with counter >= 2 (and not debuffed), copies a uniformly random other owned Joker if (jokers owned) <= slot limit.",
+    "blueprint_compatible": false,
+    "eternal_compatible": false,
+    "perishable_compatible": true,
+    "random_parts": "Which Joker is copied: uniform among other owned Jokers.",
+    "notes": [
+      "Copy keeps edition (except Negative is removed), stickers and current scaling values; a copied Invisible Joker resets to 0/2.",
+      "No effect if no other jokers. Not copyable; cannot be Eternal."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Invisible_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 138,
+    "name": "Brainstorm",
+    "key": "j_brainstorm",
+    "rarity": "Rare",
+    "cost": 10,
+    "effect": "Copies the ability of the leftmost Joker.",
+    "timing": "copy",
+    "values": {},
+    "condition": "Copies G.jokers[1]; does nothing when Brainstorm itself is leftmost. Evaluated at Brainstorm's own position in the joker order.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Same copy/no-copy rules as Blueprint. If Blueprint is leftmost, Brainstorm copies what Blueprint copies."
+    ],
+    "wiki_activation_type": null,
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Brainstorm",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 139,
+    "name": "Satellite",
+    "key": "j_satellite",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Earn $1 at end of round for each unique Planet card used this run.",
+    "timing": "end_of_round",
+    "values": {
+      "dollars_per_unique_planet": 1
+    },
+    "condition": "Counts distinct Planet card types used at any time this run (retroactive). Paid at cash-out; nothing if 0.",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Max $12 (9 regular + 3 secret-hand planets). Black Hole does not count. Not copyable."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Satellite",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 140,
+    "name": "Shoot the Moon",
+    "key": "j_shoot_the_moon",
+    "rarity": "Common",
+    "cost": 5,
+    "effect": "Each Queen held in hand adds +13 Mult.",
+    "timing": "on_held_card",
+    "values": {
+      "mult_per_card": 13,
+      "rank": "Q"
+    },
+    "condition": "Card held in hand is a Queen and not debuffed.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Retriggered by Mime and Red Seal on the held Queen."
+    ],
+    "wiki_activation_type": "On Held",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Shoot_the_Moon",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 141,
+    "name": "Driver's License",
+    "key": "j_drivers_license",
+    "rarity": "Rare",
+    "cost": 7,
+    "effect": "Gives X3 Mult if at least 16 cards in your full deck are Enhanced.",
+    "timing": "independent",
+    "values": {
+      "xmult": 3,
+      "min_enhanced_cards": 16
+    },
+    "condition": "Count of owned playing cards with any Enhancement (Bonus, Mult, Wild, Glass, Steel, Stone, Gold, Lucky) >= 16. Editions and seals do not count.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Gives a single X3 regardless of how far above 16."
+    ],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Driver's_License",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 142,
+    "name": "Cartomancer",
+    "key": "j_cartomancer",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect": "Creates a Tarot card when a Blind is selected.",
+    "timing": "on_blind_select",
+    "values": {
+      "creates": "Tarot"
+    },
+    "condition": "On selecting any Blind, with a free consumable slot.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Copyable."
+    ],
+    "wiki_activation_type": "On Blind Select",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Cartomancer",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 143,
+    "name": "Astronomer",
+    "key": "j_astronomer",
+    "rarity": "Uncommon",
+    "cost": 8,
+    "effect": "Planet cards and Celestial Packs in the shop cost $0.",
+    "timing": "passive",
+    "values": {
+      "planet_cost": 0,
+      "celestial_pack_cost": 0
+    },
+    "condition": "Always while owned (not copyable).",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Astronomer",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 144,
+    "name": "Burnt Joker",
+    "key": "j_burnt",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect": "Levels up the poker hand of the first discard of each round.",
+    "timing": "on_discard",
+    "values": {
+      "levels": 1
+    },
+    "condition": "The first discard action of the round (no discards used yet): +1 level to the poker hand the discarded cards form.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "The Hook's forced discards do not trigger it. Works with debuffed cards. Copyable (each copy adds a level). Not a Planet use (no Constellation)."
+    ],
+    "wiki_activation_type": "On Discard",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Burnt_Joker",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 145,
+    "name": "Bootstraps",
+    "key": "j_bootstraps",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect": "Adds +2 Mult for every $5 you have.",
+    "timing": "independent",
+    "values": {
+      "mult_per_5_dollars": 2
+    },
+    "condition": "Gives 2 * floor(money / 5) if >= 1 step; money includes cash earned earlier in the same hand.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [],
+    "wiki_activation_type": "Independent",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Bootstraps",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 146,
+    "name": "Canio",
+    "key": "j_caino",
+    "rarity": "Legendary",
+    "cost": 0,
+    "effect": "Gains X1 Mult whenever a face card is destroyed.",
+    "timing": [
+      "on_cards_destroyed",
+      "independent"
+    ],
+    "values": {
+      "start_xmult": 1,
+      "gain_xmult_per_face": 1,
+      "internal_cost": 20,
+      "sell_value": 10
+    },
+    "condition": "Each destroyed playing card that is a face card (non-debuffed; every card with Pareidolia): Glass faces shattering, Hanged Man, Immolate, Familiar/Grim/Incantation, Trading Card, Sixth Sense. Gives current XMult if > 1.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Legendary: only from The Soul; buy price N/A (internal cost $20, sell value $10). Never naturally Eternal."
+    ],
+    "wiki_activation_type": "Mixed",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Canio",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 147,
+    "name": "Triboulet",
+    "key": "j_triboulet",
+    "rarity": "Legendary",
+    "cost": 0,
+    "effect": "Each scoring King or Queen gives X2 Mult.",
+    "timing": "on_scored_card",
+    "values": {
+      "xmult_per_card": 2,
+      "ranks": [
+        "K",
+        "Q"
+      ],
+      "internal_cost": 20,
+      "sell_value": 10
+    },
+    "condition": "Scoring card rank is King or Queen.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Retriggers fire it again. Legendary: only from The Soul; sell value $10."
+    ],
+    "wiki_activation_type": "On Scored",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Triboulet",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 148,
+    "name": "Yorick",
+    "key": "j_yorick",
+    "rarity": "Legendary",
+    "cost": 0,
+    "effect": "Gains X1 Mult for every 23 cards discarded.",
+    "timing": [
+      "on_discard",
+      "independent"
+    ],
+    "values": {
+      "start_xmult": 1,
+      "gain_xmult": 1,
+      "cards_per_gain": 23,
+      "internal_cost": 20,
+      "sell_value": 10
+    },
+    "condition": "Counter of discarded cards (per card, persists across rounds, starts at 23 when obtained); every 23rd card discarded gives +X1. Gives current XMult if > 1.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "The Hook's forced discards count. Legendary: sell value $10."
+    ],
+    "wiki_activation_type": "Mixed",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Yorick",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 149,
+    "name": "Chicot",
+    "key": "j_chicot",
+    "rarity": "Legendary",
+    "cost": 0,
+    "effect": "Disables the effect of every Boss Blind.",
+    "timing": [
+      "on_blind_select",
+      "passive"
+    ],
+    "values": {
+      "internal_cost": 20,
+      "sell_value": 10
+    },
+    "condition": "When a Boss Blind is selected (or immediately if obtained during an active Boss Blind).",
+    "blueprint_compatible": false,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": null,
+    "notes": [
+      "Boss requirement stays at 2x base (The Needle not increased). Not copyable. Legendary: sell value $10."
+    ],
+    "wiki_activation_type": "On Blind Select",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Chicot",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  },
+  {
+    "n": 150,
+    "name": "Perkeo",
+    "key": "j_perkeo",
+    "rarity": "Legendary",
+    "cost": 0,
+    "effect": "When leaving the shop, creates a Negative copy of a random consumable you hold.",
+    "timing": "on_shop",
+    "values": {
+      "copies": 1,
+      "edition_of_copy": "Negative",
+      "internal_cost": 20,
+      "sell_value": 10
+    },
+    "condition": "At end of each shop visit, if you hold at least one consumable.",
+    "blueprint_compatible": true,
+    "eternal_compatible": true,
+    "perishable_compatible": true,
+    "random_parts": "Which consumable is copied: uniform among held consumables.",
+    "notes": [
+      "The copy is Negative (+1 consumable slot), so it always fits.",
+      "Copyable (Blueprint creates another copy). Legendary: sell value $10."
+    ],
+    "wiki_activation_type": "N/A (Passive)",
+    "detail_level": "full",
+    "source": [
+      "https://balatrowiki.org/w/Perkeo",
+      "https://balatrowiki.org/w/Jokers",
+      "https://balatrowiki.org/w/Activation_Type",
+      "game code v1.0.1o (game.lua P_CENTERS config; card.lua Card:calculate_joker)"
+    ]
+  }
+]

@@ -1,0 +1,355 @@
+{
+  "source": [
+    "https://balatrowiki.org/w/The_Shop",
+    "https://balatrowiki.org/w/Booster_Packs",
+    "https://balatrowiki.org/w/Card_modifiers",
+    "https://balatrowiki.org/w/Vouchers",
+    "https://balatrowiki.org/w/Tarot_Merchant",
+    "https://balatrowiki.org/w/Tarot_Tycoon",
+    "https://balatrowiki.org/w/Planet_Merchant",
+    "https://balatrowiki.org/w/Magic_Trick",
+    "https://balatrowiki.org/w/Illusion",
+    "https://balatrowiki.org/w/Ghost_Deck",
+    "https://balatrowiki.org/w/Clearance_Sale",
+    "https://balatrowiki.org/w/Hone",
+    "https://balatrowiki.org/w/Omen_Globe",
+    "https://balatrowiki.org/w/Telescope",
+    "https://balatrowiki.org/w/The_Soul",
+    "https://balatrowiki.org/w/Black_Hole",
+    "https://balatrowiki.org/w/Judgement",
+    "https://balatrowiki.org/w/Egg",
+    "https://balatrowiki.org/w/Gift_Card",
+    "https://balatrowiki.org/w/Astronomer",
+    "https://balatrowiki.org/w/Showman",
+    "https://balatrowiki.org/w/Planet_cards",
+    "https://balatrowiki.org/w/Tarot_cards",
+    "https://balatrowiki.org/w/Spawn_condition"
+  ],
+  "fetched": "2026-10-25",
+  "game_version": "1.0.1o-FULL (current per Template:CurrentVersion on balatrowiki.org)",
+  "when": "A shop opens after every blind that is played and beaten (not after skipped blinds).",
+  "layout": {
+    "card_slots": 2,
+    "card_slots_with_overstock": 3,
+    "card_slots_with_overstock_plus": 4,
+    "booster_slots": 2,
+    "voucher_slots": 1,
+    "voucher_slots_note": "+1 per Voucher Tag for that one shop",
+    "first_shop_of_run": "One of the two booster slots is guaranteed to be a normal Buffoon Pack."
+  },
+  "reroll": {
+    "base_cost": 5,
+    "increase_per_reroll": 1,
+    "resets": "back to base cost at every new shop",
+    "formula": "cost = base + rerolls_done_this_shop (base 5; 3 with Reroll Surplus; 1 with Reroll Glut)",
+    "D6 Tag": "next shop's base becomes $0 (costs 0, 1, 2, ...)",
+    "Chaos the Clown": "1 free reroll per shop (joker)",
+    "what_changes": "Only the card slots are replaced (2 new random cards); booster packs and the voucher are NOT rerolled. Not affected by Clearance Sale/Liquidation."
+  },
+  "card_slot_weights": {
+    "rule": "Each card slot picks a type with probability weight/sum(weights), then a card of that type.",
+    "base": {
+      "Joker": 20,
+      "Tarot": 4,
+      "Planet": 4,
+      "Playing card": 0,
+      "Spectral": 0
+    },
+    "base_chances": {
+      "Joker": 0.714,
+      "Tarot": 0.143,
+      "Planet": 0.143
+    },
+    "modifiers": {
+      "Tarot Merchant": {
+        "Tarot": 9.6
+      },
+      "Tarot Tycoon": {
+        "Tarot": 32
+      },
+      "Planet Merchant": {
+        "Planet": 9.6
+      },
+      "Planet Tycoon": {
+        "Planet": 32
+      },
+      "Magic Trick": {
+        "Playing card": 4
+      },
+      "Ghost Deck": {
+        "Spectral": 2
+      }
+    },
+    "playing_cards": "Plain cards (random rank & suit) for $1 without Illusion. With Illusion: 40% Enhanced, 20% edition (Poly 15/Holo 35/Foil 50), no seals (bug).",
+    "spectral_in_shop": "Ghost Deck only; The Soul and Black Hole never appear in the shop."
+  },
+  "joker_generation": {
+    "rarity_weights": {
+      "Common": 0.7,
+      "Uncommon": 0.25,
+      "Rare": 0.05,
+      "Legendary": 0.0
+    },
+    "rarity_roll": "r uniform: r > 0.95 -> Rare, r > 0.7 -> Uncommon, else Common. Legendary only via The Soul.",
+    "within_rarity": "uniform among unlocked jokers of that rarity that are not already owned/shown (unless Showman) and whose spawn condition holds (e.g. enhancement-based jokers need that enhancement in the deck; see jokers data).",
+    "fallback": "If a pool is empty the game gives the default card: Joker -> 'Joker', Tarot -> Strength, Planet -> Pluto, Spectral -> Incantation, Voucher -> Blank.",
+    "editions": "see modifiers.json appearance_rates.jokers_shop_and_packs (base: Negative 0.3%, Poly 0.3%, Holo 1.4%, Foil 2%; Hone x2 / Glow Up x4 on Foil/Holo/Poly thresholds)",
+    "stickers": "see stakes.json sticker_rules (shop and Buffoon-pack jokers only)",
+    "duplicates": "No duplicate of a joker/consumable already owned, in the shop, or in the open pack unless Showman is owned."
+  },
+  "prices": {
+    "base_costs": {
+      "Joker": "per joker (Common $1-6, Uncommon $4-8, Rare $7-10, Legendary $20) - see jokers.json",
+      "Playing card": 1,
+      "Tarot": 3,
+      "Planet": 3,
+      "Spectral": 4,
+      "Booster Normal": 4,
+      "Booster Jumbo": 6,
+      "Booster Mega": 8,
+      "Voucher": 10
+    },
+    "edition_surcharge": {
+      "Foil": 2,
+      "Holographic": 3,
+      "Polychrome": 5,
+      "Negative": 5
+    },
+    "buy_formula": "buy = max(1, floor((base_cost + edition_surcharge + inflation + 0.5) * (100 - discount_percent) / 100)); i.e. discount then round half DOWN (8.5 -> 8), minimum $1.",
+    "discount_percent": {
+      "none": 0,
+      "Clearance Sale": 25,
+      "Liquidation": 50
+    },
+    "special_cases": [
+      "Astronomer joker: Planet cards and Celestial packs cost $0.",
+      "Rental sticker: buy price $1.",
+      "Coupon Tag: initial cards and packs of the next shop cost $0 (not vouchers, not rerolled cards).",
+      "Edition tags (Foil/Holo/Poly/Negative) and Uncommon/Rare tags: the affected joker is free.",
+      "Inflation is a challenge-only modifier (+$1 to all prices per purchase); 0 in normal runs."
+    ],
+    "sell_formula": "sell = max(1, floor(buy / 2)) + extra_sell_value, where buy is recomputed with current discounts (so Clearance/Liquidation also lower sell values).",
+    "sell_growth": {
+      "Egg": "+$3 to its own extra sell value at end of each round",
+      "Gift Card": "+$1 extra sell value to every joker and consumable at end of each round",
+      "note": "extra sell value is added after halving and is not discounted"
+    },
+    "examples": {
+      "Tarot $3": {
+        "buy": 3,
+        "sell": 1,
+        "with_clearance_25": 2,
+        "with_liquidation_50": 1
+      },
+      "Spectral $4": {
+        "buy": 4,
+        "sell": 2
+      },
+      "Voucher $10": {
+        "with_clearance_25": 7,
+        "with_liquidation_50": 5
+      },
+      "Joker $6 + Foil": {
+        "buy": 8,
+        "sell": 4
+      }
+    }
+  },
+  "booster_packs": {
+    "rules": [
+      "Two booster slots per shop, each rolled independently by weight (same pack can appear twice). Packs do not restock on reroll; buying one opens it immediately.",
+      "Weights below are per pack kind (the game splits them over art variants: Normal Arcana/Celestial/Standard have 4 variants of weight 1, Jumbo 2 of weight 1, Mega 2 of weight 0.25; Normal Buffoon 2 x 0.6, Jumbo 1 x 0.6, Mega 1 x 0.15; Normal Spectral 2 x 0.3, Jumbo 1 x 0.3, Mega 1 x 0.07).",
+      "A pack always shows the full card count. Normal/Jumbo: pick 1; Mega: pick up to 2. Skipping is allowed at any time.",
+      "Arcana and Spectral packs deal a hand of playing cards (current hand size) to target; held consumables may be used inside a pack.",
+      "Arcana: Tarots; each card 0.3% chance to be The Soul; with Omen Globe each card 20% chance to be a Spectral instead (which can itself be The Soul/Black Hole).",
+      "Celestial: Planets; each card 0.3% chance to be Black Hole; with Telescope one card is the Planet of your most played hand.",
+      "Spectral: Spectral cards; each card 0.3% chance to be The Soul and 0.3% to be Black Hole.",
+      "Standard: playing cards with random rank/suit; 40% Enhanced (uniform over 8), 20% Seal (uniform over 4), editions Poly 1.2% / Holo 2.8% / Foil 4% (x2 Hone, x4 Glow Up), never Negative.",
+      "Buffoon: jokers with normal rarity weights (70/25/5), editions and stake stickers like the shop.",
+      "Tags give free Mega Standard/Arcana/Celestial/Buffoon packs and a free normal Spectral pack (Ethereal)."
+    ],
+    "total_weight": 22.42,
+    "packs": [
+      {
+        "name": "Arcana Pack",
+        "key": "p_arcana_normal",
+        "kind": "Arcana",
+        "size": "Normal",
+        "cost": 4,
+        "cards_shown": 3,
+        "cards_chosen": 1,
+        "weight": 4,
+        "contents": "Tarot cards (used immediately)",
+        "chance_per_slot": 0.1784
+      },
+      {
+        "name": "Jumbo Arcana Pack",
+        "key": "p_arcana_jumbo",
+        "kind": "Arcana",
+        "size": "Jumbo",
+        "cost": 6,
+        "cards_shown": 5,
+        "cards_chosen": 1,
+        "weight": 2,
+        "contents": "Tarot cards (used immediately)",
+        "chance_per_slot": 0.0892
+      },
+      {
+        "name": "Mega Arcana Pack",
+        "key": "p_arcana_mega",
+        "kind": "Arcana",
+        "size": "Mega",
+        "cost": 8,
+        "cards_shown": 5,
+        "cards_chosen": 2,
+        "weight": 0.5,
+        "contents": "Tarot cards (used immediately)",
+        "chance_per_slot": 0.0223
+      },
+      {
+        "name": "Celestial Pack",
+        "key": "p_celestial_normal",
+        "kind": "Celestial",
+        "size": "Normal",
+        "cost": 4,
+        "cards_shown": 3,
+        "cards_chosen": 1,
+        "weight": 4,
+        "contents": "Planet cards (used immediately)",
+        "chance_per_slot": 0.1784
+      },
+      {
+        "name": "Jumbo Celestial Pack",
+        "key": "p_celestial_jumbo",
+        "kind": "Celestial",
+        "size": "Jumbo",
+        "cost": 6,
+        "cards_shown": 5,
+        "cards_chosen": 1,
+        "weight": 2,
+        "contents": "Planet cards (used immediately)",
+        "chance_per_slot": 0.0892
+      },
+      {
+        "name": "Mega Celestial Pack",
+        "key": "p_celestial_mega",
+        "kind": "Celestial",
+        "size": "Mega",
+        "cost": 8,
+        "cards_shown": 5,
+        "cards_chosen": 2,
+        "weight": 0.5,
+        "contents": "Planet cards (used immediately)",
+        "chance_per_slot": 0.0223
+      },
+      {
+        "name": "Standard Pack",
+        "key": "p_standard_normal",
+        "kind": "Standard",
+        "size": "Normal",
+        "cost": 4,
+        "cards_shown": 3,
+        "cards_chosen": 1,
+        "weight": 4,
+        "contents": "Playing cards (added to deck)",
+        "chance_per_slot": 0.1784
+      },
+      {
+        "name": "Jumbo Standard Pack",
+        "key": "p_standard_jumbo",
+        "kind": "Standard",
+        "size": "Jumbo",
+        "cost": 6,
+        "cards_shown": 5,
+        "cards_chosen": 1,
+        "weight": 2,
+        "contents": "Playing cards (added to deck)",
+        "chance_per_slot": 0.0892
+      },
+      {
+        "name": "Mega Standard Pack",
+        "key": "p_standard_mega",
+        "kind": "Standard",
+        "size": "Mega",
+        "cost": 8,
+        "cards_shown": 5,
+        "cards_chosen": 2,
+        "weight": 0.5,
+        "contents": "Playing cards (added to deck)",
+        "chance_per_slot": 0.0223
+      },
+      {
+        "name": "Buffoon Pack",
+        "key": "p_buffoon_normal",
+        "kind": "Buffoon",
+        "size": "Normal",
+        "cost": 4,
+        "cards_shown": 2,
+        "cards_chosen": 1,
+        "weight": 1.2,
+        "contents": "Jokers",
+        "chance_per_slot": 0.0535
+      },
+      {
+        "name": "Jumbo Buffoon Pack",
+        "key": "p_buffoon_jumbo",
+        "kind": "Buffoon",
+        "size": "Jumbo",
+        "cost": 6,
+        "cards_shown": 4,
+        "cards_chosen": 1,
+        "weight": 0.6,
+        "contents": "Jokers",
+        "chance_per_slot": 0.0268
+      },
+      {
+        "name": "Mega Buffoon Pack",
+        "key": "p_buffoon_mega",
+        "kind": "Buffoon",
+        "size": "Mega",
+        "cost": 8,
+        "cards_shown": 4,
+        "cards_chosen": 2,
+        "weight": 0.15,
+        "contents": "Jokers",
+        "chance_per_slot": 0.0067
+      },
+      {
+        "name": "Spectral Pack",
+        "key": "p_spectral_normal",
+        "kind": "Spectral",
+        "size": "Normal",
+        "cost": 4,
+        "cards_shown": 2,
+        "cards_chosen": 1,
+        "weight": 0.6,
+        "contents": "Spectral cards (used immediately)",
+        "chance_per_slot": 0.0268
+      },
+      {
+        "name": "Jumbo Spectral Pack",
+        "key": "p_spectral_jumbo",
+        "kind": "Spectral",
+        "size": "Jumbo",
+        "cost": 6,
+        "cards_shown": 4,
+        "cards_chosen": 1,
+        "weight": 0.3,
+        "contents": "Spectral cards (used immediately)",
+        "chance_per_slot": 0.0134
+      },
+      {
+        "name": "Mega Spectral Pack",
+        "key": "p_spectral_mega",
+        "kind": "Spectral",
+        "size": "Mega",
+        "cost": 8,
+        "cards_shown": 4,
+        "cards_chosen": 2,
+        "weight": 0.07,
+        "contents": "Spectral cards (used immediately)",
+        "chance_per_slot": 0.0031
+      }
+    ]
+  }
+}

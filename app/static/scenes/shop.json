@@ -1,0 +1,15 @@
+{
+ "comment": "The first shop of a run, from a game screenshot (ref/shop_1.png, 1200 x 675 upscaled to 1920 x 1080).",
+ "kind": "shop", "ante": 1, "round": 1, "money": 10,
+ "blind": {"name": "Small Blind", "kind": 0, "chips": 300, "reward": 3},
+ "round_score": 0, "hands_left": 4, "discards_left": 4,
+ "jokers": [], "joker_slots": 5, "consumables": [], "consumable_slots": 2,
+ "hand": [], "hand_size": 8, "deck_left": 52, "deck_size": 52, "deck_back": "Red Deck",
+ "shop": {
+  "cards": [{"kind": "Joker", "name": "Raised Fist", "price": 5}, {"kind": "Joker", "name": "Hack", "price": 6}],
+  "vouchers": [{"kind": "Voucher", "name": "Planet Merchant", "price": 10}],
+  "packs": [{"kind": "Pack", "name": "Buffoon Pack", "price": 4}, {"kind": "Pack", "name": "Jumbo Celestial Pack", "price": 6}],
+  "reroll_cost": 5
+ },
+ "background": {"colour_1": "#3d775f", "colour_2": "#4f9476", "colour_3": "#24493a", "contrast": 2, "spin_amount": 0, "time": 37.0, "spin_time": 12.0}
+}

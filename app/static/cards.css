@@ -1,0 +1,47 @@
+/* The game's cards at its own size, drawn by cards.js: a card is 164 x 219 (the 71 x 95 art at about 2.3x,
+   with a 2px clear margin), a pack 1.25x that. Used by the run viewer and the Seed Planner. */
+.card, .joker, .consumable, .deck-card { position: absolute; width: 164px; height: 219px; border-radius: 8px; }
+.card { --spades: #242b55; --hearts: #f03464; --clubs: #235955; --diamonds: #f06b3f; }
+.card > img.bg, .joker > img, .consumable > img, .deck-card > img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.card .face { position: absolute; inset: 0; width: 100%; height: 100%; }
+.card .corner { position: absolute; font: 38px var(--font); line-height: 0.8; text-align: center; }
+.card .corner small { display: block; font-size: 0.8em; }
+.card .corner.tl { top: 6%; left: 6%; }
+.card .corner.br { bottom: 6%; right: 6%; transform: rotate(180deg); }
+.card .pip { position: absolute; transform: translate(-50%, -50%); font-size: 36px; line-height: 1; }
+.card .pip.ace { font-size: 96px; }
+.card .pip.flip { transform: translate(-50%, -50%) rotate(180deg); }
+.card .seal { position: absolute; inset: 0; width: 100%; height: 100%; }
+.card .suit-Spades { color: var(--spades); } .card .suit-Hearts { color: var(--hearts); }
+.card .suit-Clubs { color: var(--clubs); } .card .suit-Diamonds { color: var(--diamonds); }
+/* debuffed, as the game draws it (measured on a screenshot): the card tinted pinkish grey (white -> 234,218,218)
+   and a red X at 45%, one shape (no darker crossing), its bars 16% of the card's width, running corner to corner
+   and cut off by the card's edges; above the art and any edition */
+.card.debuffed::before, .joker.debuffed::before { content: ""; position: absolute; inset: 0; z-index: 2; border-radius: 8px; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 164 219' preserveAspectRatio='none'%3E%3Cpath d='M0 0 164 219M164 0 0 219' stroke='%23ea0000' stroke-opacity='.45' stroke-width='26' stroke-linecap='square'/%3E%3C/svg%3E") center / 100% 100% no-repeat, rgba(115, 8, 8, 0.15); }
+.pack-art, .voucher-art { position: absolute; width: 164px; height: 219px; }
+.pack-art { width: 204px; height: 273px; }
+.pack-art img, .voucher-art img { width: 100%; height: 100%; }
+
+/* editions are painted on the art itself (editions.js), as the game's shaders do */
+
+/* a legendary's figure, and Hologram's face, float above the card, bobbing and swaying as in the game */
+/* Wee Joker: the plain Joker's art on a card 0.7 the size, centred where a card would be (card.lua: W, H x 0.7) */
+.joker.wee > img, .joker.wee.debuffed::before { inset: 15%; width: 70%; height: 70%; border-radius: 6px; }
+/* Half Joker, Square Joker and Photograph: their art is the top of a full card's cell (opaque to 122, 140 and 158 of
+   190 px), on a card H / 1.7, H = W and H / 1.2 tall (card.lua). The game centres the shorter card where a card would
+   be (footage, 30 Oct: Square Joker and Half Joker in the joker row, centred on their neighbours): the art moved down
+   by half the height it lacks, the debuffed cross on the card alone */
+.joker.shape-half > img:not(.soul) { top: 17.37%; }
+.joker.shape-square > img:not(.soul) { top: 12.63%; }
+.joker.shape-photo > img:not(.soul) { top: 7.9%; }
+.joker.shape-half.debuffed::before { inset: 17.37% 0; }
+.joker.shape-square.debuffed::before { inset: 12.63% 0; }
+.joker.shape-photo.debuffed::before { inset: 7.9% 0; }
+
+.joker > img.soul { animation: soul-float 3.4s ease-in-out infinite; filter: drop-shadow(0 7px 0 rgba(0, 0, 0, 0.22)); }
+.joker > img.soul.holo-face { opacity: 0.85; filter: drop-shadow(0 0 6px rgba(120, 220, 255, 0.7)); }
+@keyframes soul-float {
+  0%, 100% { transform: translateY(-2.5%) rotate(-1.5deg) scale(1.04); }
+  50% { transform: translateY(1%) rotate(1.5deg) scale(1); }
+}

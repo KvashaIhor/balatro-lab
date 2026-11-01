@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Play</title>
+  <link rel="stylesheet" href="cards.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="panels.css">
+  <link rel="stylesheet" href="play.css">
+</head>
+<body class="play">
+  <!-- The game screen, as in the run viewer: the game's own 1920 x 1080 coordinates, scaled to the window. -->
+  <canvas id="bg" width="1920" height="1080"></canvas>
+  <div id="vignette"></div>
+  <div id="viewport">
+    <div id="game">
+      <aside id="sidebar">
+        <div id="blind-box" class="bx dark-box">
+          <div id="blind-title" class="bx boss-box"><span id="blind-name" class="t">—</span></div>
+          <div id="blind-panel" class="bx">
+            <div id="blind-desc" class="t">&nbsp;</div>
+            <img id="blind-chip" alt="">
+            <div id="score-box" class="bx">
+              <div id="score-at-least" class="t">Score at least</div>
+              <div id="target-row"><i class="chip-icon"></i><span id="target" class="t">0</span></div>
+              <div id="reward-row"><span class="t">Reward:</span> <span id="reward" class="t money"></span></div>
+            </div>
+          </div>
+        </div>
+        <div id="shop-sign" hidden>
+          <div class="marquee"></div>
+          <div class="improve t">Improve your run!</div>
+        </div>
+        <div id="round-box" class="bx boss-box">
+          <div id="round-label" class="t">Round<br>score</div>
+          <div id="round-inner" class="bx"><i class="chip-icon"></i><span id="round-score" class="t">0</span></div>
+        </div>
+        <div id="hand-box" class="bx">
+          <div id="hand-name-row"><span id="hand-name" class="t"></span> <span id="hand-level" class="t"></span></div>
+          <div id="chips-box" class="bx"><span id="chips" class="t">0</span></div>
+          <span id="times" class="t">X</span>
+          <div id="mult-box" class="bx"><span id="mult" class="t">0</span></div>
+        </div>
+        <div id="run-info" class="bx button-red"><span class="t">Run<br>Info</span></div>
+        <div id="options" class="bx button-orange"><span class="t">Hint</span></div>
+        <div id="hands-box" class="bx boss-box stat"><div class="t label">Hands</div><div class="bx inner"><span id="hands" class="t big blue">0</span></div></div>
+        <div id="discards-box" class="bx boss-box stat"><div class="t label">Discards</div><div class="bx inner"><span id="discards" class="t big red">0</span></div></div>
+        <div id="money-box" class="bx boss-box"><div class="bx inner"><span id="money" class="t money">$0</span></div></div>
+        <div id="ante-box" class="bx boss-box stat"><div class="t label">Ante</div><div class="bx inner"><span id="ante" class="t big orange">1</span><span id="ante-of" class="t">/ 8</span></div></div>
+        <div id="round-num-box" class="bx boss-box stat"><div class="t label">Round</div><div class="bx inner"><span id="round-num" class="t big orange">1</span></div></div>
+      </aside>
+      <div id="joker-tray" class="tray"></div>
+      <div id="consumable-tray" class="tray"></div>
+      <div id="hand-tray" class="tray"></div>
+      <div id="joker-count" class="t count"></div>
+      <div id="consumable-count" class="t count"></div>
+      <div id="hand-count" class="t count"></div>
+      <div id="deck-count" class="t count"></div>
+      <div id="deck-pile" title="View the deck"></div>
+      <div id="layer"></div>
+      <div id="controls"></div>
+    </div>
+  </div>
+
+  <!-- Beside the game: the bot's view, what just happened, every decision so far (click one to go back), branches. -->
+  <aside id="side">
+    <section>
+      <h2>Bot</h2>
+      <label class="toggle"><input type="checkbox" id="hint-on"> Show what the value bot would do</label>
+      <div id="hint" hidden></div>
+    </section>
+    <section>
+      <h2>What happened</h2>
+      <ul id="events" class="events"></ul>
+    </section>
+    <section>
+      <h2>Decisions <span id="agree" class="muted"></span></h2>
+      <p class="muted small">Click a decision (or ← →) to go back along the line; it stays as it is until you do something
+        else there, which starts a new branch.</p>
+      <div class="line-nav">
+        <button class="btn" id="step-back" title="Back one decision (←)">◀ Back</button>
+        <button class="btn" id="step-on" title="Forward one decision, played out (→)">Forward ▶</button>
+        <button class="btn" id="step-end" title="To the end of the line">End ⏭</button>
+        <span id="line-pos" class="muted small"></span>
+      </div>
+      <ol id="timeline" class="timeline-list"></ol>
+    </section>
+    <section>
+      <h2>Branches</h2>
+      <select id="branch-pick"></select>
+      <p id="game-label" class="muted small"></p>
+    </section>
+  </aside>
+
+  <div id="dock">
+    <div class="dock-row">
+      <form id="new-game">
+        <label>Seed <input id="seed" type="text" maxlength="8" pattern="[1-9A-Za-z]{1,8}" autocapitalize="characters" spellcheck="false" placeholder="random"></label>
+        <label>Deck <select id="deck-pick"></select></label>
+        <label>Stake <select id="stake-pick"></select></label>
+        <label>Up to ante <input id="max-ante" type="number" min="1" max="16" value="8"></label>
+        <button type="submit" class="btn deal">New game</button>
+      </form>
+      <label class="saved">Saved <select id="saved-pick"><option value="">—</option></select></label>
+      <span id="banner" class="banner"></span>
+      <a class="dock-link" href="index.html">Run viewer</a>
+      <a class="dock-link plan-link" href="seed.html">Seed Finder</a>
+      <a class="dock-link plan-link" href="plan.html">Seed Planner</a>
+      <a class="dock-link plan-link" href="evolve.html">Evolution</a>
+    </div>
+    <p class="credits">Every decision is saved to runs/played/ (a journal beside it) for the analysis. Font: <a href="https://managore.itch.io/m6x11">m6x11</a>
+      by Daniel Linssen. Art from Balatro (LocalThunk / Playstack).</p>
+  </div>
+  <div class="tooltip" id="tooltip" hidden></div>
+  <script type="module" src="play.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evolution</title>
+  <link rel="stylesheet" href="seed.css">
+  <link rel="stylesheet" href="cards.css">
+  <link rel="stylesheet" href="evolve.css">
+</head>
+<body>
+  <div class="evolve-page">
+    <header>
+      <h1>Evolution</h1>
+      <nav class="tabs"><a href="index.html">Run viewer</a><a href="seed.html">Seed Finder</a><a href="plan.html">Seed Planner</a><a href="evolve.html" aria-current="page">Evolution</a><a href="play.html">Play</a></nav>
+      <p class="sub">Evolves the weights of the value bot, the strategy that plays every round of a plan and that the
+        planner looks ahead with: what it pays for jokers that grow or make money, packs, vouchers, money and
+        interest. Fitness is <b>progress</b>: blinds beaten plus the share of the failed blind's target, so
+        ante = progress ÷ 3 + 1, and 24 means ante 8 is beaten.</p>
+    </header>
+
+    <main class="evolve-main">
+      <aside class="evolve-side">
+        <form class="panel" id="evolve-setup">
+          <h2>New run</h2>
+          <label class="kind">What to evolve <select id="e-kind">
+            <option value="network">Neural network (evolution strategy)</option>
+            <option value="weights">The 51 weights (genetic algorithm)</option></select></label>
+          <div class="fields">
+            <label>Generations <input type="number" id="e-generations" min="1" max="2000" value="150"></label>
+            <label id="f-population" hidden>Population <input type="number" id="e-population" min="8" max="96" value="24"></label>
+            <label id="f-pairs">Pairs <input type="number" id="e-pairs" min="4" max="128" value="32"></label>
+            <label>Seeds each <input type="number" id="e-seeds" min="4" max="200" value="24"></label>
+          </div>
+          <p class="note" id="e-note"></p>
+          <button class="btn red" id="e-start">Start evolving</button>
+          <p class="error" id="e-error"></p>
+        </form>
+        <section class="panel">
+          <h2>The planner's weights</h2>
+          <p class="note" id="active"></p>
+        </section>
+        <section class="panel" id="sweep-side" hidden>
+          <h2>Strength sweep</h2>
+          <ul class="runs"><li class="run-item" data-run="sweep" id="sweep-item"></li></ul>
+        </section>
+        <section class="panel">
+          <h2>Runs</h2>
+          <ul class="runs" id="runs"></ul>
+        </section>
+      </aside>
+
+      <section class="evolve-results">
+        <div class="panel empty" id="empty">
+          <p class="empty-title">No run selected</p>
+          <p>Each generation, every set of weights plays the same fresh random seeds (a quarter on the Plasma
+            Deck) with the value bot alone, no search. The generation's best then plays a fixed benchmark of 48
+            seeds, the same in every generation and every run, so the benchmark line shows real progress. The
+            planner keeps its weights until you pick a run's champion with "Use these weights in the planner":
+            weights that make the bot better alone don't always make the planner's search better, so check with a
+            thorough plan.</p>
+        </div>
+        <div class="tiles" id="sweep-tiles" hidden></div>
+        <div class="panel" id="sweep-card" hidden>
+          <div class="card-head"><h2>Behaviour modifier strengths</h2>
+            <div class="legend"><span><i class="sw up"></i>beats ante 8 more often than at 1</span><span><i class="sw down"></i>less often</span><span><i class="sw pick"></i>the strength it will use</span></div></div>
+          <p class="note" id="sweep-note"></p>
+          <div class="sweep-scroll"><div class="sweep-table" id="sweep-table"></div></div>
+        </div>
+        <div class="panel run-head" id="run-head" hidden>
+          <div class="run-title"><h2 id="run-title"></h2><span class="badge" id="run-state"></span></div>
+          <div class="run-actions">
+            <button type="button" class="btn blue" id="run-use">Use these weights in the planner</button>
+            <button type="button" class="btn" id="run-continue" hidden>Continue training from this champion</button>
+            <button type="button" class="btn" id="run-stop" hidden>Stop run</button>
+          </div>
+          <pre class="log-tail" id="run-log" hidden></pre>
+        </div>
+        <div class="tiles" id="tiles" hidden></div>
+        <div class="panel" id="bench-card" hidden>
+          <div class="card-head"><h2>Benchmark</h2><span class="hint">each generation's best, on the same 48 seeds</span></div>
+          <div class="chart" id="bench-chart"></div>
+        </div>
+        <div class="panel" id="fit-card" hidden>
+          <div class="card-head"><h2>Training fitness</h2><span class="hint">on that generation's random seeds</span></div>
+          <div class="chart" id="fit-chart"></div>
+        </div>
+        <div class="panel" id="genes-card" hidden>
+          <div class="card-head"><h2>Weights</h2>
+            <div class="legend"><span><i class="dot"></i>champion</span><span><i class="ring"></i>hand-set</span><span><i class="bar"></i>population mean ± sd</span><span class="hint">click a ? to see what a weight is</span></div>
+          </div>
+          <div class="chart" id="genes-chart"></div>
+        </div>
+        <div class="panel" id="movers-card" hidden>
+          <div class="card-head"><h2>Changed most this generation</h2><span class="hint" id="movers-hint"></span></div>
+          <div class="learned" id="movers"></div>
+        </div>
+        <div class="panel" id="corr-card" hidden>
+          <div class="card-head"><h2>Card by card, over generations</h2><div class="legend" id="corr-legend"></div></div>
+          <div class="cat-switch" id="cat-switch">
+            <div class="cat-group"><span class="cat-label">What it corrects</span>
+              <button type="button" data-cat="out:joker">Jokers</button><button type="button" data-cat="out:tarot">Tarots</button>
+              <button type="button" data-cat="out:planet">Planets</button><button type="button" data-cat="out:spectral">Spectrals</button>
+              <button type="button" data-cat="out:pack">Packs</button><button type="button" data-cat="out:voucher">Vouchers</button>
+              <button type="button" data-cat="out:keep">Keeping</button></div>
+            <div class="cat-group"><span class="cat-label">What it looks at</span>
+              <button type="button" data-cat="in:jokers">Jokers owned</button><button type="button" data-cat="in:consumables">Consumables held</button>
+              <button type="button" data-cat="in:ranks">Ranks</button><button type="button" data-cat="in:suits">Suits</button>
+              <button type="button" data-cat="in:enhancements">Enhancements</button><button type="button" data-cat="in:seals">Seals</button>
+              <button type="button" data-cat="in:editions">Editions</button><button type="button" data-cat="in:hands">Hand levels</button>
+              <button type="button" data-cat="in:vouchers">Vouchers held</button><button type="button" data-cat="in:basics">Money, slots, ante</button></div>
+            <label class="cat-sort">Sort <select id="corr-sort"><option value="game">game order</option><option value="value">by current value</option></select></label>
+          </div>
+          <p class="note" id="corr-hint"></p>
+          <div class="chart" id="corr-chart"></div>
+        </div>
+        <div class="panel" id="timing-card" hidden>
+          <div class="card-head"><h2>Value by ante</h2><div class="legend" id="timing-legend"></div>
+            <label class="cat-sort">Show <select id="timing-mode"><option value="total">total worth (value bot + network)</option>
+              <option value="correction">the network's correction</option></select></label>
+            <label class="cat-sort">Scale <select id="timing-scale"><option value="row">each card on its own</option>
+              <option value="all">all cards together</option></select></label></div>
+          <p class="note" id="timing-hint"></p>
+          <div class="chart" id="timing-chart"></div>
+        </div>
+        <div class="panel" id="learned-card" hidden>
+          <div class="card-head"><h2>What the network learned</h2>
+            <span class="hint">how much it corrects the value bot's worth of an item, in an average situation (the
+              correction also moves with the build, deck and money)</span></div>
+          <div class="learned" id="learned"></div>
+        </div>
+        <div class="panel" id="heat-card" hidden>
+          <div class="card-head"><h2>Champion weights over generations</h2>
+            <span class="hint">shade is the place in the weight's range (light = high), not good or bad</span></div>
+          <div class="chart" id="heat-chart"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div class="gene-info" id="gene-info" role="dialog" aria-modal="false" hidden></div>
+  <div class="tooltip" id="tooltip" hidden></div>
+  <script type="module" src="evolve.js"></script>
+</body>
+</html>

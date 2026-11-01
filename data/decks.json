@@ -1,0 +1,200 @@
+{
+  "source": [
+    "https://balatrowiki.org/w/Decks",
+    "https://balatrowiki.org/w/Red_Deck",
+    "https://balatrowiki.org/w/Blue_Deck",
+    "https://balatrowiki.org/w/Yellow_Deck",
+    "https://balatrowiki.org/w/Green_Deck",
+    "https://balatrowiki.org/w/Black_Deck",
+    "https://balatrowiki.org/w/Magic_Deck",
+    "https://balatrowiki.org/w/Nebula_Deck",
+    "https://balatrowiki.org/w/Ghost_Deck",
+    "https://balatrowiki.org/w/Abandoned_Deck",
+    "https://balatrowiki.org/w/Checkered_Deck",
+    "https://balatrowiki.org/w/Zodiac_Deck",
+    "https://balatrowiki.org/w/Painted_Deck",
+    "https://balatrowiki.org/w/Anaglyph_Deck",
+    "https://balatrowiki.org/w/Plasma_Deck",
+    "https://balatrowiki.org/w/Erratic_Deck",
+    "https://balatrowiki.org/w/Money"
+  ],
+  "fetched": "2026-10-25",
+  "game_version": "1.0.1o-FULL (current per Template:CurrentVersion on balatrowiki.org)",
+  "count": 15,
+  "baseline": {
+    "deck": "standard 52 cards (2-10, J, Q, K, A in 4 suits)",
+    "hands": 4,
+    "discards": 3,
+    "hand_size": 8,
+    "joker_slots": 5,
+    "consumable_slots": 2,
+    "starting_money": 4
+  },
+  "notes": [
+    "'modifications' are deltas from the baseline unless stated (e.g. Nebula consumable_slots -1 -> 1 slot).",
+    "Stake modifiers (stakes.json) stack on top of the deck.",
+    "Challenge decks are out of scope."
+  ],
+  "decks": [
+    {
+      "number": 1,
+      "name": "Red Deck",
+      "key": "b_red",
+      "modifications": {
+        "discards": 1
+      },
+      "effect": "+1 discard every round."
+    },
+    {
+      "number": 2,
+      "name": "Blue Deck",
+      "key": "b_blue",
+      "modifications": {
+        "hands": 1
+      },
+      "effect": "+1 hand every round."
+    },
+    {
+      "number": 3,
+      "name": "Yellow Deck",
+      "key": "b_yellow",
+      "modifications": {
+        "starting_money": 10
+      },
+      "effect": "Start with $10 extra ($14 total)."
+    },
+    {
+      "number": 4,
+      "name": "Green Deck",
+      "key": "b_green",
+      "modifications": {
+        "money_per_remaining_hand": 2,
+        "money_per_remaining_discard": 1,
+        "interest": false
+      },
+      "effect": "At cash-out: $2 per remaining hand (instead of $1) and $1 per remaining discard; earns no interest."
+    },
+    {
+      "number": 5,
+      "name": "Black Deck",
+      "key": "b_black",
+      "modifications": {
+        "joker_slots": 1,
+        "hands": -1
+      },
+      "effect": "+1 joker slot, -1 hand every round."
+    },
+    {
+      "number": 6,
+      "name": "Magic Deck",
+      "key": "b_magic",
+      "modifications": {
+        "vouchers": [
+          "Crystal Ball"
+        ],
+        "consumables": [
+          "The Fool",
+          "The Fool"
+        ]
+      },
+      "effect": "Start with the Crystal Ball voucher redeemed and 2 copies of The Fool."
+    },
+    {
+      "number": 7,
+      "name": "Nebula Deck",
+      "key": "b_nebula",
+      "modifications": {
+        "vouchers": [
+          "Telescope"
+        ],
+        "consumable_slots": -1
+      },
+      "effect": "Start with the Telescope voucher; -1 consumable slot."
+    },
+    {
+      "number": 8,
+      "name": "Ghost Deck",
+      "key": "b_ghost",
+      "modifications": {
+        "shop_spectral_rate": 2,
+        "consumables": [
+          "Hex"
+        ]
+      },
+      "effect": "Spectral cards can appear in the shop (weight 2, about 6.67% per slot with base weights); start with a Hex."
+    },
+    {
+      "number": 9,
+      "name": "Abandoned Deck",
+      "key": "b_abandoned",
+      "modifications": {
+        "no_face_cards": true,
+        "deck_size": 40
+      },
+      "effect": "Starting deck has no face cards (40 cards: 2-10 and A in each suit)."
+    },
+    {
+      "number": 10,
+      "name": "Checkered Deck",
+      "key": "b_checkered",
+      "modifications": {
+        "suits": {
+          "Spades": 26,
+          "Hearts": 26
+        }
+      },
+      "effect": "Starting deck is 26 Spades and 26 Hearts (each rank twice per suit)."
+    },
+    {
+      "number": 11,
+      "name": "Zodiac Deck",
+      "key": "b_zodiac",
+      "modifications": {
+        "vouchers": [
+          "Tarot Merchant",
+          "Planet Merchant",
+          "Overstock"
+        ]
+      },
+      "effect": "Start with Tarot Merchant, Planet Merchant and Overstock redeemed."
+    },
+    {
+      "number": 12,
+      "name": "Painted Deck",
+      "key": "b_painted",
+      "modifications": {
+        "hand_size": 2,
+        "joker_slots": -1
+      },
+      "effect": "+2 hand size, -1 joker slot."
+    },
+    {
+      "number": 13,
+      "name": "Anaglyph Deck",
+      "key": "b_anaglyph",
+      "modifications": {
+        "double_tag_after_boss": true
+      },
+      "effect": "Gain a Double Tag after each Boss Blind is defeated."
+    },
+    {
+      "number": 14,
+      "name": "Plasma Deck",
+      "key": "b_plasma",
+      "modifications": {
+        "balance_chips_mult": true,
+        "ante_scaling": 2
+      },
+      "effect": "At the very end of scoring each hand, chips and mult are both set to floor((chips + mult) / 2); every blind requirement is doubled."
+    },
+    {
+      "number": 15,
+      "name": "Erratic Deck",
+      "key": "b_erratic",
+      "modifications": {
+        "random_ranks_and_suits": true
+      },
+      "effect": "Each of the 52 starting cards gets a random rank and a random suit."
+    }
+  ]
+}
