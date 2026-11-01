@@ -30,9 +30,39 @@ yourself with the bot as your advisor, or watch it play.
   - **Seed Finder:** find a seed from the cards of a run's first hand (a C scanner over every seed).
   - **Evolution:** evolve the bot's weights and pick a champion.
 
-![Scoring a Royal Flush at The Wall, effect by effect](docs/img/scoring.png)
+## Screenshots
 
-![A shop at ante 10: the bot would reorder the jokers, then sell Hanging Chad for Bull](docs/img/play-shop.png)
+<table>
+<tr>
+<td width="50%"><img src="docs/img/play-breakdown.png" alt="The bot's candidate plays, each scored joker by joker"><br>
+<sub><b>Play:</b> the bot's candidate plays, each scored joker by joker</sub></td>
+<td width="50%"><img src="docs/img/play-shop.png" alt="A shop at ante 10 with the bot's plan"><br>
+<sub><b>Play:</b> a shop at ante 10; the bot would reorder its jokers, then sell Hanging Chad for a Foil Bull</sub></td>
+</tr>
+<tr>
+<td><img src="docs/img/viewer-scoring.png" alt="The run viewer scoring a hand at The Water"><br>
+<sub><b>Run viewer:</b> the bot scoring a hand at The Water, ante 7, with seven jokers</sub></td>
+<td><img src="docs/img/viewer-blinds.png" alt="Choosing the next blind"><br>
+<sub><b>Run viewer:</b> choosing the next blind, with the skip tags and the boss</sub></td>
+</tr>
+<tr>
+<td><img src="docs/img/scoring.png" alt="A Royal Flush scoring at The Wall"><br>
+<sub>A Royal Flush scoring at The Wall, effect by effect, as the game animates it</sub></td>
+<td><img src="docs/img/run-info.png" alt="Run Info: the poker hands"><br>
+<sub><b>Run Info:</b> hand levels and how often each was played</sub></td>
+</tr>
+<tr>
+<td><img src="docs/img/deck-view.png" alt="The deck view"><br>
+<sub><b>Deck view:</b> the cards left to draw, with enhancements, editions and seals</sub></td>
+<td><img src="docs/img/seed-finder.png" alt="The Seed Finder"><br>
+<sub><b>Seed Finder:</b> pick a run's first hand to find its seed, or check what a seed's run opens with</sub></td>
+</tr>
+<tr>
+<td><img src="docs/img/evolution.png" alt="The Evolution tab"><br>
+<sub><b>Evolution:</b> evolving the bot's weights, its benchmark and training fitness by generation</sub></td>
+<td></td>
+</tr>
+</table>
 
 ## Quick start
 
